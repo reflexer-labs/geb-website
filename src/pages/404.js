@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Layout from "../components/Layout"
 
 import { ExternalLinkArrow } from "../styles/GlobalStyle"
+import getPrefixedPath from "../utils/getPrefixPath"
 
 export default function NotFound() {
   return (
@@ -13,7 +14,12 @@ export default function NotFound() {
           <h2>Page not found</h2>
           <BtnContainer>
             <Button to="/">
-              <img src="/img/arrow.svg" className="arrow" alt="" /> Back to Home
+              <img
+                src={getPrefixedPath("/arrow.svg")}
+                className="arrow"
+                alt=""
+              />{" "}
+              Back to Home
             </Button>
           </BtnContainer>
         </Container>

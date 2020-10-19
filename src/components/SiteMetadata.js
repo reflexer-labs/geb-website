@@ -1,6 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import useSiteMetadata from "../hooks/useSiteMetadata"
+import getPrefixedPath from "../utils/getPrefixPath"
 
 const SiteMetadata = ({ pathname }) => {
   const {
@@ -18,7 +19,11 @@ const SiteMetadata = ({ pathname }) => {
   return (
     <Helmet title={title} titleTemplate={titleTemplate}>
       <link rel="canonical" href={href} />
-      <link rel="shortcut icon" type="image/png" href={favicon} />
+      <link
+        rel="shortcut icon"
+        type="image/png"
+        href={getPrefixedPath(favicon)}
+      />
       <meta name="description" content={description} />
       <meta
         name="viewport"
@@ -29,7 +34,10 @@ const SiteMetadata = ({ pathname }) => {
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={`${siteUrl}${image}`} />
+      <meta
+        property="og:image"
+        content={`${siteUrl}${getPrefixedPath(image)}`}
+      />
       <meta property="og:image:alt" content="Reflexer Logo" />
       <meta property="og:image:width" content="512" />
       <meta property="og:image:height" content="512" />

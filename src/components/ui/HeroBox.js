@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { ExternalLinkArrow } from "../../styles/GlobalStyle"
+import getPrefixedPath from "../../utils/getPrefixPath"
 
 const HeroBox = () => {
   return (
@@ -9,7 +10,7 @@ const HeroBox = () => {
         <Col>
           <Block>
             <ImgBox>
-              <img src={"/img/box-ph.svg"} alt="" />
+              <img src={getPrefixedPath("/box-ph.svg")} alt="" />
             </ImgBox>
             <Title>Leverage RAI</Title>
             <Text>
@@ -18,7 +19,7 @@ const HeroBox = () => {
             </Text>
             <LinkContainer>
               <Link href={"/"}>
-                Get Leverage <img src={"/img/arrow.svg"} alt="" />
+                Get Leverage <img src={getPrefixedPath("/arrow.svg")} alt="" />
               </Link>
             </LinkContainer>
           </Block>
@@ -26,7 +27,7 @@ const HeroBox = () => {
         <Col>
           <Block>
             <ImgBox>
-              <img src={"/img/box-ph.svg"} alt="" />
+              <img src={getPrefixedPath("/box-ph.svg")} alt="" />
             </ImgBox>
             <Title>Use RAI</Title>
             <Text>
@@ -35,7 +36,7 @@ const HeroBox = () => {
             </Text>
             <LinkContainer>
               <Link href={"/"}>
-                Start Using <img src={"/img/arrow.svg"} alt="" />
+                Start Using <img src={getPrefixedPath("/arrow.svg")} alt="" />
               </Link>
             </LinkContainer>
           </Block>
@@ -43,7 +44,7 @@ const HeroBox = () => {
         <Col>
           <Block>
             <ImgBox>
-              <img src={"/img/box-ph.svg"} alt="" />
+              <img src={getPrefixedPath("/box-ph.svg")} alt="" />
             </ImgBox>
             <Title>Protocol Statistics</Title>
             <Text>
@@ -52,7 +53,7 @@ const HeroBox = () => {
             </Text>
             <LinkContainer>
               <Link href={"/"}>
-                View Stats <img src={"/img/arrow.svg"} alt="" />
+                View Stats <img src={getPrefixedPath("/arrow.svg")} alt="" />
               </Link>
             </LinkContainer>
           </Block>

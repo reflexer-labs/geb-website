@@ -1,8 +1,6 @@
 import { css } from "styled-components"
 
 export const ExternalLinkArrow = css`
-  display: flex;
-  align-items: center;
   border: 0;
   cursor: pointer;
   box-shadow: none;
@@ -28,5 +26,10 @@ export const ExternalLinkArrow = css`
   transition: all 0.3s ease;
   &:hover {
     opacity: 0.8;
+  }
+
+  img {
+    position: relative;
+    top: 1px;
   }
 `

@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { ExternalLinkArrow } from "../../styles/GlobalStyle"
+import getPrefixedPath from "../../utils/getPrefixPath"
 
 const DeveloperBlock = () => {
   return (
@@ -21,12 +22,12 @@ const DeveloperBlock = () => {
               cursus. Tortor a lacinia egestas quis venenatis dictum est.
             </Text>
             <Link href={"/"}>
-              View Program <img src={"/img/arrow.svg"} alt="" />
+              View Program <img src={getPrefixedPath("/arrow.svg")} alt="" />
             </Link>
           </Col>
           <Col>
             <ImgContainer>
-              <img src={"/img/placeholder.png"} alt="" />
+              <img src={getPrefixedPath("/placeholder.png")} alt="" />
             </ImgContainer>
           </Col>
         </Row>

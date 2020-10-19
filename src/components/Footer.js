@@ -22,7 +22,7 @@ const Footer = ({ slapToBottom }) => {
   }
 
   const onClickSubmit = () => {
-    if (email && !isValidEmail(email)) {
+    if (!email || !isValidEmail(email)) {
       setError("Please enter a valid email address")
       setIsSubmitting(false)
       return

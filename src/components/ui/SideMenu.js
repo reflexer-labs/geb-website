@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import getPrefixedPath from "../../utils/getPrefixPath"
 import NavLinks from "./NavLinks"
 
 const SideMenu = ({ isOpen, setIsOpen }) => {
@@ -11,7 +12,7 @@ const SideMenu = ({ isOpen, setIsOpen }) => {
         <InnerContainer>
           <AccountBalance>
             <ConnectBtnContainer>
-              <Icon src={"/img/LogoIcon.png"} />
+              <Icon src={getPrefixedPath("/LogoIcon.png")} />
               <Title>Welcome to Reflexer</Title>
             </ConnectBtnContainer>
           </AccountBalance>

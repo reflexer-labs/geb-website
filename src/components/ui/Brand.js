@@ -1,12 +1,17 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import getPrefixedPath from "../../utils/getPrefixPath"
 
 const Brand = ({ height }) => {
   return (
     <Container>
       <Link to="/">
-        <img height={height} src={"/img/brand.svg"} alt="reflexer labs" />
+        <img
+          height={height}
+          src={getPrefixedPath("/brand.svg")}
+          alt="reflexer labs"
+        />
       </Link>
     </Container>
   )

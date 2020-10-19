@@ -41,8 +41,7 @@ const FAQsCollapse = () => {
         <Header>
           <Title>FAQ's</Title>
           <Text>
-            To learn more about Reflexer head to the{" "}
-            <Link to="/faq">FAQ’s.</Link>
+            To learn more about Reflexer head to the <Link to="/">FAQ’s.</Link>
           </Text>
         </Header>
 

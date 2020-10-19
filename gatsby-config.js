@@ -1,11 +1,12 @@
 module.exports = {
+  pathPrefix: "/geb-website",
   siteMetadata: {
     title: "Reflexer Labs",
     titleTemplate: "%s · Volatility dampened synthetic instruments",
     description: "Volatility dampened synthetic instruments",
     keywords: "Volatility, dampened, synthetic, instruments",
     siteUrl: "https://www.reflexer.finance",
-    image: "/assets/icons/android-chrome-512x512.png",
+    image: "/android-chrome-512x512.png",
     favicon: "/favicon.ico",
     twitter: "@reflexerfinance",
   },
@@ -16,7 +17,15 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: `${__dirname}/static/`,
+        path: __dirname + "/static/",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        google: {
+          families: ["Inter", "sans-serif"],
+        },
       },
     },
   ],

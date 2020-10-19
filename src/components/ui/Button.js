@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import getPrefixedPath from "../../utils/getPrefixPath"
 
 const Button = ({
   text,
@@ -24,18 +25,25 @@ const Button = ({
       return (
         <DimmedBtn disabled={disabled} onClick={onClick}>
           {arrowPlacement === "left" ? (
-            <img src={"/img/dark-arrow.svg"} alt={""} />
+            <img src={getPrefixedPath("/dark-arrow.svg")} alt={""} />
           ) : null}
           {text}
           {arrowPlacement === "right" ? (
-            <img className="rotate" src={"/img/dark-arrow.svg"} alt={""} />
+            <img
+              className="rotate"
+              src={getPrefixedPath("/dark-arrow.svg")}
+              alt={""}
+            />
           ) : null}
         </DimmedBtn>
       )
     } else if (withArrow) {
       return (
         <ArrowBtn disabled={disabled} onClick={onClick}>
-          {text} <img src={"/img/arrow.svg"} alt={""} />
+          <div>
+            <span>{text}</span>{" "}
+            <img src={getPrefixedPath("/arrow.svg")} alt={""} />
+          </div>
         </ArrowBtn>
       )
     } else if (isBordered) {
@@ -112,33 +120,35 @@ const DimmedBtn = styled.button`
 `
 
 const ArrowBtn = styled.button`
-  display: flex;
-  align-items: center;
-  border: 0;
-  cursor: pointer;
-  box-shadow: none;
-  outline: none;
   padding: 0;
   margin: 0;
-  background: ${props => props.theme.colors.gradient};
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: ${props => props.theme.colors.inputBorderColor};
-  font-size: ${props => props.theme.font.small};
-  font-weight: 600;
-  line-height: 24px;
-  letter-spacing: -0.18px;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  border: 0;
+  outline: none;
+  div {
+    img {
+      float: right;
+      position: relative;
+      top: 7px;
+    }
+    background: ${props => props.theme.colors.gradient};
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: ${props => props.theme.colors.inputBorderColor};
+    font-size: ${props => props.theme.font.small};
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: -0.18px;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
-    &:hover {
-      opacity: 0.5;
-    }
-  }
-  transition: all 0.3s ease;
-  &:hover {
-    opacity: 0.8;
   }
 `
 

@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Layout from "../components/Layout"
+import SiteMetadata from "../components/SiteMetadata"
 import DeveloperBlock from "../components/ui/DeveloperBlock"
 import FAQsCollapse from "../components/ui/FAQsCollapse"
 import HeroBox from "../components/ui/HeroBox"
@@ -9,6 +10,7 @@ import HeroSeciton from "../components/ui/HeroSeciton"
 const Home = () => {
   return (
     <Layout>
+      <SiteMetadata />
       <HeroSeciton />
       <BoxesContainer>
         <HeroBox />

@@ -1,8 +1,8 @@
 {
   "homepage": "https://github.com/reflexer-labs/geb-website",
-  "name": "gatsby-starter-hello-world",
+  "name": "geb-website",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "Reflexer Labs main website",
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
@@ -17,9 +17,11 @@
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.11.1",
+    "dotenv": "^8.2.0",
     "gatsby": "^2.24.79",
     "gatsby-plugin-sitemap": "^2.4.17",
     "gatsby-plugin-styled-components": "^3.3.14",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.3.35",
     "jsonp": "^0.2.1",
     "query-string": "^6.13.6",
