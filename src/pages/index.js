@@ -9,7 +9,10 @@ import HeroSeciton from "../components/ui/HeroSeciton"
 
 const Home = () => {
   return (
-    <Layout>
+    <Layout
+      headerStyle={{ position: "absolute", width: "100%", top: "20px" }}
+      isWhiteLogo
+    >
       <SiteMetadata />
       <HeroSeciton />
       <BoxesContainer>

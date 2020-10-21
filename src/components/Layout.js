@@ -4,12 +4,12 @@ import Header from "./Header"
 import Footer from "./Footer"
 import { lightTheme } from "../utils/themes/light"
 
-const Layout = props => {
+const Layout = ({ children, headerStyle, isWhiteLogo }) => {
   return (
     <ThemeProvider theme={lightTheme}>
       <MainContainer>
-        <Header />
-        {props.children}
+        <Header headerStyle={headerStyle} isWhiteLogo={isWhiteLogo} />
+        {children}
         <Footer />
       </MainContainer>
     </ThemeProvider>

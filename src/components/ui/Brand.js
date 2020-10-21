@@ -3,13 +3,17 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import getPrefixedPath from "../../utils/getPrefixPath"
 
-const Brand = ({ height }) => {
+const Brand = ({ height, isWhiteLogo }) => {
   return (
     <Container>
       <Link to="/">
         <img
           height={height}
-          src={getPrefixedPath("/brand.svg")}
+          src={
+            isWhiteLogo
+              ? getPrefixedPath("/brand-white.svg")
+              : getPrefixedPath("/brand.svg")
+          }
           alt="reflexer labs"
         />
       </Link>
@@ -24,8 +28,10 @@ const Container = styled.div`
     color: inherit;
     text-decoration: none;
     img {
-      width: 105.14px;
-      height: 25.49px;
+      width: 160px;
+      ${({ theme }) => theme.mediaWidth.upToSmall`
+        width:105px;
+      `}
     }
   }
 `

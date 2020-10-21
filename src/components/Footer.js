@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Link } from "gatsby"
 import styled from "styled-components"
 import jsonp from "jsonp"
 import qs from "query-string"
@@ -68,7 +69,9 @@ const Footer = ({ slapToBottom }) => {
     <Container className={slapToBottom ? "fixBottom" : ""}>
       <UpperSection>
         <Company className="col40">
-          <Brand height={30} />
+          <BrandContainer>
+            <Brand height={30} />
+          </BrandContainer>
           <Subscribe>
             <EmailInput
               disabled={error ? true : false}
@@ -124,6 +127,9 @@ const Footer = ({ slapToBottom }) => {
         </Column>
       </UpperSection>
       <LowerSection>
+        <LinkContainer>
+          <Link to={"/privacy"}>Privacy Policy</Link>
+        </LinkContainer>
         {/* <Button text={`Deployed Commit - master`} /> */}
         <Button text="© Reflexer Labs 2020" />
       </LowerSection>
@@ -135,7 +141,13 @@ export default Footer
 
 const Container = styled.div`
   background: white;
-  padding: 20px 40px;
+  padding: 60px 40px 50px;
+`
+
+const BrandContainer = styled.div`
+  img {
+    width: auto !important;
+  }
 `
 
 const LinksContainer = styled.div``
@@ -247,17 +259,19 @@ const LinkBtn = styled.a`
 
 const LowerSection = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-top: 30px;
+  align-items: center;
   button {
     padding: 4px 8px;
     pointer-events: none;
   }
   ${({ theme }) => theme.mediaWidth.upToMedium`
-   margin-top: 30px;
+   margin-top: 25px;
    flex-direction:column;
    justify-content: flex-start;
    width:fit-content;
+   align-items: flex-start;
    button {
      margin-top:15px;
    }
@@ -268,4 +282,33 @@ const LowerSection = styled.div`
 const Success = styled.p`
   color: ${props => props.theme.colors.successColor};
   font-size: ${props => props.theme.font.extraSmall};
+`
+
+const LinkContainer = styled.div`
+  a {
+    font-size: ${props => props.theme.font.default};
+    line-height: 22px;
+    letter-spacing: -0.18px;
+    color: ${props => props.theme.colors.secondary};
+    transition: all 0.3s ease;
+    display: block;
+    &:hover {
+      text-decoration: underline;
+      color: ${props => props.theme.colors.primary};
+      svg {
+        color: ${props => props.theme.colors.primary};
+      }
+    }
+  }
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    margin-bottom: 20px;
+    a {
+      font-weight: 600;
+      color: ${props => props.theme.colors.primary};
+     &:hover {
+      text-decoration:none;
+     }
+    }
+  `}
 `

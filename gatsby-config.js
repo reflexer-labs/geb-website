@@ -24,7 +24,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Inter", "sans-serif"],
+          families: ["Inter:400,600"],
         },
       },
     },

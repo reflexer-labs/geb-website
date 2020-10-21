@@ -18,11 +18,16 @@ const HeroSeciton = () => {
 export default HeroSeciton
 
 const Container = styled.div`
-  min-height: calc(100vh - 150px);
+  min-height: calc(80vh);
   background: ${props => props.theme.colors.gradient};
   display: flex;
   align-items: center;
   justify-content: center;
+  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+  min-height:auto;
+    display:block;
+    padding:120px 0 170px 0;
+  `}
 `
 
 const Content = styled.div`
@@ -33,11 +38,11 @@ const Content = styled.div`
 `
 
 const Heading = styled.div`
-  font-size: 78px;
+  font-size: 65px;
   font-weight: 600;
   color: ${props => props.theme.colors.neutral};
   letter-spacing: -0.69px;
-  line-height: 90px;
+  line-height: 80px;
   font-style: italic;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     font-size:50px;
@@ -46,12 +51,16 @@ const Heading = styled.div`
 
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     font-size:35px;
-    line-height: 50px;
+    line-height: 40px;
   `}
 `
 
 const Text = styled.div`
   color: ${props => props.theme.colors.neutral};
-  font-size: ${props => props.theme.font.default};
+  font-size: ${props => props.theme.font.large};
   margin-top: 20px;
+  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+ 
+    font-size: ${props => props.theme.font.default};
+  `}
 `

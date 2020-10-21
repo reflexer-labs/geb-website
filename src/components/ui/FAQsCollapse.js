@@ -41,7 +41,7 @@ const FAQsCollapse = () => {
         <Header>
           <Title>FAQ's</Title>
           <Text>
-            To learn more about Reflexer head to the <Link to="/">FAQ’s.</Link>
+            To learn more about Reflexer head to the <Link to="">FAQ’s.</Link>
           </Text>
         </Header>
 
@@ -70,8 +70,11 @@ const FAQsCollapse = () => {
 export default FAQsCollapse
 
 const Container = styled.div`
-  padding: 80px 20px;
   background: ${props => props.theme.colors.foreground};
+  padding: 150px 20px;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+   padding: 80px 0px 60px 0px;
+  `}
 `
 
 const Inner = styled.div`
@@ -87,11 +90,16 @@ const Title = styled.div`
   color: ${props => props.theme.colors.primary};
   font-size: 48px;
   font-weight: 600;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    font-size: 35px;
+  `}
 `
 
 const Text = styled.div`
   color: ${props => props.theme.colors.secondary};
   line-height: 24px;
+  margin-top: 15px;
+  padding: 0 20px;
   a {
     background: ${props => props.theme.colors.gradient};
     background-clip: text;

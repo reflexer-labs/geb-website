@@ -66,7 +66,7 @@ const HeroBox = () => {
 export default HeroBox
 
 const Container = styled.div`
-  max-width: 1170px;
+  max-width: 1280px;
   padding: 0 20px;
   margin: 0 auto;
 `
@@ -107,9 +107,12 @@ const Title = styled.div`
 `
 
 const Text = styled.div`
-  font-size: ${props => props.theme.font.extraSmall};
+  font-size: ${props => props.theme.font.default};
   color: ${props => props.theme.colors.secondary};
   margin-top: 5px;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+  font-size: ${props => props.theme.font.small};
+  `}
 `
 
 const LinkContainer = styled.div`
