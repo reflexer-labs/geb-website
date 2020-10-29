@@ -82,7 +82,7 @@ const Footer = ({ slapToBottom }) => {
               onChange={onChangeInput}
               error={error}
             />
-            {showSuccess && <Success>Subscribed successfully!</Success>}
+            {showSuccess && <Success>Confirmation email sent!</Success>}
           </Subscribe>
         </Company>
         <Column className="col20"></Column>
@@ -215,6 +215,7 @@ const Column = styled.div``
 
 const Header = styled.h4`
   font-weight: 600;
+  font-family: "Inter-Medium";
   font-size: ${props => props.theme.font.default};
   line-height: 22px;
   letter-spacing: -0.18px;
@@ -305,6 +306,7 @@ const LinkContainer = styled.div`
     margin-bottom: 20px;
     a {
       font-weight: 600;
+      font-family: "Inter-Medium";
       color: ${props => props.theme.colors.primary};
      &:hover {
       text-decoration:none;

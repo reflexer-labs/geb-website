@@ -4,11 +4,17 @@ import Layout from "../components/Layout"
 import SplitView from "../components/SplitView"
 import useAbout from "../hooks/useAbout"
 
+const headerStyle = {
+  background: "#fff",
+  boxShadow: "0px 1px 0px #eef3f9",
+  borderBottom: "1px solid #eef3f9",
+}
+
 const About = () => {
   const about = useAbout().map(item => item.node)
 
   return (
-    <Layout headerStyle={{ background: "#fff" }}>
+    <Layout onlyBrand={false} smallLogo headerStyle={headerStyle}>
       <Container>
         <InnerContent>
           <SplitView data={about} topOffset={300} />

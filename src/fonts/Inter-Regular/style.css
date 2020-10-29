@@ -1,0 +1,13 @@
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "Inter-Regular";
+  src: url("./fonts/Inter-Regular.eot"); /* IE9 Compat Modes */
+  src: url("./fonts/Inter-Regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("./fonts/Inter-Regular.otf") format("opentype"), /* Open Type Font */
+    url("./fonts/Inter-Regular.svg") format("svg"), /* Legacy iOS */
+    url("./fonts/Inter-Regular.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("./fonts/Inter-Regular.woff") format("woff"), /* Modern Browsers */
+    url("./fonts/Inter-Regular.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}

@@ -75,6 +75,7 @@ const Container = styled.button`
   line-height: 24px;
   font-size: ${props => props.theme.font.small};
   font-weight: 600;
+  font-family: "Inter-Medium";
   color: ${props => props.theme.colors.neutral};
   background: ${props => props.theme.colors.gradient};
   border-radius: ${props => props.theme.global.borderRadius};
@@ -97,6 +98,7 @@ const DimmedBtn = styled.button`
   color: ${props => props.theme.colors.secondary};
   font-size: ${props => props.theme.font.small};
   font-weight: 600;
+  font-family: "Inter-Medium";
   line-height: 24px;
   padding: 0;
   margin: 0;
@@ -140,6 +142,7 @@ const ArrowBtn = styled.button`
     color: ${props => props.theme.colors.inputBorderColor};
     font-size: ${props => props.theme.font.small};
     font-weight: 600;
+    font-family: "Inter-Medium";
     line-height: 24px;
     letter-spacing: -0.18px;
   }

@@ -11,7 +11,7 @@ module.exports = {
     keywords: "Volatility, dampened, synthetic, instruments",
     siteUrl: "https://www.reflexer.finance",
     image: "/android-chrome-512x512.png",
-    favicon: "/favicon.ico",
+    favicon: "/icon.png",
     twitter: "@reflexerfinance",
   },
   plugins: [
@@ -25,14 +25,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        google: {
-          families: ["Inter:400,600"],
-        },
-      },
-    },
-    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
@@ -41,5 +33,7 @@ module.exports = {
       },
     },
     "gatsby-transformer-remark",
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
   ],
 }

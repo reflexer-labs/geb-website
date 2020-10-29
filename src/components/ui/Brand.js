@@ -3,11 +3,12 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import getPrefixedPath from "../../utils/getPrefixPath"
 
-const Brand = ({ height, isWhiteLogo }) => {
+const Brand = ({ height, isWhiteLogo, smallLogo }) => {
   return (
     <Container>
       <Link to="/">
         <img
+          className={smallLogo ? "small" : ""}
           height={height}
           src={
             isWhiteLogo
@@ -29,8 +30,14 @@ const Container = styled.div`
     text-decoration: none;
     img {
       width: 160px;
+      &.small {
+        width: auto;
+      }
       ${({ theme }) => theme.mediaWidth.upToSmall`
         width:105px;
+        &.small {
+        width: auto;
+      }
       `}
     }
   }

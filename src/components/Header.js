@@ -1,13 +1,21 @@
 import React from "react"
 import styled from "styled-components"
 import Brand from "./ui/Brand"
+import Button from "./ui/Button"
 
-const Header = ({ headerStyle, isWhiteLogo }) => {
+const Header = ({ headerStyle, isWhiteLogo, smallLogo, onlyBrand }) => {
   return (
     <Container style={{ ...headerStyle }}>
       <Left>
-        <Brand isWhiteLogo={isWhiteLogo} />
+        <Brand smallLogo={smallLogo} isWhiteLogo={isWhiteLogo} />
       </Left>
+      {!onlyBrand ? (
+        <Right>
+          <Button text={"Dashboard"} />
+        </Right>
+      ) : (
+        ""
+      )}
     </Container>
   )
 }
@@ -31,3 +39,5 @@ const Left = styled.div`
   display: flex;
   align-items: center;
 `
+
+const Right = styled.div``

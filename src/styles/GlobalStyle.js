@@ -14,6 +14,7 @@ export const ExternalLinkArrow = css`
   color: ${props => props.theme.colors.inputBorderColor};
   font-size: ${props => props.theme.font.small};
   font-weight: 600;
+  font-family: "Inter-Medium";
   line-height: 24px;
   letter-spacing: -0.18px;
   &:disabled {

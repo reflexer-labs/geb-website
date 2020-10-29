@@ -21,8 +21,8 @@ const SiteMetadata = ({ pathname }) => {
       <link rel="canonical" href={href} />
       <link
         rel="shortcut icon"
-        type="image/png"
-        href={getPrefixedPath(favicon)}
+        type="image/ico"
+        href={`${getPrefixedPath(favicon)}`}
       />
       <meta name="description" content={description} />
       <meta

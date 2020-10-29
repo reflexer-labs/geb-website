@@ -91,6 +91,7 @@ const Title = styled.div`
   color: ${props => props.theme.colors.primary};
   font-size: 48px;
   font-weight: 600;
+  font-family: "Inter-Medium";
   ${({ theme }) => theme.mediaWidth.upToSmall`
     font-size: 35px;
   `}
@@ -118,6 +119,7 @@ const CollapseTitle = styled.div`
   color: ${props => props.theme.colors.primary};
   font-size: ${props => props.theme.font.medium};
   font-weight: 600;
+  font-family: "Inter-Medium";
   display: flex;
   align-items: center;
   justify-content: space-between;

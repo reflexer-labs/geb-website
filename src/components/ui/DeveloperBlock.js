@@ -80,6 +80,7 @@ const ImgContainer = styled.div`
 const Title = styled.div`
   font-size: 48px;
   font-weight: 600;
+  font-family: "Inter-Medium";
   color: ${props => props.theme.colors.primary};
   letter-spacing: -0.33px;
 

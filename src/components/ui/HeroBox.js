@@ -94,6 +94,10 @@ const Block = styled.div`
 `
 
 const ImgBox = styled.div`
+  width: 48px;
+  height: 48px;
+  background: #eef3f9;
+  border-radius: 3px;
   img {
     max-width: 70px;
   }

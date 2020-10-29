@@ -136,7 +136,7 @@ const MainContent = styled.div`
 
 const SideTitle = styled.div`
   color: ${props => props.theme.colors.secondary};
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-size: ${props => props.theme.font.default};
   cursor: pointer;
   &:last-child {
@@ -159,6 +159,7 @@ const SideContent = styled.div`
 
 const MainTitle = styled.div`
   font-weight: 600;
+  font-family: "Inter-Medium";
   font-size: 48px;
   line-height: 60px;
   letter-spacing: -0.33px;

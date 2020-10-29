@@ -4,10 +4,16 @@ import Layout from "../components/Layout"
 import useFAQs from "../hooks/useFAQs"
 import SplitView from "../components/SplitView"
 
+const headerStyle = {
+  background: "#fff",
+  boxShadow: "0px 1px 0px #eef3f9",
+  borderBottom: "1px solid #eef3f9",
+}
+
 const FAQs = () => {
   const faqs = useFAQs().map(item => item.node)
   return (
-    <Layout headerStyle={{ background: "#fff" }}>
+    <Layout smallLogo={true} headerStyle={headerStyle}>
       <Container>
         <InnerContent>
           <SplitView data={faqs} />
