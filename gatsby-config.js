@@ -6,7 +6,7 @@ module.exports = {
   pathPrefix: "/geb-website",
   siteMetadata: {
     title: "Reflexer Labs",
-    titleTemplate: "%s · Volatility dampened synthetic instruments",
+    titleTemplate: "%s",
     description: "Volatility dampened synthetic instruments",
     keywords: "Volatility, dampened, synthetic, instruments",
     siteUrl: "https://www.reflexer.finance",

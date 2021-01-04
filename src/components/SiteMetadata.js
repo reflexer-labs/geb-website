@@ -3,10 +3,10 @@ import { Helmet } from "react-helmet"
 import useSiteMetadata from "../hooks/useSiteMetadata"
 import getPrefixedPath from "../utils/getPrefixPath"
 
-const SiteMetadata = ({ pathname }) => {
+const SiteMetadata = ({ pathname, customTitle }) => {
   const {
     siteUrl,
-    title,
+    title: mainTitle,
     twitter,
     favicon,
     image,
@@ -15,6 +15,7 @@ const SiteMetadata = ({ pathname }) => {
   } = useSiteMetadata()
 
   const href = `${siteUrl}${pathname}`
+  const title = customTitle ? `Reflexer Labs | ${customTitle}` : mainTitle
 
   return (
     <Helmet title={title} titleTemplate={titleTemplate}>

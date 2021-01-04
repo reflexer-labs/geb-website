@@ -29,16 +29,8 @@ const Container = styled.div`
     color: inherit;
     text-decoration: none;
     img {
-      width: 160px;
-      &.small {
-        width: auto;
-      }
-      ${({ theme }) => theme.mediaWidth.upToSmall`
-        width:105px;
-        &.small {
-        width: auto;
-      }
-      `}
+      width: 105.14px;
+      height: 25.49px;
     }
   }
 `

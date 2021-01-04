@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import Layout from "../components/Layout"
-import SiteMetadata from "../components/SiteMetadata"
 import DeveloperBlock from "../components/ui/DeveloperBlock"
 import FAQsCollapse from "../components/ui/FAQsCollapse"
 import HeroBox from "../components/ui/HeroBox"
@@ -14,7 +13,6 @@ const Home = () => {
       isWhiteLogo
       onlyBrand
     >
-      <SiteMetadata />
       <HeroSeciton />
       <BoxesContainer>
         <HeroBox />

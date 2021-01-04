@@ -10,14 +10,20 @@ const headerStyle = {
   borderBottom: "1px solid #eef3f9",
 }
 
-const About = () => {
+const About = ({ location }) => {
   const about = useAbout().map(item => item.node)
 
   return (
-    <Layout onlyBrand={false} smallLogo headerStyle={headerStyle}>
+    <Layout
+      customTitle={"About"}
+      onlyBrand={false}
+      headerStyle={headerStyle}
+      smallLogo
+      location={location}
+    >
       <Container>
         <InnerContent>
-          <SplitView data={about} topOffset={300} />
+          <SplitView isAbout={true} data={about} topOffset={300} />
         </InnerContent>
       </Container>
     </Layout>

@@ -2,6 +2,7 @@ import React from "react"
 import styled, { ThemeProvider } from "styled-components"
 import Header from "./Header"
 import Footer from "./Footer"
+import SiteMetadata from "./SiteMetadata"
 import { lightTheme } from "../utils/themes/light"
 import CookieBanner from "./CookieBanner"
 
@@ -11,9 +12,12 @@ const Layout = ({
   isWhiteLogo,
   smallLogo,
   onlyBrand,
+  customTitle,
+  location,
 }) => {
   return (
     <ThemeProvider theme={lightTheme}>
+      <SiteMetadata customTitle={customTitle} />
       <MainContainer>
         <Header
           headerStyle={headerStyle}
@@ -22,7 +26,7 @@ const Layout = ({
           onlyBrand={onlyBrand}
         />
         {children}
-        <Footer />
+        <Footer location={location} />
         <CookieBanner />
       </MainContainer>
     </ThemeProvider>

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import Sticky from "react-stickynode"
 import getPrefixedPath from "../utils/getPrefixPath"
 import helper from "../utils/helper"
 import { ExternalLinkArrow } from "../styles/GlobalStyle"
 import { useMedia } from "react-use"
 
-const SplitView = ({ data, topOffset }) => {
+const SplitView = ({ data, topOffset, isAbout = false }) => {
   const isBrowser = typeof window !== "undefined"
   const isWide = useMedia("(min-width: 991px)")
   const [activeIndex, setActiveIndex] = useState(0)
@@ -28,7 +27,7 @@ const SplitView = ({ data, topOffset }) => {
   }
 
   useEffect(() => {
-    if (!isBrowser || !refs || !isWide) return
+    if (!isBrowser || !refs || !refs.length || !isWide) return
     function handleScroll() {
       const offset = topOffset || 250
       const tops = Object.values(refs).map(
@@ -74,23 +73,38 @@ const SplitView = ({ data, topOffset }) => {
     return null
   }
 
+  const returnLinks = links => {
+    if (links) {
+      const linksIterator = Array.isArray(links) ? links : [links]
+      return linksIterator.map(iterator => (
+        <CustomLink
+          key={iterator.link + Math.random()}
+          href={iterator.link}
+          target="_blank"
+        >
+          {iterator.name} <img src={getPrefixedPath("/arrow-up.svg")} alt="" />
+        </CustomLink>
+      ))
+    }
+    return null
+  }
+
   return (
     <Content>
       <SideBar>
-        <Sticky enabled={true} top={40}>
-          {data.map((item, index) => (
-            <SideTitle
-              key={item.id + 1}
-              onClick={() => handleSideBarClick(item.id, index)}
-              className={activeIndex === index ? "active" : ""}
-            >
-              {item.title.title}{" "}
-              {activeIndex === index ? (
-                <img src={getPrefixedPath("/arrow.svg")} alt="" />
-              ) : null}
-            </SideTitle>
-          ))}
-        </Sticky>
+        {data.map((item, index) => (
+          <SideTitle
+            key={item.id + 1}
+            isAbout={isAbout}
+            onClick={() => handleSideBarClick(item.id, index)}
+            className={activeIndex === index ? "active" : ""}
+          >
+            {item.title.title}{" "}
+            {activeIndex === index ? (
+              <img src={getPrefixedPath("/arrow.svg")} alt="" />
+            ) : null}
+          </SideTitle>
+        ))}
       </SideBar>
       <MainContent>
         {data.map(item => (
@@ -98,12 +112,7 @@ const SplitView = ({ data, topOffset }) => {
             <MainTitle>{item.title.title}</MainTitle>
             <MainDescription>
               <Text>{documentToReactComponents(item.content.json)}</Text>
-              {item.links ? (
-                <CustomLink href={item.links.link} target="_blank">
-                  {item.links.name}{" "}
-                  <img src={getPrefixedPath("/arrow.svg")} alt="" />
-                </CustomLink>
-              ) : null}
+              {returnLinks(item.links)}
               {extractImages(item.images)}
             </MainDescription>
           </SideContent>
@@ -121,22 +130,54 @@ const Content = styled.div`
 `
 
 const SideBar = styled.div`
-  flex: 0 0 300px;
-  min-width: 300px;
+  flex: 0 0 350px;
+  position: sticky;
+  top: 30px;
+  min-width: 350px;
+  max-height: 93vh;
+  height: ${({ isAbout }) => (isAbout ? "300px" : "auto")};
+  overflow-y: auto;
   transition: all 0.1s ease;
   margin-top: 10px;
+  padding-right: 50px;
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+  ::-webkit-scrollbar-corner {
+    display: none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.16);
+    border-radius: 2px;
+  }
+
   ${({ theme }) => theme.mediaWidth.upToMedium`
     display:none;
   `}
 `
+
 const MainContent = styled.div`
   flex-grow: 1;
   margin-left: auto;
+  padding-left: 70px;
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+    padding-left: 0px;
+  `}
 `
 
 const SideTitle = styled.div`
-  color: ${props => props.theme.colors.secondary};
-  margin-bottom: 30px;
+  color: ${props => props.theme.colors.customSecondary};
+  margin-bottom: 20px;
   font-size: ${props => props.theme.font.default};
   cursor: pointer;
   &:last-child {
@@ -158,27 +199,30 @@ const SideContent = styled.div`
 `
 
 const MainTitle = styled.div`
-  font-weight: 600;
+  font-weight: normal;
   font-family: "Inter-Medium";
-  font-size: 48px;
-  line-height: 60px;
+  font-size: 24px;
   letter-spacing: -0.33px;
   color: ${props => props.theme.font.primary};
   ${({ theme }) => theme.mediaWidth.upToSmall`
-     font-size: 30px;
-     line-height: 35px;
+     font-size: 20px;
   `}
 `
 
 const MainDescription = styled.div`
   font-size: ${props => props.theme.font.default};
-  color: ${props => props.theme.colors.secondary};
+  color: ${props => props.theme.colors.customSecondary};
   line-height: 24px;
   letter-spacing: -0.18px;
 `
 
 const CustomLink = styled.a`
   ${ExternalLinkArrow}
+  margin-right:20px;
+  img {
+    width: 8px;
+    height: 8px;
+  }
 `
 
 const Row = styled.div`

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
+import { navigate, Link } from "gatsby"
 import styled from "styled-components"
 import jsonp from "jsonp"
 import qs from "query-string"
@@ -10,7 +10,7 @@ import { isValidEmail } from "../utils/validations"
 import { MAILCHIMP_URL } from "../utils/constants"
 import { Minus, Plus } from "react-feather"
 
-const Footer = ({ slapToBottom }) => {
+const Footer = ({ slapToBottom, location }) => {
   const [selectedGroup, setSelectedGroup] = useState(0)
   const [email, setEmail] = useState("")
   const [error, setError] = useState("")
@@ -65,6 +65,16 @@ const Footer = ({ slapToBottom }) => {
       setSelectedGroup(group)
     }
   }
+
+  const handleSamePageClick = (e, to) => {
+    if (location && location.pathname && location.pathname.includes(to)) {
+      e.stopPropagation()
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    } else {
+      navigate(to)
+    }
+  }
+
   return (
     <Container className={slapToBottom ? "fixBottom" : ""}>
       <UpperSection>
@@ -108,6 +118,10 @@ const Footer = ({ slapToBottom }) => {
             {selectedGroup === 2 ? <Minus size={16} /> : <Plus size={16} />}
           </Header>
           <LinksContainer>
+            <LinkBtn onClick={e => handleSamePageClick(e, "/about")}>
+              About
+            </LinkBtn>
+            <LinkBtn onClick={e => handleSamePageClick(e, "/faq")}>FAQ</LinkBtn>
             <LinkBtn
               href={
                 "https://github.com/reflexer-labs/whitepapers/blob/master/English/rai-english.pdf"
@@ -245,6 +259,7 @@ const LinkBtn = styled.a`
   transition: all 0.3s ease;
   display: block;
   margin: 5px 0;
+  cursor: pointer;
   &:last-child {
     margin-bottom: 0;
   }

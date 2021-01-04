@@ -10,10 +10,15 @@ const headerStyle = {
   borderBottom: "1px solid #eef3f9",
 }
 
-const FAQs = () => {
+const FAQ = ({ location }) => {
   const faqs = useFAQs().map(item => item.node)
   return (
-    <Layout smallLogo={true} headerStyle={headerStyle}>
+    <Layout
+      customTitle={"FAQ"}
+      headerStyle={headerStyle}
+      smallLogo
+      location={location}
+    >
       <Container>
         <InnerContent>
           <SplitView data={faqs} />
@@ -23,7 +28,7 @@ const FAQs = () => {
   )
 }
 
-export default FAQs
+export default FAQ
 
 const Container = styled.div`
   padding: 80px 20px;

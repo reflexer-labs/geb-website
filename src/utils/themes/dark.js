@@ -4,6 +4,7 @@ const darkTheme = {
   colors: {
     primary: "#2A2A2A",
     secondary: "#A4ABB7",
+    customSecondary: "#696e76",
     gradient: "linear-gradient(225deg, #78D8FF 0%, #4CE096 100%)",
     neutral: "#ffffff",
     background: "#272727",
