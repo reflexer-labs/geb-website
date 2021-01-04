@@ -20,6 +20,7 @@ const SiteMetadata = ({ pathname, customTitle }) => {
   return (
     <Helmet title={title} titleTemplate={titleTemplate}>
       <link rel="canonical" href={href} />
+      <link rel="icon" href={`${getPrefixedPath(favicon)}`} />
       <link
         rel="shortcut icon"
         type="image/ico"

@@ -29,8 +29,11 @@ const Container = styled.div`
     color: inherit;
     text-decoration: none;
     img {
-      width: 105.14px;
-      height: 25.49px;
+      width: 160px;
+      &.small {
+        width: 105.14px;
+        height: 25.49px;
+      }
     }
   }
 `
