@@ -97,7 +97,13 @@ const SplitView = ({ data, topOffset, isAbout = false }) => {
           return (
             <a
               href={node.data.uri}
-              target={node.data.uri.includes("mailto") ? "" : "_blank"}
+              target={
+                node.data.uri.includes("mailto") ||
+                node.data.uri.includes("zip")
+                  ? ""
+                  : "_blank"
+              }
+              download={node.data.uri.includes("zip")}
             >
               {node.content[0].value}
             </a>

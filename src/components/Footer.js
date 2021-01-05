@@ -103,7 +103,7 @@ const Footer = ({ slapToBottom, location }) => {
           </Header>
           <LinksContainer>
             <LinkBtn href={"https://discord.gg/83t3xKT"}>Discord</LinkBtn>
-            <LinkBtn href={"https://twitter.com/MetaCoinProject"}>
+            <LinkBtn href={"https://twitter.com/reflexerfinance"}>
               Twitter
             </LinkBtn>
             <LinkBtn href={"https://t.me/joinchat/Dp-hCVfCrf1zfCP5q2VI9w"}>

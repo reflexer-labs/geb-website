@@ -11,7 +11,15 @@ const Header = ({ headerStyle, isWhiteLogo, smallLogo, onlyBrand }) => {
       </Left>
       {!onlyBrand ? (
         <Right>
-          <Button text={"Dashboard"} />
+          <Button>
+            <a
+              href="https://app.reflexer.finance/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Dashboard
+            </a>
+          </Button>
         </Right>
       ) : (
         ""
@@ -40,4 +48,8 @@ const Left = styled.div`
   align-items: center;
 `
 
-const Right = styled.div``
+const Right = styled.div`
+  a {
+    color: inherit;
+  }
+`
