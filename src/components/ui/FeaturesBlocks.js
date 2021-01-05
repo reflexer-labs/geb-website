@@ -61,11 +61,14 @@ const Col = styled.div`
 `
 
 const ImgContainer = styled.div`
+  text-align: center;
   img {
     width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
   }
   ${({ theme }) => theme.mediaWidth.upToSmall`
-    max-width:60%;
+    
     margin: 0 auto 40px auto;
   `}
 `
