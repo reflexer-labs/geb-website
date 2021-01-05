@@ -89,11 +89,11 @@ const Header = styled.div`
 
 const Title = styled.div`
   color: ${props => props.theme.colors.primary};
-  font-size: 48px;
+  font-size: 38px;
   font-weight: 600;
   font-family: "Inter-Medium";
   ${({ theme }) => theme.mediaWidth.upToSmall`
-    font-size: 35px;
+    font-size: 25px;
   `}
 `
 
@@ -117,26 +117,35 @@ const CollapseSection = styled.div`
 
 const CollapseTitle = styled.div`
   color: ${props => props.theme.colors.primary};
-  font-size: ${props => props.theme.font.medium};
+  font-size: ${props => props.theme.font.large};
   font-weight: 600;
   font-family: "Inter-Medium";
   display: flex;
   align-items: center;
   justify-content: space-between;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+   font-size: ${props => props.theme.font.medium};
+  `}
 `
 
 const CollapseText = styled.div`
   color: ${props => props.theme.colors.secondary};
-  font-size: ${props => props.theme.font.default};
+  font-size: ${props => props.theme.font.medium};
   letter-spacing: -0.18px;
   line-height: 24px;
   margin-top: 10px;
   a {
     ${ExternalLinkArrow}
   }
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+   font-size: ${props => props.theme.font.default};
+  `}
 `
 
 const CollapseBlock = styled.div`
-  padding: 20px;
+  padding: 15px;
   cursor: pointer;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+  padding:10px;
+  `}
 `

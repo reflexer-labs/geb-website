@@ -65,26 +65,27 @@ const ImgContainer = styled.div`
     width: 100%;
   }
   ${({ theme }) => theme.mediaWidth.upToSmall`
-    margin-bottom:40px; 
+    max-width:60%;
+    margin: 0 auto 40px auto;
   `}
 `
 
 const Title = styled.div`
-  font-size: 48px;
+  font-size: 38px;
   font-weight: 600;
   font-family: "Inter-Medium";
   color: ${props => props.theme.colors.primary};
   letter-spacing: -0.33px;
   max-width: 80%;
   ${({ theme }) => theme.mediaWidth.upToSmall`
-    font-size: 32px;
+    font-size: 25px;
     text-align:center;
     max-width:100%;
   `}
 `
 
 const Text = styled.div`
-  font-size: ${props => props.theme.font.default};
+  font-size: 18px;
   color: ${props => props.theme.colors.secondary};
   line-height: 24px;
   letter-spacing: -0.18px;

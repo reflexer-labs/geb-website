@@ -71,8 +71,12 @@ const ImgBox = styled.div`
   height: 48px;
   border-radius: 3px;
   img {
-    max-width: 48px;
+    width: 100%;
   }
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+  width: 38px;
+  height: 38px;
+  `}
 `
 
 const Title = styled.div`
@@ -84,6 +88,7 @@ const Title = styled.div`
 
 const Text = styled.div`
   font-size: ${props => props.theme.font.default};
+
   color: ${props => props.theme.colors.secondary};
   margin-top: 5px;
   p {

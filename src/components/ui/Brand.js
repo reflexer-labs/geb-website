@@ -34,6 +34,11 @@ const Container = styled.div`
         width: 105.14px;
         height: 25.49px;
       }
+      ${({ theme }) => theme.mediaWidth.upToSmall`
+        width: 105.14px;
+        height: 25.49px;
+      }
+      `}
     }
   }
 `

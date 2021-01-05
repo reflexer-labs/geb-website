@@ -51,7 +51,7 @@ const Heading = styled.div`
   `}
 
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-    font-size:35px;
+    font-size:28px;
     line-height: 40px;
   `}
 `
