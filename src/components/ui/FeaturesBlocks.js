@@ -64,11 +64,11 @@ const ImgContainer = styled.div`
   text-align: center;
   img {
     width: 100%;
-    max-width: 480px;
+    max-width: 430px;
     margin: 0 auto;
   }
   ${({ theme }) => theme.mediaWidth.upToSmall`
-    max-width:75%;
+    max-width:70%;
     margin: 0 auto 40px auto;
   `}
 `

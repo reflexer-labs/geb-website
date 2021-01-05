@@ -74,7 +74,7 @@ export default FAQsCollapse
 const Container = styled.div`
   padding: 150px 20px;
   ${({ theme }) => theme.mediaWidth.upToSmall`
-   padding: 80px 0px 60px 0px;
+   padding: 80px 10px 60px 10px;
   `}
 `
 
