@@ -68,7 +68,7 @@ const ImgContainer = styled.div`
     margin: 0 auto;
   }
   ${({ theme }) => theme.mediaWidth.upToSmall`
-    
+    max-width:75%;
     margin: 0 auto 40px auto;
   `}
 `
