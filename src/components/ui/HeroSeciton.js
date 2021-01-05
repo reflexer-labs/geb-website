@@ -5,10 +5,10 @@ const HeroSeciton = () => {
   return (
     <Container>
       <Content>
-        <Heading>Leverage ETH at Fixed Interest Rates</Heading>
+        <Heading>Leverage ETH using RAI</Heading>
         <Text>
-          Fermentum sit egestas amet ornare cras. Et donec eu nulla egestas.
-          Ornare vitae faucibus sit pellentesque tellus posuere potenti id.
+          A decentralized, stable and non pegged currency made for the digital
+          economy
         </Text>
       </Content>
     </Container>
@@ -58,7 +58,7 @@ const Heading = styled.div`
 
 const Text = styled.div`
   color: ${props => props.theme.colors.neutral};
-  font-size: ${props => props.theme.font.large};
+  font-size: 26px;
   margin-top: 20px;
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
  

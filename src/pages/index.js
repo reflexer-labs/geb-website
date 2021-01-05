@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Layout from "../components/Layout"
-import DeveloperBlock from "../components/ui/DeveloperBlock"
+import FeaturesBlocks from "../components/ui/FeaturesBlocks"
 import FAQsCollapse from "../components/ui/FAQsCollapse"
 import HeroBox from "../components/ui/HeroBox"
 import HeroSeciton from "../components/ui/HeroSeciton"
@@ -17,7 +17,7 @@ const Home = () => {
       <BoxesContainer>
         <HeroBox />
       </BoxesContainer>
-      <DeveloperBlock />
+      <FeaturesBlocks />
       <FAQsCollapse />
     </Layout>
   )

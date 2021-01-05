@@ -2,32 +2,16 @@ import { Link } from "gatsby"
 import React, { useState } from "react"
 import { ChevronDown, ChevronUp } from "react-feather"
 import styled from "styled-components"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { INLINES } from "@contentful/rich-text-types"
 
-const INITIAL_STATE = [
-  {
-    title: "First Question",
-    text:
-      "Metus egestas placerat vel sed pretium, tellus. Ut tincidunt sit a nec velit proin. Lobortis a fermentum ipsum cras eu et neque iaculis nulla. Eu egestas vulputate ut arcu.",
-  },
-  {
-    title: "Second Question",
-    text:
-      "Metus egestas placerat vel sed pretium, tellus. Ut tincidunt sit a nec velit proin. Lobortis a fermentum ipsum cras eu et neque iaculis nulla. Eu egestas vulputate ut arcu.",
-  },
-  {
-    title: "Third Question",
-    text:
-      "Metus egestas placerat vel sed pretium, tellus. Ut tincidunt sit a nec velit proin. Lobortis a fermentum ipsum cras eu et neque iaculis nulla. Eu egestas vulputate ut arcu.",
-  },
-  {
-    title: "Fourth Question",
-    text:
-      "Metus egestas placerat vel sed pretium, tellus. Ut tincidunt sit a nec velit proin. Lobortis a fermentum ipsum cras eu et neque iaculis nulla. Eu egestas vulputate ut arcu.",
-  },
-]
+import useHomeFAQ from "../../hooks/useHomeFAQ"
+import { ExternalLinkArrow } from "../../styles/GlobalStyle"
 
 const FAQsCollapse = () => {
   const [collapseIndex, setCollapseIndex] = useState(0)
+  const homeFAQ = useHomeFAQ().map(item => item.node)
+
   const handleClick = i => {
     if (i === collapseIndex) {
       setCollapseIndex()
@@ -35,20 +19,37 @@ const FAQsCollapse = () => {
       setCollapseIndex(i)
     }
   }
+
+  const handleContent = content => {
+    return documentToReactComponents(content, {
+      renderNode: {
+        [INLINES.HYPERLINK]: node => {
+          return (
+            <a
+              href={node.data.uri}
+              target={node.data.uri.includes("mailto") ? "" : "_blank"}
+            >
+              {node.content[0].value}
+            </a>
+          )
+        },
+      },
+    })
+  }
   return (
     <Container>
       <Inner>
         <Header>
-          <Title>FAQ's</Title>
+          <Title>FAQ</Title>
           <Text>
-            To learn more about Reflexer head to the{" "}
-            <Link to="/faqs">FAQ’s.</Link>
+            To learn more about RAI and Reflexer, check out the{" "}
+            <Link to="/faq">FAQ page.</Link>
           </Text>
         </Header>
 
         <CollapseSection>
-          {INITIAL_STATE.map((faq, i) => (
-            <CollapseBlock key={faq.title} onClick={() => handleClick(i)}>
+          {homeFAQ.map((faq, i) => (
+            <CollapseBlock key={faq.id} onClick={() => handleClick(i)}>
               <CollapseTitle>
                 {faq.title}{" "}
                 {i === collapseIndex ? (
@@ -58,7 +59,7 @@ const FAQsCollapse = () => {
                 )}
               </CollapseTitle>
               {i === collapseIndex ? (
-                <CollapseText>{faq.text}</CollapseText>
+                <CollapseText>{handleContent(faq.content.json)}</CollapseText>
               ) : null}
             </CollapseBlock>
           ))}
@@ -71,7 +72,6 @@ const FAQsCollapse = () => {
 export default FAQsCollapse
 
 const Container = styled.div`
-  background: ${props => props.theme.colors.foreground};
   padding: 150px 20px;
   ${({ theme }) => theme.mediaWidth.upToSmall`
    padding: 80px 0px 60px 0px;
@@ -131,6 +131,9 @@ const CollapseText = styled.div`
   letter-spacing: -0.18px;
   line-height: 24px;
   margin-top: 10px;
+  a {
+    ${ExternalLinkArrow}
+  }
 `
 
 const CollapseBlock = styled.div`

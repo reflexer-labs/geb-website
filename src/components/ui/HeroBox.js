@@ -1,63 +1,33 @@
 import React from "react"
 import styled from "styled-components"
+import useHomeBoxes from "../../hooks/useHomeBoxes"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { ExternalLinkArrow } from "../../styles/GlobalStyle"
 import getPrefixedPath from "../../utils/getPrefixPath"
 
 const HeroBox = () => {
+  const homeBoxes = useHomeBoxes().map(item => item.node)
+
   return (
     <Container>
       <Row>
-        <Col>
-          <Block>
-            <ImgBox>
-              <img src={getPrefixedPath("/box-ph.svg")} alt="" />
-            </ImgBox>
-            <Title>Leverage RAI</Title>
-            <Text>
-              Auctor cursus tellus pretium dolor convallis ornare lectus. Nam
-              sem etiam netus eget vitae amet.
-            </Text>
-            <LinkContainer>
-              <Link href={"/"}>
-                Get Leverage <img src={getPrefixedPath("/arrow.svg")} alt="" />
-              </Link>
-            </LinkContainer>
-          </Block>
-        </Col>
-        <Col>
-          <Block>
-            <ImgBox>
-              <img src={getPrefixedPath("/box-ph.svg")} alt="" />
-            </ImgBox>
-            <Title>Use RAI</Title>
-            <Text>
-              Auctor cursus tellus pretium dolor convallis ornare lectus. Nam
-              sem etiam netus eget vitae amet.
-            </Text>
-            <LinkContainer>
-              <Link href={"/"}>
-                Start Using <img src={getPrefixedPath("/arrow.svg")} alt="" />
-              </Link>
-            </LinkContainer>
-          </Block>
-        </Col>
-        <Col>
-          <Block>
-            <ImgBox>
-              <img src={getPrefixedPath("/box-ph.svg")} alt="" />
-            </ImgBox>
-            <Title>Protocol Statistics</Title>
-            <Text>
-              Auctor cursus tellus pretium dolor convallis ornare lectus. Nam
-              sem etiam netus eget vitae amet.
-            </Text>
-            <LinkContainer>
-              <Link href={"/"}>
-                View Stats <img src={getPrefixedPath("/arrow.svg")} alt="" />
-              </Link>
-            </LinkContainer>
-          </Block>
-        </Col>
+        {homeBoxes.map(item => (
+          <Col key={item.id}>
+            <Block>
+              <ImgBox>
+                <img src={item.image.file.url} alt={item.title} />
+              </ImgBox>
+              <Title>{item.title}</Title>
+              <Text>{documentToReactComponents(item.content.json)}</Text>
+              <LinkContainer>
+                <Link href={item.link.link} target="_blank">
+                  {item.link.name}{" "}
+                  <img src={getPrefixedPath("/arrow.svg")} alt="" />
+                </Link>
+              </LinkContainer>
+            </Block>
+          </Col>
+        ))}
       </Row>
     </Container>
   )
@@ -91,15 +61,17 @@ const Block = styled.div`
   background: ${props => props.theme.colors.background};
   border-radius: ${props => props.theme.global.borderRadius};
   padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 `
 
 const ImgBox = styled.div`
   width: 48px;
   height: 48px;
-  background: #eef3f9;
   border-radius: 3px;
   img {
-    max-width: 70px;
+    max-width: 48px;
   }
 `
 
@@ -114,14 +86,17 @@ const Text = styled.div`
   font-size: ${props => props.theme.font.default};
   color: ${props => props.theme.colors.secondary};
   margin-top: 5px;
+  p {
+    margin: 0;
+  }
   ${({ theme }) => theme.mediaWidth.upToSmall`
   font-size: ${props => props.theme.font.small};
   `}
+  flex-grow: 1;
 `
 
 const LinkContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
+  align-self: flex-end;
   margin-top: 5px;
 `
 

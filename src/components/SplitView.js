@@ -5,6 +5,7 @@ import getPrefixedPath from "../utils/getPrefixPath"
 import helper from "../utils/helper"
 import { ExternalLinkArrow } from "../styles/GlobalStyle"
 import { useMedia } from "react-use"
+import { INLINES } from "@contentful/rich-text-types"
 
 const SplitView = ({ data, topOffset, isAbout = false }) => {
   const isBrowser = typeof window !== "undefined"
@@ -89,6 +90,23 @@ const SplitView = ({ data, topOffset, isAbout = false }) => {
     return null
   }
 
+  const handleContent = content => {
+    return documentToReactComponents(content, {
+      renderNode: {
+        [INLINES.HYPERLINK]: node => {
+          return (
+            <a
+              href={node.data.uri}
+              target={node.data.uri.includes("mailto") ? "" : "_blank"}
+            >
+              {node.content[0].value}
+            </a>
+          )
+        },
+      },
+    })
+  }
+
   return (
     <Content>
       <SideBar>
@@ -111,7 +129,7 @@ const SplitView = ({ data, topOffset, isAbout = false }) => {
           <SideContent key={item.id} ref={ref => (refs[item.id] = ref)}>
             <MainTitle>{item.title.title}</MainTitle>
             <MainDescription>
-              <Text>{documentToReactComponents(item.content.json)}</Text>
+              <Text>{handleContent(item.content.json)}</Text>
               {returnLinks(item.links)}
               {extractImages(item.images)}
             </MainDescription>
