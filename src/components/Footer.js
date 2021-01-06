@@ -106,9 +106,6 @@ const Footer = ({ slapToBottom, location }) => {
             <LinkBtn href={"https://twitter.com/reflexerfinance"}>
               Twitter
             </LinkBtn>
-            <LinkBtn href={"https://t.me/joinchat/Dp-hCVfCrf1zfCP5q2VI9w"}>
-              Telegram
-            </LinkBtn>
             <LinkBtn href={"https://medium.com/reflexer-labs"}>Medium</LinkBtn>
           </LinksContainer>
         </Column>

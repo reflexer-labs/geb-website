@@ -3,7 +3,6 @@ require("dotenv").config({
 })
 
 module.exports = {
-  pathPrefix: "/geb-website",
   siteMetadata: {
     title: "Reflexer Labs",
     titleTemplate: "%s",
