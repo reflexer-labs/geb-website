@@ -96,7 +96,11 @@ const SplitView = ({ data, topOffset, isAbout = false }) => {
         [INLINES.HYPERLINK]: node => {
           return (
             <a
-              href={node.data.uri}
+              href={
+                node.data.uri.includes("zip")
+                  ? getPrefixedPath(node.data.uri)
+                  : node.data.uri
+              }
               target={
                 node.data.uri.includes("mailto") ||
                 node.data.uri.includes("zip")
