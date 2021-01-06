@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet"
 import useSiteMetadata from "../hooks/useSiteMetadata"
 import getPrefixedPath from "../utils/getPrefixPath"
 
-const SiteMetadata = ({ pathname, customTitle }) => {
+const SiteMetadata = ({ pathname = "", customTitle }) => {
   const {
     siteUrl,
     title: mainTitle,
