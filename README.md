@@ -32,8 +32,10 @@ A preview link on [Render](https://render.com/) will be generated when you make 
 
     You have to CREATE a new RELEASE! on MASTER branch.
 
-    - Change in content only
+    - **_Content Changes_**
+
       Unfortunately there is no easy way ATM for this except we have to release everytime we change something in the Contentful CMS, so all you have to do is just after you are done publishing your changes on contentufl come here to the repo and then create a new realse on _master_ branch
 
-    - Change in app files  
+    - **_Files Changes_**
+
       You have to make a PR and merge _develop_ with _master_ then create a new release on _master_ and this will trigger github Actions and release the new version of the source plus the new data from contentful
