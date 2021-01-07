@@ -142,7 +142,7 @@ const Footer = ({ slapToBottom, location }) => {
           <Link to={"/privacy"}>Privacy Policy</Link>
         </LinkContainer>
         {/* <Button text={`Deployed Commit - master`} /> */}
-        <Button text="© Reflexer Labs 2020" />
+        <Button text={`© Reflexer Labs ${new Date().getFullYear()}`} />
       </LowerSection>
     </Container>
   )
