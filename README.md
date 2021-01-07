@@ -20,13 +20,13 @@ _Bottom line is we are having the best of both, as Developer we use React like a
 
 ## Preview
 
-A preview link on [Render](https://render.com/) will be generated when you make a new branch with the fixes you want and then make a PR to the _develop_ branch and this link stays live as long as the PR is opened.
+A preview link on [Render](https://render.com/) will be generated when you make a new branch with the fixes you want and then make a PR to the _develop_ branch and this link stays alive as long as the PR is opened.
 
 ## Deployment
 
 1.  **Development.**
 
-    This is used for staging changes/features and you can view it from [here](/), also this link changes everytime you merge a new branch into _develop_ branch.
+    This is used for staging changes/features and you can view it from [here](/), also it updates with the latest changes everytime you merge a new branch into _develop_ branch. (Takes around 2-3 mins for it for finish building and uploads the files to the url)
 
 1.  **Production.**
 
@@ -34,8 +34,8 @@ A preview link on [Render](https://render.com/) will be generated when you make 
 
     - **_Content Changes_**
 
-      Unfortunately there is no easy way ATM for this except we have to release everytime we change something in the Contentful CMS, so all you have to do is just after you are done publishing your changes on contentufl come here to the repo and then create a new realse on _master_ branch
+      Unfortunately there is no easy way ATM for this except we have to release everytime we change something in the Contentful CMS, so all you have to do is just you come here after you are done publishing your changes on Contentful and then create a new release on _master_ branch
 
     - **_Files Changes_**
 
-      You have to make a PR and merge _develop_ with _master_ then create a new release on _master_ and this will trigger github Actions and release the new version of the source plus the new data from contentful
+      You have to make a PR and merge _develop_ with _master_ then create a new release on _master_ and this will trigger github Actions and release the new version of the source files plus the new data from Contentful
