@@ -25,12 +25,12 @@ A preview link on [Render](https://render.com/) will be generated when you make 
 ## Deployment
 
 1.  **Development.**
-    [https://reflexer-website.onrender.com](https://reflexer-website.onrender.com/?target=_blank)
+    [https://reflexer-website.onrender.com](https://reflexer-website.onrender.com)
 
     This is used for staging changes/features and you can view it from [here](/), also it updates with the latest changes everytime you merge a new branch into _develop_ branch. (Takes around 2-3 mins for it for finish building and uploads the files to the url)
 
 1.  **Production.**
-    [https://reflexer.finance](https://reflexer.finance?target=_blank)
+    [https://reflexer.finance](https://reflexer.finance)
 
     You have to CREATE a new RELEASE! on MASTER branch.
 
