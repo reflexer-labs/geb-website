@@ -1,14 +1,22 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  <a href="https://reflexer.finance" target="_blank">
+    <img alt="Reflexer" src="https://i.ibb.co/CtWRHQd/android-chrome-512x512.png" width="60" />
   </a>
 </p>
 <h1 align="center">
-  Gatsby's hello-world starter
+  Reflexer Website
 </h1>
 
-Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+Reflexer website is built with [Gatsby](https://www.gatsbyjs.com/) and [Contentful CMS](https://www.contentful.com/).
+
+## Advantages of using this stack
+
+1. Gatsby is a framework built upon React and provides something called SSG (Static Site Generation) which means it generates HTML files at build time, and that is useful for SEO and Search Engines crawlers to rank the website since they do not read full js applications like normal react app.
+
+2. Gatsby connects with headless CMS called [Contentful](https://www.contentful.com/) which provides a great GUI where we can just add model and content and save it somewhere for free (Gives us 1GB of storage) also it renders GraphQL API that we use it in Gatsby to show our content.
+
+Bottom line is we are having the best of both, as Developer we use React like app and at the same time we are having some kind of a backend with an admin interface built for us for free to use it in content manipulation 🚀 and as non-developer I can go manipulate content from an admin interface without touching the code.
 
 _Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
 
@@ -97,4 +105,5 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-hello-world)
 
 <!-- AUTO-GENERATED-CONTENT:END -->
+
 # geb-website

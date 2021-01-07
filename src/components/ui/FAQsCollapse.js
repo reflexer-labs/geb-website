@@ -5,12 +5,14 @@ import styled from "styled-components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { INLINES } from "@contentful/rich-text-types"
 
-import useHomeFAQ from "../../hooks/useHomeFAQ"
+import useHome from "../../hooks/useHome"
 import { ExternalLinkArrow } from "../../styles/GlobalStyle"
 
 const FAQsCollapse = () => {
   const [collapseIndex, setCollapseIndex] = useState(0)
-  const homeFAQ = useHomeFAQ().map(item => item.node)
+
+  const { allContentfulHomeFaq } = useHome()
+  const homeFAQ = allContentfulHomeFaq.edges.map(item => item.node)
 
   const handleClick = i => {
     if (i === collapseIndex) {

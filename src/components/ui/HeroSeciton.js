@@ -1,15 +1,17 @@
 import React from "react"
 import styled from "styled-components"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import useHome from "../../hooks/useHome"
 
 const HeroSeciton = () => {
+  const { allContentfulHomeHero } = useHome()
+  const homeHero = allContentfulHomeHero.edges.map(item => item.node)
+
   return (
     <Container>
       <Content>
-        <Heading>Leverage ETH using RAI</Heading>
-        <Text>
-          A decentralized, stable and non pegged currency made for the digital
-          economy
-        </Text>
+        <Heading>{homeHero[0].title}</Heading>
+        <Text>{documentToReactComponents(homeHero[0].content.json)}</Text>
       </Content>
     </Container>
   )

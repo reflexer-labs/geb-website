@@ -1,12 +1,13 @@
 import React from "react"
 import styled from "styled-components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import useHomeFeature from "../../hooks/useHomeFeature"
+import useHome from "../../hooks/useHome"
 import { ExternalLinkArrow } from "../../styles/GlobalStyle"
 import getPrefixedPath from "../../utils/getPrefixPath"
 
 const FeaturesBlocks = () => {
-  const homeFeature = useHomeFeature().map(item => item.node)
+  const { allContentfulHomeFeature } = useHome()
+  const homeFeature = allContentfulHomeFeature.edges.map(item => item.node)
 
   return (
     <>

@@ -1,13 +1,13 @@
 import React from "react"
 import styled from "styled-components"
-import useHomeBoxes from "../../hooks/useHomeBoxes"
+import useHome from "../../hooks/useHome"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { ExternalLinkArrow } from "../../styles/GlobalStyle"
 import getPrefixedPath from "../../utils/getPrefixPath"
 
 const HeroBox = () => {
-  const homeBoxes = useHomeBoxes().map(item => item.node)
-
+  const { allContentfulHomeBoxes } = useHome()
+  const homeBoxes = allContentfulHomeBoxes.edges.map(item => item.node)
   return (
     <Container>
       <Row>
