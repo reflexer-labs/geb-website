@@ -119,13 +119,10 @@ const Footer = ({ slapToBottom, location }) => {
               About
             </LinkBtn>
             <LinkBtn onClick={e => handleSamePageClick(e, "/faq")}>FAQ</LinkBtn>
-            <LinkBtn
-              href={
-                "https://github.com/reflexer-labs/whitepapers/blob/master/English/rai-english.pdf"
-              }
-            >
-              Whitepaper
+            <LinkBtn href={"https://docs.reflexer.finance/"} target="_blank">
+              Documentation
             </LinkBtn>
+
             <LinkBtn
               href={
                 "https://medium.com/reflexer-labs/stability-without-pegs-8c6a1cbc7fbd"
