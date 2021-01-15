@@ -29,6 +29,7 @@ const FAQsCollapse = () => {
           return (
             <a
               href={node.data.uri}
+              rel="noreferrer"
               target={node.data.uri.includes("mailto") ? "" : "_blank"}
             >
               {node.content[0].value}

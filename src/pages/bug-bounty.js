@@ -56,6 +56,7 @@ const BugBounty = () => {
           return (
             <a
               href={node.data.uri}
+              rel="noreferrer"
               target={
                 node.data.uri.includes("mailto") ||
                 node.data.uri.includes("zip")
