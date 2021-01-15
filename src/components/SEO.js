@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet"
 import useSiteMetadata from "../hooks/useSiteMetadata"
 import getPrefixedPath from "../utils/getPrefixPath"
 
-const SiteMetadata = ({ pathname = "", customTitle }) => {
+const SEO = ({ pathname = "", customTitle }) => {
   const {
     siteUrl,
     title: mainTitle,
@@ -16,9 +16,10 @@ const SiteMetadata = ({ pathname = "", customTitle }) => {
 
   const href = `${siteUrl}${pathname}`
   const title = customTitle ? `Reflexer Labs | ${customTitle}` : mainTitle
+  console.log(twitter, favicon, image, description, titleTemplate, mainTitle)
 
   return (
-    <Helmet title={title} titleTemplate={titleTemplate}>
+    <Helmet title={title} titleTemplate={titleTemplate} defer={false}>
       <link rel="canonical" href={href} />
       <link rel="icon" href={`${getPrefixedPath(favicon)}`} />
       <link
@@ -31,7 +32,7 @@ const SiteMetadata = ({ pathname = "", customTitle }) => {
         name="viewport"
         content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover"
       />
-
+      <meta property="og:title" content={title} />
       <meta property="og:url" content={href} />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={title} />
@@ -50,4 +51,4 @@ const SiteMetadata = ({ pathname = "", customTitle }) => {
   )
 }
 
-export default SiteMetadata
+export default SEO
