@@ -82,6 +82,7 @@ const SplitView = ({ data, topOffset, isAbout = false }) => {
           key={iterator.link + Math.random()}
           href={iterator.link}
           target="_blank"
+          rel="noreferrer"
         >
           {iterator.name} <img src={getPrefixedPath("/arrow-up.svg")} alt="" />
         </CustomLink>
@@ -101,6 +102,7 @@ const SplitView = ({ data, topOffset, isAbout = false }) => {
                   ? getPrefixedPath(node.data.uri)
                   : node.data.uri
               }
+              rel="noreferrer"
               target={
                 node.data.uri.includes("mailto") ||
                 node.data.uri.includes("zip")
