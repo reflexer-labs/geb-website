@@ -2,9 +2,9 @@ import React from "react"
 import styled, { ThemeProvider } from "styled-components"
 import Header from "./Header"
 import Footer from "./Footer"
-import SiteMetadata from "./SiteMetadata"
 import { lightTheme } from "../utils/themes/light"
 import CookieBanner from "./CookieBanner"
+import SEO from "./SEO"
 
 const Layout = ({
   children,
@@ -16,20 +16,22 @@ const Layout = ({
   location,
 }) => {
   return (
-    <ThemeProvider theme={lightTheme}>
-      <SiteMetadata customTitle={customTitle} />
-      <MainContainer>
-        <Header
-          headerStyle={headerStyle}
-          isWhiteLogo={isWhiteLogo}
-          smallLogo={smallLogo}
-          onlyBrand={onlyBrand}
-        />
-        {children}
-        <Footer location={location} />
-        <CookieBanner />
-      </MainContainer>
-    </ThemeProvider>
+    <>
+      <SEO customTitle={customTitle} />
+      <ThemeProvider theme={lightTheme}>
+        <MainContainer>
+          <Header
+            headerStyle={headerStyle}
+            isWhiteLogo={isWhiteLogo}
+            smallLogo={smallLogo}
+            onlyBrand={onlyBrand}
+          />
+          {children}
+          <Footer location={location} />
+          <CookieBanner />
+        </MainContainer>
+      </ThemeProvider>
+    </>
   )
 }
 
