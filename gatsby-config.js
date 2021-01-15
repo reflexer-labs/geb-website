@@ -6,8 +6,9 @@ module.exports = {
   siteMetadata: {
     title: "Reflexer Labs",
     titleTemplate: "%s",
-    description: "Volatility dampened synthetic instruments",
-    keywords: "Volatility, dampened, synthetic, instruments",
+    description:
+      "We are building volatility dampened stable assets for the DeFi industry. RAI is the first asset of this kind which is only backed by ETH.",
+    keywords: "RAI, DeFi, ETH, stable asset are core",
     siteUrl: "https://www.reflexer.finance",
     image: "/android-chrome-512x512.png",
     favicon: "/icon.png",
