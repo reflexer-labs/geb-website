@@ -95,7 +95,6 @@ const Footer = ({ slapToBottom, location }) => {
             {showSuccess && <Success>Confirmation email sent!</Success>}
           </Subscribe>
         </Company>
-        <Column className="col20"></Column>
         <Column className={`col20 ${selectedGroup === 1 ? "active" : ""}`}>
           <Header onClick={() => handleClick(1)}>
             Community{" "}
@@ -111,8 +110,21 @@ const Footer = ({ slapToBottom, location }) => {
         </Column>
         <Column className={`col20 ${selectedGroup === 2 ? "active" : ""}`}>
           <Header onClick={() => handleClick(2)}>
-            Resources{" "}
+            Project{" "}
             {selectedGroup === 2 ? <Minus size={16} /> : <Plus size={16} />}
+          </Header>
+          <LinksContainer>
+            <LinkBtn href={"https://github.com/reflexer-labs"}>GitHub</LinkBtn>
+            <LinkBtn onClick={e => handleSamePageClick(e, "/bug-bounty")}>
+              Bug Bounty
+            </LinkBtn>
+          </LinksContainer>
+        </Column>
+
+        <Column className={`col20 ${selectedGroup === 3 ? "active" : ""}`}>
+          <Header onClick={() => handleClick(3)}>
+            Resources{" "}
+            {selectedGroup === 3 ? <Minus size={16} /> : <Plus size={16} />}
           </Header>
           <LinksContainer>
             <LinkBtn onClick={e => handleSamePageClick(e, "/about")}>
@@ -130,7 +142,6 @@ const Footer = ({ slapToBottom, location }) => {
             >
               TL;DR Reflex Index
             </LinkBtn>
-            <LinkBtn href={"https://github.com/reflexer-labs"}>GitHub</LinkBtn>
           </LinksContainer>
         </Column>
       </UpperSection>
