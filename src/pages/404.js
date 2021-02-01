@@ -8,7 +8,7 @@ import getPrefixedPath from "../utils/getPrefixPath"
 
 export default function NotFound() {
   return (
-    <Layout>
+    <Layout headerStyle={{ position: "absolute", width: "100%", top: "20px" }}>
       <>
         <Container>
           <h2>Page not found</h2>
@@ -32,9 +32,13 @@ const Container = styled.div`
   padding: 80px 15px;
   text-align: center;
   max-width: 900px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   margin: 0 auto;
   width: 100%;
-  min-height: 400px;
+  min-height: calc(100vh - 320px);
 `
 
 const BtnContainer = styled.div`
