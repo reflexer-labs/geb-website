@@ -195,9 +195,10 @@ const MenuContent = styled.div`
   }
   &.white {
     button {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.2);
       color: ${props => props.theme.colors.primary};
       font-weight: normal;
+      color: white;
     }
   }
 
