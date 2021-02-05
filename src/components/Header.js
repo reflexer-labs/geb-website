@@ -37,7 +37,7 @@ const Header = ({
 
       <Right>
         <MenuIcon onClick={() => setOpenMenu(true)}>
-          <Menu size={20} color={isWhiteLogo ? "white" : ""} />
+          <Menu size={20} color={isWhiteLogo ? "white" : "black"} />
         </MenuIcon>
 
         <MenuContent className={menuClassNames}>
@@ -45,7 +45,9 @@ const Header = ({
             <X size={20} />
           </CloseIcon>
           <Column>
-            <NavLink className={isWhiteLogo ? "white" : ""}>Products</NavLink>
+            <NavLink className={isWhiteLogo ? "white" : "black"}>
+              Products
+            </NavLink>
             <LinksContainer>
               <LinkBtn href="https://app.reflexer.finance/" target="_blank">
                 App
