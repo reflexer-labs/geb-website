@@ -119,6 +119,14 @@ const Header = ({
               >
                 TL;DR Reflex Index
               </LinkBtn>
+              <LinkBtn
+                href={
+                  "https://github.com/reflexer-labs/whitepapers/blob/master/English/rai-english.pdf"
+                }
+                target={"_blank"}
+              >
+                Whitepaper
+              </LinkBtn>
             </LinksContainer>
           </Column>
           <Button>
