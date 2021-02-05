@@ -89,6 +89,12 @@ const Header = ({
               <LinkBtn onClick={e => handleSamePageClick(e, "/bug-bounty")}>
                 Bug Bounty
               </LinkBtn>
+              <LinkBtn
+                href="https://angel.co/company/reflexer-labs"
+                target="_blank"
+              >
+                Jobs
+              </LinkBtn>
             </LinksContainer>
           </Column>
 
