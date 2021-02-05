@@ -101,11 +101,18 @@ const Footer = ({ slapToBottom, location }) => {
             {selectedGroup === 1 ? <Minus size={16} /> : <Plus size={16} />}
           </Header>
           <LinksContainer>
-            <LinkBtn href={"https://discord.gg/83t3xKT"}>Discord</LinkBtn>
-            <LinkBtn href={"https://twitter.com/reflexerfinance"}>
+            <LinkBtn href={"https://discord.gg/83t3xKT"} target="_blank">
+              Discord
+            </LinkBtn>
+            <LinkBtn
+              href={"https://twitter.com/reflexerfinance"}
+              target="_blank"
+            >
               Twitter
             </LinkBtn>
-            <LinkBtn href={"https://medium.com/reflexer-labs"}>Medium</LinkBtn>
+            <LinkBtn href={"https://medium.com/reflexer-labs"} target="_blank">
+              Medium
+            </LinkBtn>
           </LinksContainer>
         </Column>
         <Column className={`col20 ${selectedGroup === 2 ? "active" : ""}`}>
@@ -114,7 +121,9 @@ const Footer = ({ slapToBottom, location }) => {
             {selectedGroup === 2 ? <Minus size={16} /> : <Plus size={16} />}
           </Header>
           <LinksContainer>
-            <LinkBtn href={"https://github.com/reflexer-labs"}>GitHub</LinkBtn>
+            <LinkBtn href={"https://github.com/reflexer-labs"} target="_blank">
+              GitHub
+            </LinkBtn>
             <LinkBtn onClick={e => handleSamePageClick(e, "/bug-bounty")}>
               Bug Bounty
             </LinkBtn>
@@ -139,6 +148,7 @@ const Footer = ({ slapToBottom, location }) => {
               href={
                 "https://medium.com/reflexer-labs/stability-without-pegs-8c6a1cbc7fbd"
               }
+              target="_blank"
             >
               TL;DR Reflex Index
             </LinkBtn>

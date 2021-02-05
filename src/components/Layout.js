@@ -25,6 +25,7 @@ const Layout = ({
             isWhiteLogo={isWhiteLogo}
             smallLogo={smallLogo}
             onlyBrand={onlyBrand}
+            location={location}
           />
           {children}
           <Footer location={location} />
