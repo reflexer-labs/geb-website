@@ -185,7 +185,7 @@ export default Footer
 
 const Container = styled.div`
   background: white;
-  padding: 60px 40px 50px 20px;
+  padding: 60px 40px 30px;
 `
 
 const BrandContainer = styled.div`
