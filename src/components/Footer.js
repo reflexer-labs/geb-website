@@ -176,12 +176,7 @@ const Footer = ({ slapToBottom, location }) => {
         {/* <Button text={`Deployed Commit - master`} /> */}
         <Button text={`© Reflexer Labs ${new Date().getFullYear()}`} />
       </LowerSection>
-      <ReactTooltip
-        multiline
-        type="light"
-        data-effect="float"
-        placement="top"
-      />
+      <ReactTooltip multiline type="light" data-effect="float" place="top" />
     </Container>
   )
 }
@@ -190,7 +185,7 @@ export default Footer
 
 const Container = styled.div`
   background: white;
-  padding: 60px 40px 50px;
+  padding: 60px 40px 50px 20px;
 `
 
 const BrandContainer = styled.div`
