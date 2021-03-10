@@ -52,3 +52,14 @@ body {
 a {
   text-decoration: none;
 }
+
+.__react_component_tooltip {
+  max-width: 250px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 5px;
+  opacity: 1 !important;
+  background: white;
+  border: #eef3f9;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+}

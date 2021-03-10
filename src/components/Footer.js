@@ -3,6 +3,7 @@ import { navigate, Link } from "gatsby"
 import styled from "styled-components"
 import jsonp from "jsonp"
 import qs from "query-string"
+import ReactTooltip from "react-tooltip"
 import Brand from "./ui/Brand"
 import EmailInput from "./ui/EmailInput"
 import Button from "./ui/Button"
@@ -127,6 +128,12 @@ const Footer = ({ slapToBottom, location }) => {
             <LinkBtn onClick={e => handleSamePageClick(e, "/bug-bounty")}>
               Bug Bounty
             </LinkBtn>
+            <LinkBtn
+              href={"https://angel.co/company/reflexer-labs"}
+              target="_blank"
+            >
+              Jobs
+            </LinkBtn>
           </LinksContainer>
         </Column>
 
@@ -158,10 +165,23 @@ const Footer = ({ slapToBottom, location }) => {
       <LowerSection>
         <LinkContainer>
           <Link to={"/privacy"}>Privacy Policy</Link>
+          <TipBtn
+            data-tip={
+              "Reflexer, FLX, and RAI, and the contents of the Reflexer Media Kit, are trademarks of Reflexer Labs, Inc. Use of this website and the Reflexer trademarks is not allowed for any purpose without the express, written permission of Reflexer."
+            }
+          >
+            Legal Notices
+          </TipBtn>
         </LinkContainer>
         {/* <Button text={`Deployed Commit - master`} /> */}
         <Button text={`© Reflexer Labs ${new Date().getFullYear()}`} />
       </LowerSection>
+      <ReactTooltip
+        multiline
+        type="light"
+        data-effect="float"
+        placement="top"
+      />
     </Container>
   )
 }
@@ -291,7 +311,7 @@ const LinkBtn = styled.a`
 const LowerSection = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
+  margin-top: 15px;
   align-items: center;
   button {
     padding: 4px 8px;
@@ -342,5 +362,32 @@ const LinkContainer = styled.div`
       text-decoration:none;
      }
     }
+  `}
+`
+
+const TipBtn = styled.div`
+  font-size: ${props => props.theme.font.default};
+  line-height: 22px;
+  margin-top: 15px;
+  letter-spacing: -0.18px;
+  color: ${props => props.theme.colors.secondary};
+  transition: all 0.3s ease;
+  display: block;
+  cursor: pointer;
+  &:hover {
+    color: ${props => props.theme.colors.primary};
+    svg {
+      color: ${props => props.theme.colors.primary};
+    }
+  }
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    margin-bottom: 20px;
+      font-weight: 600;
+      font-family: "Inter-Medium";
+      color: ${props => props.theme.colors.primary};
+     &:hover {
+      text-decoration:none;
+     }
+   
   `}
 `

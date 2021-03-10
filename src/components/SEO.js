@@ -16,7 +16,6 @@ const SEO = ({ pathname = "", customTitle }) => {
 
   const href = `${siteUrl}${pathname}`
   const title = customTitle ? `Reflexer Labs | ${customTitle}` : mainTitle
-  console.log(twitter, favicon, image, description, titleTemplate, mainTitle)
 
   return (
     <Helmet title={title} titleTemplate={titleTemplate} defer={false}>
