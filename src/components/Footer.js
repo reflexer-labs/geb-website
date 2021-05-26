@@ -114,6 +114,12 @@ const Footer = ({ slapToBottom, location }) => {
             <LinkBtn href={"https://medium.com/reflexer-labs"} target="_blank">
               Medium
             </LinkBtn>
+            <LinkBtn
+              href={"https://community.reflexer.finance/"}
+              target="_blank"
+            >
+              Forum
+            </LinkBtn>
           </LinksContainer>
         </Column>
         <Column className={`col20 ${selectedGroup === 2 ? "active" : ""}`}>
@@ -157,7 +163,7 @@ const Footer = ({ slapToBottom, location }) => {
               }
               target="_blank"
             >
-              TL;DR Reflex Index
+              TL;DR RAI
             </LinkBtn>
           </LinksContainer>
         </Column>

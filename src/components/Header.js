@@ -60,7 +60,7 @@ const Header = ({
           <Column>
             <NavLink className={isWhiteLogo ? "white" : ""}>Community</NavLink>
             <LinksContainer>
-              <LinkBtn href={"https://discord.gg/83t3xKT"} target="_blank">
+              <LinkBtn href={"https://discord.gg/G6SZSAvX32"} target="_blank">
                 Discord
               </LinkBtn>
               <LinkBtn
@@ -74,6 +74,12 @@ const Header = ({
                 target="_blank"
               >
                 Medium
+              </LinkBtn>
+              <LinkBtn
+                href={"https://community.reflexer.finance/"}
+                target="_blank"
+              >
+                Forum
               </LinkBtn>
             </LinksContainer>
           </Column>
@@ -117,7 +123,7 @@ const Header = ({
                 }
                 target={"_blank"}
               >
-                TL;DR Reflex Index
+                TL;DR RAI
               </LinkBtn>
               <LinkBtn
                 href={
