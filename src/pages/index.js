@@ -5,6 +5,7 @@ import FeaturesBlocks from "../components/ui/FeaturesBlocks"
 import FAQsCollapse from "../components/ui/FAQsCollapse"
 import HeroBox from "../components/ui/HeroBox"
 import HeroSeciton from "../components/ui/HeroSeciton"
+import RaiUsage from "../components/RaiUsage"
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
         <HeroBox />
       </BoxesContainer>
       <FeaturesBlocks />
+      <RaiUsage />
       <FAQsCollapse />
     </Layout>
   )

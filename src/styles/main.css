@@ -52,3 +52,80 @@ body {
 a {
   text-decoration: none;
 }
+
+.__react_component_tooltip {
+  max-width: 250px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 5px;
+  opacity: 1 !important;
+  background: white;
+  border: #eef3f9;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+}
+
+/* slider */
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-pagination {
+  position: static !important;
+  margin-top: 30px;
+}
+
+.swiper-pagination-bullets {
+  display: flex;
+  justify-content: center;
+}
+.swiper-pagination-bullet {
+  padding: 5px 15px;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  text-transform: capitalize;
+  border-bottom: 2px solid #999999;
+  margin: 0 !important;
+}
+
+.swiper-pagination-bullet-active {
+  color: #009c94;
+  border-bottom: 2px solid #009c94;
+}
+
+@media (max-width: 500px) {
+  .swiper-pagination-bullet {
+    padding: 5px;
+    flex: 1;
+  }
+}
