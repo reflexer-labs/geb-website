@@ -106,6 +106,7 @@ a {
 .swiper-pagination-bullets {
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
 }
 .swiper-pagination-bullet {
   padding: 5px 15px;
@@ -116,11 +117,15 @@ a {
   text-transform: capitalize;
   border-bottom: 2px solid #999999;
   margin: 0 !important;
+  cursor: pointer;
+  opacity: 0.3 !important;
+  font-weight: bold;
 }
 
 .swiper-pagination-bullet-active {
   color: #009c94;
   border-bottom: 2px solid #009c94;
+  opacity: 1 !important;
 }
 
 @media (max-width: 500px) {
