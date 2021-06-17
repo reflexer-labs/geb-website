@@ -30,7 +30,7 @@ const RaiUsage = () => {
     <Container>
       <Title>
         <Dimmed>Try RAI</Dimmed>
-        Community-built interfaces integrating the protocol
+        Projects and interfaces that accept RAI
       </Title>
       <Swiper
         className="mySwiper"
@@ -46,7 +46,7 @@ const RaiUsage = () => {
                 <ItemsRow>
                   {items[key].map(item => {
                     return (
-                      <Link href={item.link.link}>
+                      <Link href={item.link.link} target="_blank">
                         <ItemBox>
                           <img src={item.image.file.url} alt="item.title" />
                           <ItemTitle>{item.title.title}</ItemTitle>
@@ -83,7 +83,7 @@ const Title = styled.div`
   font-family: "Inter-Medium";
   color: ${props => props.theme.colors.primary};
   letter-spacing: -0.33px;
-  max-width: 600px;
+  max-width: 400px;
   width: 100%;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     font-size: 22px;
@@ -103,6 +103,7 @@ const ItemsRow = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
+  width: 100%;
   flex-wrap: wrap;
   ${({ theme }) => theme.mediaWidth.upToSmall`
    flex-direction: column;
@@ -115,11 +116,12 @@ const Link = styled.a`
   color: inherit;
   text-decoration: none;
   flex: 0 0 33.3%;
+  min-width: 33.3%;
   padding: 0 10px;
   margin-top: 30px;
   ${({ theme }) => theme.mediaWidth.upToSmall`
-   fflex: 0 0 100%;
-   
+   flex: 0 0 100%;
+   min-width:100%;
   `}
 `
 const ItemBox = styled.div`
