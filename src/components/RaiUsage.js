@@ -28,38 +28,40 @@ const RaiUsage = () => {
 
   return (
     <Container>
-      <Title>
-        <Dimmed>Try RAI</Dimmed>
-        Projects and interfaces that accept RAI
-      </Title>
-      <Swiper
-        className="mySwiper"
-        spaceBetween={50}
-        slidesPerView={1}
-        pagination={pagination}
-      >
-        {Object.keys(items)
-          .reverse()
-          .map(key => {
-            return (
-              <SwiperSlide>
-                <ItemsRow>
-                  {items[key].map(item => {
-                    return (
-                      <Link href={item.link.link} target="_blank">
-                        <ItemBox>
-                          <img src={item.image.file.url} alt="item.title" />
-                          <ItemTitle>{item.title.title}</ItemTitle>
-                          <ItemContent>{item.content.content}</ItemContent>
-                        </ItemBox>
-                      </Link>
-                    )
-                  })}
-                </ItemsRow>
-              </SwiperSlide>
-            )
-          })}
-      </Swiper>
+      <Content>
+        <Title>
+          <Dimmed>Try RAI</Dimmed>
+          Projects and interfaces that accept RAI
+        </Title>
+        <Swiper
+          className="mySwiper"
+          spaceBetween={50}
+          slidesPerView={1}
+          pagination={pagination}
+        >
+          {Object.keys(items)
+            .reverse()
+            .map(key => {
+              return (
+                <SwiperSlide style={{ background: "transparent" }}>
+                  <ItemsRow>
+                    {items[key].map(item => {
+                      return (
+                        <Link href={item.link.link} target="_blank">
+                          <ItemBox>
+                            <img src={item.image.file.url} alt="item.title" />
+                            <ItemTitle>{item.title.title}</ItemTitle>
+                            <ItemContent>{item.content.content}</ItemContent>
+                          </ItemBox>
+                        </Link>
+                      )
+                    })}
+                  </ItemsRow>
+                </SwiperSlide>
+              )
+            })}
+        </Swiper>
+      </Content>
     </Container>
   )
 }
@@ -67,17 +69,21 @@ const RaiUsage = () => {
 export default RaiUsage
 
 const Container = styled.div`
-  max-width: 1300px;
   padding: 0 30px;
-  margin: 0 auto 50px auto;
+  padding: 160px 0;
   ${({ theme }) => theme.mediaWidth.upToSmall`
-  padding: 0 15px;
-   
+   padding: 80px 0;
   `}
+  background: ${props => props.theme.colors.foreground};
+`
+const Content = styled.div`
+  max-width: 1280px;
+  padding: 0 30px;
+  margin: 0 auto;
 `
 const Title = styled.div`
   font-weight: bold;
-  margin: 100px 0 30px 0;
+  margin: 0px 0 30px 0;
   font-size: 35px;
   font-weight: 600;
   font-family: "Inter-Medium";
@@ -118,7 +124,8 @@ const Link = styled.a`
   flex: 0 0 33.3%;
   min-width: 33.3%;
   padding: 0 10px;
-  margin-top: 30px;
+  margin-bottom: 30px;
+
   ${({ theme }) => theme.mediaWidth.upToSmall`
    flex: 0 0 100%;
    min-width:100%;
@@ -128,10 +135,15 @@ const ItemBox = styled.div`
   border: 1px solid ${props => props.theme.colors.border};
   border-radius: ${props => props.theme.global.borderRadius};
   padding: 40px;
+  transition: all 0.3s ease;
   img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
+  }
+  &:hover {
+    background: ${props => props.theme.colors.neutral};
+    box-shadow: 0px 16px 24px rgb(0 0 0 / 8%);
   }
 `
 
@@ -142,4 +154,5 @@ const ItemTitle = styled.h4`
 const ItemContent = styled.div`
   text-align: left;
   font-size: ${props => props.theme.font.small};
+  line-height: 1.6;
 `

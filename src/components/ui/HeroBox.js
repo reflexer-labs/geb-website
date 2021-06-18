@@ -45,6 +45,7 @@ const Row = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 0 -10px;
+  justify-content: center;
 `
 
 const Col = styled.div`
