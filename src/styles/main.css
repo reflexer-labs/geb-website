@@ -120,6 +120,7 @@ a {
   cursor: pointer;
   opacity: 0.3 !important;
   font-weight: bold;
+  text-align: center !important;
 }
 
 .swiper-pagination-bullet-active {
