@@ -39,7 +39,7 @@ const Title = styled.h1`
 
 const InnterContent = styled.div`
   max-width: 1024px;
-  margin: 0 auto 80px auto;
+  margin: 0 auto 120px auto;
   padding-top: 180px;
   padding-right: 20px;
   padding-left: 20px;
