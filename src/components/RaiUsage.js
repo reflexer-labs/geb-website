@@ -38,16 +38,21 @@ const RaiUsage = () => {
           spaceBetween={50}
           slidesPerView={1}
           pagination={pagination}
+          autoHeight
         >
           {Object.keys(items)
             .reverse()
             .map(key => {
               return (
-                <SwiperSlide style={{ background: "transparent" }}>
+                <SwiperSlide key={key} style={{ background: "transparent" }}>
                   <ItemsRow>
                     {items[key].map(item => {
                       return (
-                        <Link href={item.link.link} target="_blank">
+                        <Link
+                          key={item.title.title}
+                          href={item.link.link}
+                          target="_blank"
+                        >
                           <ItemBox>
                             <img src={item.image.file.url} alt="item.title" />
                             <ItemTitle>{item.title.title}</ItemTitle>

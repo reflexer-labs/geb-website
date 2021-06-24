@@ -40,7 +40,7 @@ const Content = styled.div`
 `
 
 const Heading = styled.div`
-  font-size: 65px;
+  font-size: 58px;
   font-weight: 600;
   font-family: "Inter-Medium";
   color: ${props => props.theme.colors.neutral};
