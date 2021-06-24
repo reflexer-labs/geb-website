@@ -20,7 +20,12 @@ const HeroBox = () => {
               <Title>{item.title}</Title>
               <Text>{documentToReactComponents(item.content.json)}</Text>
               <LinkContainer>
-                <Link href={item.link.link} target="_blank">
+                <Link
+                  href={item.link.link}
+                  target={
+                    item.link.link.startsWith("http" || "//") ? "_blank" : ""
+                  }
+                >
                   {item.link.name}{" "}
                   <img src={getPrefixedPath("/arrow.svg")} alt="" />
                 </Link>
