@@ -1,20 +1,32 @@
 import React from "react"
-import moment from "moment"
 import Layout from "../components/Layout"
 import styled from "styled-components"
-import { ExternalLinkArrow } from "../styles/GlobalStyle"
 import useWhyRai from "../hooks/useWhyRai"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 const WhyRai = () => {
-  const data = useWhyRai()[0].node
+  const data = useWhyRai()
 
   return (
     <Layout headerStyle={{ position: "absolute", width: "100%", top: "20px" }}>
       <InnterContent>
-        <Title>{data.title.title}</Title>
-        <Date>Updated {moment(data.updatedAt).format("MMMM Do YYYY")}</Date>
-        {documentToReactComponents(data.content.json)}
+        <Title>{"Why RAI"}</Title>
+        {data.map(item => {
+          return (
+            <Box
+              key={item.node.title + Math.random()}
+              style={{ background: `url(${item.node.background.file.url})` }}
+            >
+              <ItemTitle>{item.node.title.title}</ItemTitle>
+              <Content>
+                {documentToReactComponents(item.node.content.json)}
+              </Content>
+              <Link href={item.node.link.link} target="_blank">
+                {item.node.link.name}
+              </Link>
+            </Box>
+          )
+        })}
       </InnterContent>
     </Layout>
   )
@@ -27,7 +39,7 @@ const Title = styled.h1`
   font-weight: 600;
   text-align: center;
   max-width: 450px;
-  margin: 0 auto 60px auto;
+  margin: 0 auto 80px auto;
   font-size: 50px;
   font-weight: 600;
   font-family: "Inter-Medium";
@@ -38,106 +50,46 @@ const Title = styled.h1`
 `
 
 const InnterContent = styled.div`
-  max-width: 1024px;
-  margin: 0 auto 80px auto;
+  max-width: 880px;
+  margin: 0 auto 120px auto;
   padding-top: 180px;
   padding-right: 20px;
   padding-left: 20px;
+`
 
+const Box = styled.div`
+  border-radius: 30px;
+  background-color: transparent;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 40px;
+  margin-bottom: 30px;
+`
+
+const ItemTitle = styled.div`
+  color: white;
+  font-weight: 900;
+  font-size: 22px;
+`
+
+const Content = styled.div`
+  color: white;
+  line-height: 1.7;
+  font-size: 17px;
   p {
-    line-height: 1.8 !important;
-    margin-bottom: 0 !important;
-    > b {
-      font-size: calc(0.44vw + 0.44vh + 0.5vmin);
-      line-height: 2;
-      margin: 0;
-      color: ${props => props.theme.colors.primary};
-      a {
-        ${ExternalLinkArrow}
-        display:inline;
-        font-size: calc(0.44vw + 0.44vh + 0.5vmin);
-        word-break: break-all;
-      }
-      ${({ theme }) => theme.mediaWidth.upToSmall`
-      font-size: 16px;
-      a{
-        font-size: 16px;
-      }
-    `}
-    }
-  }
-  p,
-  li {
-    color: ${props => props.theme.colors.secondary};
-    font-weight: bold;
-    font-size: calc(0.42vw + 0.42vh + 0.5vmin);
-    ${({ theme }) => theme.mediaWidth.upToSmall`
-    font-size:15px;
-  `}
-    a {
-      ${ExternalLinkArrow}
-      display:inline;
-
-      word-break: break-all;
-    }
-  }
-
-  h3 {
-    font-size: calc(0.8vw + 0.8vh + 0.5vmin);
-    font-family: "Inter-Medium";
-    color: ${props => props.theme.colors.primary};
-    margin-top: 60px;
-    margin-bottom: 20px;
-    ${({ theme }) => theme.mediaWidth.upToSmall`
-  font-size:20px;
-  margin-bottom:20px;
-  `}
-  }
-
-  h5 {
-    font-size: calc(0.55vw + 0.55vh + 0.5vmin);
-    line-height: 2;
-    margin: 20px 0 0 0;
-    color: ${props => props.theme.colors.primary};
-    font-family: "Inter-Medium";
-    font-weight: bold;
-    a {
-      ${ExternalLinkArrow}
-      display:inline;
-      font-size: calc(0.44vw + 0.44vh + 0.5vmin);
-      word-break: break-all;
-    }
-    ${({ theme }) => theme.mediaWidth.upToSmall`
-      font-size: 17px;
-      a{
-        font-size: 17px;
-      }
-    `}
-  }
-
-  h6 {
-    font-size: calc(0.44vw + 0.44vh + 0.5vmin);
-    line-height: 2;
-    margin: 0;
-
-    a {
-      ${ExternalLinkArrow}
-      display:inline;
-      font-size: calc(0.44vw + 0.44vh + 0.5vmin);
-      word-break: break-all;
-    }
-    ${({ theme }) => theme.mediaWidth.upToSmall`
-      font-size: 16px;
-      a{
-        font-size: 16px;
-      }
-    `}
+    margin-top: 10px;
   }
 `
 
-const Date = styled.div`
-  color: ${props => props.theme.colors.secondary};
-  text-align: center;
-  margin: 30px 0 80px 0;
+const Link = styled.a`
+  padding: 8px 15px;
+  border-radius: 4px;
+  position: relative;
+  color: #133ab3;
+  background: white;
+  font-size: 15px;
   font-weight: bold;
+  margin-top: 10px;
+  display: inline-block;
 `
