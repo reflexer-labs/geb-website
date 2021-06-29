@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 export default function usePrivacy() {
   const { allContentfulWhyRai } = useStaticQuery(graphql`
     query WhyRai {
-      allContentfulWhyRai {
+      allContentfulWhyRai(sort: { fields: order }) {
         edges {
           node {
             title {
@@ -12,7 +12,15 @@ export default function usePrivacy() {
             content {
               json
             }
-            updatedAt
+            background {
+              file {
+                url
+              }
+            }
+            link {
+              name
+              link
+            }
           }
         }
       }
