@@ -6,7 +6,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 const WhyRai = () => {
   const data = useWhyRai()
-  console.log(data)
+
   return (
     <Layout headerStyle={{ position: "absolute", width: "100%", top: "20px" }}>
       <InnterContent>
