@@ -123,7 +123,7 @@ const Header = ({
                 }
                 target={"_blank"}
               >
-                TL;DR RAI
+                RAI Explainer
               </LinkBtn>
               <LinkBtn
                 href={

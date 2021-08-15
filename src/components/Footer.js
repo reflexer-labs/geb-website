@@ -163,7 +163,7 @@ const Footer = ({ slapToBottom, location }) => {
               }
               target="_blank"
             >
-              TL;DR RAI
+              RAI Explainer
             </LinkBtn>
           </LinksContainer>
         </Column>
