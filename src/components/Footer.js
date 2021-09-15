@@ -10,8 +10,10 @@ import Button from "./ui/Button"
 import { isValidEmail } from "../utils/validations"
 import { MAILCHIMP_URL } from "../utils/constants"
 import { Minus, Plus } from "react-feather"
+import useDarkMode from "use-dark-mode"
 
-const Footer = ({ slapToBottom, location }) => {
+const Footer = ({ slapToBottom, location, isWhiteLogo }) => {
+  const { value: isDarkMode } = useDarkMode()
   const [selectedGroup, setSelectedGroup] = useState(0)
   const [email, setEmail] = useState("")
   const [error, setError] = useState("")
@@ -75,13 +77,12 @@ const Footer = ({ slapToBottom, location }) => {
       navigate(to)
     }
   }
-
   return (
     <Container className={slapToBottom ? "fixBottom" : ""}>
       <UpperSection>
         <Company className="col40">
           <BrandContainer>
-            <Brand height={30} />
+            <Brand forceWhite={isDarkMode} height={30} />
           </BrandContainer>
           <Subscribe>
             <EmailInput
@@ -190,7 +191,7 @@ const Footer = ({ slapToBottom, location }) => {
 export default Footer
 
 const Container = styled.div`
-  background: white;
+  background: ${props => props.theme.colors.background};
   padding: 60px 40px 30px;
 `
 

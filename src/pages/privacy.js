@@ -6,8 +6,10 @@ import { ExternalLinkArrow } from "../styles/GlobalStyle"
 import usePrivacy from "../hooks/usePrivacy"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import helper from "../utils/helper"
+import useDarkMode from "use-dark-mode"
 
 const Privacy = ({ location }) => {
+  const { value: isDarkMode } = useDarkMode()
   const privacyData = usePrivacy()[0].node
   useEffect(() => {
     if (location.state && location.state.section) {
@@ -22,7 +24,10 @@ const Privacy = ({ location }) => {
     }
   }, [location])
   return (
-    <Layout headerStyle={{ position: "absolute", width: "100%", top: "20px" }}>
+    <Layout
+      forceWhite={isDarkMode}
+      headerStyle={{ position: "absolute", width: "100%", top: "20px" }}
+    >
       <InnterContent>
         <Title>{privacyData.title.title}</Title>
         <Date>

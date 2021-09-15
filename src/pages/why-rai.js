@@ -3,12 +3,17 @@ import Layout from "../components/Layout"
 import styled from "styled-components"
 import useWhyRai from "../hooks/useWhyRai"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import useDarkMode from "use-dark-mode"
 
 const WhyRai = () => {
   const data = useWhyRai()
+  const { value: isDarkMode } = useDarkMode()
 
   return (
-    <Layout headerStyle={{ position: "absolute", width: "100%", top: "20px" }}>
+    <Layout
+      forceWhite={isDarkMode}
+      headerStyle={{ position: "absolute", width: "100%", top: "20px" }}
+    >
       <InnterContent>
         <Title>{"Why RAI"}</Title>
         {data.map(item => {

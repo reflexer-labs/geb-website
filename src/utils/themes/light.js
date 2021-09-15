@@ -4,7 +4,6 @@ const lightTheme = {
   colors: {
     primary: "#2A2A2A",
     secondary: "#A4ABB7",
-    customSecondary: "#696e76",
     gradient: "linear-gradient(225deg, #78D8FF 0%, #4CE096 100%)",
     neutral: "#ffffff",
     background: "#FDFDFD",
@@ -23,8 +22,12 @@ const lightTheme = {
     warningColor: "#856404",
     warningBackground: "#FFF3CD",
     warningBorder: "#856404",
+    dimmedColor: "#ffffff",
+    dimmedBackground: "#A4ABB7",
+    dimmedBorder: "#878787",
     placeholder: "#EEF3F9",
     inputBorderColor: "#6fbcdb",
+    boxShadow: "#eef3f9",
   },
   font: {
     extraSmall: "12px",

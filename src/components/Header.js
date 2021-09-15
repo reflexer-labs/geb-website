@@ -2,18 +2,20 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { navigate } from "gatsby"
 import classNames from "classnames"
-import { Menu, X } from "react-feather"
+import { Menu, Moon, Sun, X } from "react-feather"
 import Brand from "./ui/Brand"
 import Button from "./ui/Button"
+import useDarkMode from "use-dark-mode"
 
 const Header = ({
   headerStyle,
   isWhiteLogo,
   smallLogo,
-  onlyBrand,
+  forceWhite,
   location,
 }) => {
   const [openMenu, setOpenMenu] = useState(false)
+  const { value: isDarkMode, toggle } = useDarkMode()
   const handleSamePageClick = (e, to) => {
     setOpenMenu(false)
     if (location && location.pathname && location.pathname.includes(to)) {
@@ -23,16 +25,19 @@ const Header = ({
       navigate(to)
     }
   }
-
+  console.log(forceWhite)
   const menuClassNames = classNames({
     white: isWhiteLogo,
     active: openMenu,
   })
-
   return (
     <Container style={{ ...headerStyle }}>
       <Left>
-        <Brand smallLogo={smallLogo} isWhiteLogo={isWhiteLogo} />
+        <Brand
+          forceWhite={forceWhite}
+          isWhiteLogo={isWhiteLogo}
+          smallLogo={smallLogo}
+        />
       </Left>
 
       <Right>
@@ -45,10 +50,14 @@ const Header = ({
             <X size={20} />
           </CloseIcon>
           <Column>
-            <NavLink className={isWhiteLogo ? "white" : "black"}>
+            <NavLink
+              className={
+                forceWhite ? "makeWhite" : isWhiteLogo ? "white" : "black"
+              }
+            >
               Products
             </NavLink>
-            <LinksContainer>
+            <LinksContainer className={isDarkMode ? "isDark" : ""}>
               <LinkBtn href="https://app.reflexer.finance/" target="_blank">
                 App
               </LinkBtn>
@@ -58,8 +67,14 @@ const Header = ({
             </LinksContainer>
           </Column>
           <Column>
-            <NavLink className={isWhiteLogo ? "white" : ""}>Community</NavLink>
-            <LinksContainer>
+            <NavLink
+              className={
+                forceWhite ? "makeWhite" : isWhiteLogo ? "white" : "black"
+              }
+            >
+              Community
+            </NavLink>
+            <LinksContainer className={isDarkMode ? "isDark" : ""}>
               <LinkBtn href={"https://discord.gg/G6SZSAvX32"} target="_blank">
                 Discord
               </LinkBtn>
@@ -84,8 +99,14 @@ const Header = ({
             </LinksContainer>
           </Column>
           <Column>
-            <NavLink className={isWhiteLogo ? "white" : ""}>Project</NavLink>
-            <LinksContainer>
+            <NavLink
+              className={
+                forceWhite ? "makeWhite" : isWhiteLogo ? "white" : "black"
+              }
+            >
+              Project
+            </NavLink>
+            <LinksContainer className={isDarkMode ? "isDark" : ""}>
               <LinkBtn
                 href={"https://github.com/reflexer-labs"}
                 target="_blank"
@@ -105,8 +126,14 @@ const Header = ({
           </Column>
 
           <Column>
-            <NavLink className={isWhiteLogo ? "white" : ""}>Resources</NavLink>
-            <LinksContainer>
+            <NavLink
+              className={
+                forceWhite ? "makeWhite" : isWhiteLogo ? "white" : "black"
+              }
+            >
+              Resources
+            </NavLink>
+            <LinksContainer className={isDarkMode ? "isDark" : ""}>
               <LinkBtn onClick={e => handleSamePageClick(e, "/about")}>
                 About
               </LinkBtn>
@@ -135,6 +162,9 @@ const Header = ({
               </LinkBtn>
             </LinksContainer>
           </Column>
+          <ThemeBtn onClick={toggle}>
+            {isDarkMode ? <Sun /> : <Moon />}
+          </ThemeBtn>
           <Button>
             <a
               href="https://app.reflexer.finance/"
@@ -193,14 +223,75 @@ const CloseIcon = styled.div`
   `}
 `
 
+const ThemeBtn = styled.button`
+  background: ${props => props.theme.colors.secondary};
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+  border: 0;
+  color: ${props => props.theme.colors.primary};
+  padding: 9px 10px;
+  margin: 0 15px 0 15px;
+  line-height: normal;
+  border-radius: ${props => props.theme.global.borderRadius};
+  transition: all 0.3s ease;
+  position: relative;
+  svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    color: ${props => props.theme.colors.neutral};
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+   margin-right:15px;
+  `}
+`
+
+const LinksContainer = styled.div`
+  display: none;
+  position: absolute;
+  top: 40px;
+  border-radius: 4px;
+  background: ${props => props.theme.colors.neutral};
+  padding: 20px;
+  min-width: 200px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+
+  a {
+    color: #272727 !important;
+    &:hover {
+      color: ${props => props.theme.colors.primary} !important;
+    }
+  }
+  &.isDark {
+    background: ${props => props.theme.colors.foreground};
+    a {
+      color: ${props => props.theme.colors.secondary} !important;
+    }
+  }
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+  display:block;
+  position:static;
+  box-shadow:none;
+  padding:0;
+  margin-bottom:20px;
+  `}
+`
+
 const MenuContent = styled.div`
   display: flex;
   align-items: center;
   a {
-    color: inherit;
+    color: ${props => props.theme.colors.neutral};
   }
   &.white {
-    button {
+    button,
+    ${ThemeBtn} {
       background: rgba(255, 255, 255, 0.2);
       color: ${props => props.theme.colors.primary};
       font-weight: normal;
@@ -229,24 +320,6 @@ const MenuContent = styled.div`
   `}
 `
 
-const LinksContainer = styled.div`
-  display: none;
-  position: absolute;
-  top: 40px;
-  border-radius: 4px;
-  background: #fff;
-  padding: 20px;
-  min-width: 200px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-  display:block;
-  position:static;
-  box-shadow:none;
-  padding:0;
-  margin-bottom:20px;
-  `}
-`
-
 const Column = styled.div`
   margin-right: 3rem;
   position: relative;
@@ -264,12 +337,18 @@ const NavLink = styled.p`
   line-height: 22px;
   letter-spacing: -0.18px;
   padding: 10px 0;
-  color: ${props => props.theme.colors.primary};
+  color: #272727;
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   transition: all 0.3s ease;
+  &.makeWhite {
+    color: ${props => props.theme.colors.primary} !important;
+  }
+  &.white {
+    color: ${props => props.theme.colors.neutral} !important;
+  }
   svg {
     display: none;
   }
@@ -285,13 +364,10 @@ const NavLink = styled.p`
     cursor:pointer;
   
   `}
-  &.white {
-    color: white;
-  }
 `
 
 const LinkBtn = styled.a`
-  color: ${props => props.theme.colors.secondary};
+  color: ${props => props.theme.colors.neutral};
   font-size: 15px;
   line-height: 24px;
   letter-spacing: -0.18px;
@@ -306,6 +382,6 @@ const LinkBtn = styled.a`
   &:hover {
     text-decoration: none;
     transform: translateX(5px);
-    color: ${props => props.theme.colors.secondary};
+    color: ${props => props.theme.colors.neutral};
   }
 `

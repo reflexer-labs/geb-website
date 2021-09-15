@@ -12,6 +12,7 @@ const Home = () => {
     <Layout
       headerStyle={{ position: "absolute", width: "100%", top: "20px" }}
       isWhiteLogo
+      forceWhite={false}
       onlyBrand
     >
       <HeroSeciton />

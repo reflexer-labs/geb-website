@@ -2,8 +2,10 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import getPrefixedPath from "../../utils/getPrefixPath"
+import useDarkMode from "use-dark-mode"
 
-const Brand = ({ height, isWhiteLogo, smallLogo }) => {
+const Brand = ({ height, isWhiteLogo, smallLogo, forceWhite }) => {
+  const { value: isDarkMode } = useDarkMode()
   return (
     <Container>
       <Link to="/">
@@ -11,7 +13,9 @@ const Brand = ({ height, isWhiteLogo, smallLogo }) => {
           className={smallLogo ? "small" : ""}
           height={height}
           src={
-            isWhiteLogo
+            forceWhite
+              ? getPrefixedPath("/brand-white.svg")
+              : isWhiteLogo && !isDarkMode
               ? getPrefixedPath("/brand-white.svg")
               : getPrefixedPath("/brand.svg")
           }

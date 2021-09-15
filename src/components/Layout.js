@@ -1,10 +1,13 @@
 import React from "react"
 import styled, { ThemeProvider } from "styled-components"
+import useDarkMode from "use-dark-mode"
 import Header from "./Header"
 import Footer from "./Footer"
-import { lightTheme } from "../utils/themes/light"
 import CookieBanner from "./CookieBanner"
 import SEO from "./SEO"
+import GlobalStyle from "../styles/GlobalStyle"
+import { lightTheme } from "../utils/themes/light"
+import { darkTheme } from "../utils/themes/dark"
 
 const Layout = ({
   children,
@@ -14,11 +17,15 @@ const Layout = ({
   onlyBrand,
   customTitle,
   location,
+  forceWhite,
 }) => {
+  const { value: isDarkMode } = useDarkMode(false)
+
   return (
     <>
       <SEO customTitle={customTitle} />
-      <ThemeProvider theme={lightTheme}>
+      <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+        <GlobalStyle />
         <MainContainer>
           <Header
             headerStyle={headerStyle}
@@ -26,9 +33,10 @@ const Layout = ({
             smallLogo={smallLogo}
             onlyBrand={onlyBrand}
             location={location}
+            forceWhite={forceWhite}
           />
           {children}
-          <Footer location={location} />
+          <Footer isWhiteLogo={isDarkMode} location={location} />
           <CookieBanner />
         </MainContainer>
       </ThemeProvider>
