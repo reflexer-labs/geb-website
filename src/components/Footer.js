@@ -164,7 +164,7 @@ const Footer = ({ slapToBottom, location, isWhiteLogo }) => {
               }
               target="_blank"
             >
-              RAI Explainer
+              TL;DR RAI
             </LinkBtn>
           </LinksContainer>
         </Column>
