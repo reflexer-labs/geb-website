@@ -25,7 +25,10 @@ function findAllByKey(obj, keyToFind) {
   )
 }
 
+const isBrowser = typeof window !== "undefined"
+
 export default {
   SmoothVerticalScrolling,
   findAllByKey,
+  isBrowser,
 }

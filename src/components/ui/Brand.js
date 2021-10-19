@@ -3,18 +3,14 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import getPrefixedPath from "../../utils/getPrefixPath"
 
-const Brand = ({ height, isWhiteLogo, smallLogo }) => {
+const Brand = ({ height, smallLogo }) => {
   return (
     <Container>
       <Link to="/">
         <img
           className={smallLogo ? "small" : ""}
           height={height}
-          src={
-            isWhiteLogo
-              ? getPrefixedPath("/brand-white.svg")
-              : getPrefixedPath("/brand.svg")
-          }
+          src={getPrefixedPath("/brand-white.png")}
           alt="reflexer labs"
         />
       </Link>

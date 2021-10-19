@@ -15,12 +15,12 @@ const Home = () => {
       onlyBrand
     >
       <HeroSeciton />
-      <BoxesContainer>
+      {/* <BoxesContainer>
         <HeroBox />
       </BoxesContainer>
       <FeaturesBlocks />
       <RaiUsage />
-      <FAQsCollapse />
+      <FAQsCollapse /> */}
     </Layout>
   )
 }

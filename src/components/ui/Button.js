@@ -10,6 +10,7 @@ const Button = ({
   disabled,
   dimmedWithArrow,
   isBordered,
+  gradientBorder,
   arrowPlacement = "left",
   children,
 }) => {
@@ -21,6 +22,7 @@ const Button = ({
         </DimmedBtn>
       )
     }
+
     if (dimmedWithArrow) {
       return (
         <DimmedBtn disabled={disabled} onClick={onClick}>

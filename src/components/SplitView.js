@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import getPrefixedPath from "../utils/getPrefixPath"
-import helper from "../utils/helper"
+import {
+  SmoothVerticalScrolling,
+  isBrowser,
+  findAllByKey,
+} from "../utils/helper"
 import { ExternalLinkArrow } from "../styles/GlobalStyle"
 import { useMedia } from "react-use"
 import { INLINES } from "@contentful/rich-text-types"
 
 const SplitView = ({ data, topOffset, isAbout = false }) => {
-  const isBrowser = typeof window !== "undefined"
   const isWide = useMedia("(min-width: 991px)")
   const [activeIndex, setActiveIndex] = useState(0)
 
@@ -21,7 +24,7 @@ const SplitView = ({ data, topOffset, isAbout = false }) => {
     if (refs) {
       const selectedRef = refs[id]
       if (isBrowser && selectedRef) {
-        helper.SmoothVerticalScrolling(selectedRef, 300, "top")
+        SmoothVerticalScrolling(selectedRef, 300, "top")
       }
     }
     setActiveIndex(index)
@@ -50,8 +53,8 @@ const SplitView = ({ data, topOffset, isAbout = false }) => {
       item => item.nodeType === "unordered-list"
     )
 
-    let links = helper.findAllByKey(items, "value")
-    let images = helper.findAllByKey(items, "url")
+    let links = findAllByKey(items, "value")
+    let images = findAllByKey(items, "url")
     let result = []
     if (links.length > 0 && images.length > 0) {
       links = links.filter(item => item !== "")

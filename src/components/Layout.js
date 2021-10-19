@@ -2,7 +2,8 @@ import React from "react"
 import styled, { ThemeProvider } from "styled-components"
 import Header from "./Header"
 import Footer from "./Footer"
-import { lightTheme } from "../utils/themes/light"
+import helper from "../utils/helper"
+import { darkTheme } from "../utils/themes/dark"
 import CookieBanner from "./CookieBanner"
 import SEO from "./SEO"
 
@@ -15,10 +16,15 @@ const Layout = ({
   customTitle,
   location,
 }) => {
+  if (helper.isBrowser) {
+    const WOW = require("wowjs")
+    const wow = new WOW.WOW()
+    wow.init()
+  }
   return (
     <>
       <SEO customTitle={customTitle} />
-      <ThemeProvider theme={lightTheme}>
+      <ThemeProvider theme={darkTheme}>
         <MainContainer>
           <Header
             headerStyle={headerStyle}
@@ -41,6 +47,9 @@ export default Layout
 const MainContainer = styled.div`
   background: ${props => props.theme.colors.background};
   position: relative;
+  .wow {
+    display: inline-block;
+  }
   .CookieConsent {
     z-index: 999 !important;
     bottom: 20px !important;

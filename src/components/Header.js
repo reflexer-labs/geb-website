@@ -201,10 +201,13 @@ const MenuContent = styled.div`
   }
   &.white {
     button {
-      background: rgba(255, 255, 255, 0.2);
+      border-radius: 25px;
+      border: 3px solid ${props => props.theme.colors.blueish};
+      background: transparent;
       color: ${props => props.theme.colors.primary};
       font-weight: normal;
       color: white;
+      position: relative;
     }
   }
 
