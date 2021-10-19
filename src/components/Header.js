@@ -101,6 +101,9 @@ const Header = ({
               >
                 Jobs
               </LinkBtn>
+              <LinkBtn href="https://memes.reflexer.finance" target="_blank">
+                Memes
+              </LinkBtn>
             </LinksContainer>
           </Column>
 
