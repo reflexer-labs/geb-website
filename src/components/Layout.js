@@ -16,11 +16,12 @@ const Layout = ({
   customTitle,
   location,
 }) => {
-  if (helper.isBrowser) {
-    const WOW = require("wowjs")
-    const wow = new WOW.WOW()
+  React.useEffect(() => {
+    const { WOW } = require("wowjs")
+    const wow = new WOW()
     wow.init()
-  }
+  }, [])
+
   return (
     <>
       <SEO customTitle={customTitle} />

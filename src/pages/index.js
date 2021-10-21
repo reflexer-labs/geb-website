@@ -1,11 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 import Layout from "../components/Layout"
-import FeaturesBlocks from "../components/ui/FeaturesBlocks"
 import FAQsCollapse from "../components/ui/FAQsCollapse"
-import HeroBox from "../components/ui/HeroBox"
 import HeroSeciton from "../components/ui/HeroSeciton"
-import RaiUsage from "../components/RaiUsage"
+import VideoSection from "../components/VideoSection"
+import InfoBoxes from "../components/InfoBoxes"
 
 const Home = () => {
   return (
@@ -15,12 +14,9 @@ const Home = () => {
       onlyBrand
     >
       <HeroSeciton />
-      {/* <BoxesContainer>
-        <HeroBox />
-      </BoxesContainer>
-      <FeaturesBlocks />
-      <RaiUsage />
-      <FAQsCollapse /> */}
+      <VideoSection />
+      <InfoBoxes />
+      <FAQsCollapse />
     </Layout>
   )
 }

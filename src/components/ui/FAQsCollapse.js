@@ -61,9 +61,12 @@ const FAQsCollapse = () => {
                   <ChevronDown size={25} />
                 )}
               </CollapseTitle>
-              {i === collapseIndex ? (
-                <CollapseText>{handleContent(faq.content.json)}</CollapseText>
-              ) : null}
+
+              <CollapseText
+                style={{ maxHeight: i === collapseIndex ? "200px" : "0" }}
+              >
+                {handleContent(faq.content.json)}
+              </CollapseText>
             </CollapseBlock>
           ))}
         </CollapseSection>
@@ -137,6 +140,8 @@ const CollapseText = styled.div`
   letter-spacing: -0.18px;
   line-height: 24px;
   margin-top: 10px;
+  transition: all 0.4s ease;
+  overflow: hidden;
   a {
     ${ExternalLinkArrow}
   }

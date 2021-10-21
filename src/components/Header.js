@@ -101,6 +101,9 @@ const Header = ({
               >
                 Jobs
               </LinkBtn>
+              <LinkBtn href="https://memes.reflexer.finance" target="_blank">
+                Memes
+              </LinkBtn>
             </LinksContainer>
           </Column>
 
@@ -158,6 +161,8 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
+  position: relative;
+  z-index: 5;
   ${({ theme }) => theme.mediaWidth.upToSmall`
      padding: 0 20px;
      top:0 !important;

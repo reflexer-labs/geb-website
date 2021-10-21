@@ -1,4 +1,5 @@
 import React from "react"
+import { ArrowRightCircle } from "react-feather"
 import styled from "styled-components"
 import getPrefixedPath from "../../utils/getPrefixPath"
 
@@ -13,6 +14,7 @@ const Button = ({
   gradientBorder,
   arrowPlacement = "left",
   children,
+  roundedWithArrow,
 }) => {
   const returnType = () => {
     if (dimmed) {
@@ -53,6 +55,12 @@ const Button = ({
         <BorderedBtn disabled={disabled} onClick={onClick}>
           <Inner> {text}</Inner>
         </BorderedBtn>
+      )
+    } else if (roundedWithArrow) {
+      return (
+        <RoundedBtn disabled={disabled} onClick={onClick}>
+          {text} <ArrowRightCircle size={"18"} />
+        </RoundedBtn>
       )
     } else {
       return (
@@ -179,4 +187,11 @@ const Inner = styled.div`
   &:hover {
     opacity: 0.8;
   }
+`
+
+const RoundedBtn = styled(Container)`
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  justify-content: space-between;
 `

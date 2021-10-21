@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import useHome from "../../hooks/useHome"
 import getPrefixedPath from "../../utils/getPrefixPath"
+import LinkButton from "./LinkButton"
 
 const floatsAttr = {
   0: {
@@ -66,6 +67,20 @@ const HeroSeciton = () => {
             </Int>
           )
         })}
+        <BtnContainer>
+          <LinkButton
+            text={"Mint RAI"}
+            url="https://app.reflexer.finance"
+            isExternal
+            withArrow
+          />
+          <LinkButton
+            text={"RAI Incentives"}
+            url="https://app.reflexer.finance/#/earn/incentives"
+            isExternal
+            withArrow
+          />
+        </BtnContainer>
       </Content>
     </Container>
   )
@@ -151,4 +166,29 @@ const Int = styled.a`
         max-width: 30px;
       }
   `}
+`
+
+const BtnContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+
+  a {
+    font-size: 16px;
+    min-width: 180px;
+    margin: 0 10px;
+    background: ${props => props.theme.colors.blueish};
+    &:first-child {
+      background: ${props => props.theme.colors.greenish};
+    }
+  }
+  @media (max-width: 500px) {
+    flex-direction: column;
+    align-items: center;
+
+    a {
+      margin-bottom: 20px;
+      max-width: 180px;
+    }
+  }
 `
