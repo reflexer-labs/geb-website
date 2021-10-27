@@ -20,7 +20,7 @@ const VideoSection = () => {
   }
   return (
     <Container>
-      <Content>
+      <Content className="wow fadeInUp" data-wow-delay="0.1s">
         <img src="/ph.jpg" alt="" />
         {paused ? (
           <Placeholder>
@@ -28,7 +28,7 @@ const VideoSection = () => {
               <Play />
             </PlayBtn>
 
-            <Text>
+            <Text className="wow fadeIn" data-wow-delay="0.4s">
               <h3>FIND OUT</h3>
               <h3>MORE ABOUT</h3>
               <h2>RAI</h2>
@@ -39,7 +39,7 @@ const VideoSection = () => {
             <CloseBtn>
               <X onClick={handleClose} />
             </CloseBtn>
-            <YouTube video="BMcQjo6V-ao" autoplay muted={muted} />
+            <YouTube video="b5iHO14XU4k" autoplay muted={muted} />
           </IframeContainer>
         )}
       </Content>

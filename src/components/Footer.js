@@ -76,113 +76,154 @@ const Footer = ({ slapToBottom, location }) => {
     }
   }
 
+  const handleBackToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
   return (
-    <Container className={slapToBottom ? "fixBottom" : ""}>
-      <UpperSection>
-        <Company className="col40">
-          <BrandContainer>
-            <Brand height={30} />
-          </BrandContainer>
-          <Subscribe>
-            <EmailInput
-              disabled={error ? true : false}
-              isSubmitting={isSubmitting}
-              label={"Updates"}
-              value={email}
-              handleEmailClick={onClickSubmit}
-              onChange={onChangeInput}
-              error={error}
-            />
-            {showSuccess && <Success>Confirmation email sent!</Success>}
-          </Subscribe>
-        </Company>
-        <Column className={`col20 ${selectedGroup === 1 ? "active" : ""}`}>
-          <Header onClick={() => handleClick(1)}>
-            Community{" "}
-            {selectedGroup === 1 ? <Minus size={16} /> : <Plus size={16} />}
-          </Header>
-          <LinksContainer>
-            <LinkBtn href={"https://discord.gg/G6SZSAvX32"} target="_blank">
-              Discord
-            </LinkBtn>
-            <LinkBtn
-              href={"https://twitter.com/reflexerfinance"}
-              target="_blank"
-            >
-              Twitter
-            </LinkBtn>
-            <LinkBtn href={"https://medium.com/reflexer-labs"} target="_blank">
-              Medium
-            </LinkBtn>
-            <LinkBtn
-              href={"https://community.reflexer.finance/"}
-              target="_blank"
-            >
-              Forum
-            </LinkBtn>
-          </LinksContainer>
-        </Column>
-        <Column className={`col20 ${selectedGroup === 2 ? "active" : ""}`}>
-          <Header onClick={() => handleClick(2)}>
-            Project{" "}
-            {selectedGroup === 2 ? <Minus size={16} /> : <Plus size={16} />}
-          </Header>
-          <LinksContainer>
-            <LinkBtn href={"https://github.com/reflexer-labs"} target="_blank">
-              GitHub
-            </LinkBtn>
-            <LinkBtn onClick={e => handleSamePageClick(e, "/bug-bounty")}>
-              Bug Bounty
-            </LinkBtn>
-            <LinkBtn
-              href={"https://angel.co/company/reflexer-labs"}
-              target="_blank"
-            >
-              Jobs
-            </LinkBtn>
-          </LinksContainer>
-        </Column>
+    <Container className={`wow fadeIn ${slapToBottom ? "fixBottom" : ""}`}>
+      <Inner>
+        <UpperSection>
+          <Company className="col20">
+            <BrandContainer>
+              <img src="/small-logo.svg" alt="footer-logo" />
+            </BrandContainer>
+          </Company>
 
-        <Column className={`col20 ${selectedGroup === 3 ? "active" : ""}`}>
-          <Header onClick={() => handleClick(3)}>
-            Resources{" "}
-            {selectedGroup === 3 ? <Minus size={16} /> : <Plus size={16} />}
-          </Header>
-          <LinksContainer>
-            <LinkBtn onClick={e => handleSamePageClick(e, "/about")}>
-              About
-            </LinkBtn>
-            <LinkBtn onClick={e => handleSamePageClick(e, "/faq")}>FAQ</LinkBtn>
-            <LinkBtn href={"https://docs.reflexer.finance/"} target="_blank">
-              Documentation
-            </LinkBtn>
+          <Column className={`${selectedGroup === 2 ? "active" : ""}`}>
+            <Header onClick={() => handleClick(2)}>
+              Project{" "}
+              {selectedGroup === 2 ? <Minus size={16} /> : <Plus size={16} />}
+            </Header>
+            <LinksContainer>
+              <LinkBtn
+                href={"https://github.com/reflexer-labs"}
+                target="_blank"
+              >
+                GitHub
+              </LinkBtn>
+              <LinkBtn href={"https://docs.reflexer.finance/"} target="_blank">
+                Docs
+              </LinkBtn>
+              <LinkBtn
+                href={
+                  "https://medium.com/reflexer-labs/stability-without-pegs-8c6a1cbc7fbd"
+                }
+                target="_blank"
+              >
+                RAI Explainer
+              </LinkBtn>
+              <LinkBtn href={"https://memes.reflexer.finance"} target="_blank">
+                Memes
+              </LinkBtn>
+            </LinksContainer>
+          </Column>
+          <Column className={`${selectedGroup === 1 ? "active" : ""}`}>
+            <Header onClick={() => handleClick(1)}>
+              Community{" "}
+              {selectedGroup === 1 ? <Minus size={16} /> : <Plus size={16} />}
+            </Header>
+            <LinksContainer>
+              <LinkBtn href={"https://discord.gg/G6SZSAvX32"} target="_blank">
+                Discord
+              </LinkBtn>
+              <LinkBtn
+                href={"https://twitter.com/reflexerfinance"}
+                target="_blank"
+              >
+                Twitter
+              </LinkBtn>
+              <LinkBtn
+                href={"https://medium.com/reflexer-labs"}
+                target="_blank"
+              >
+                Medium
+              </LinkBtn>
+              <LinkBtn
+                href={"https://community.reflexer.finance/"}
+                target="_blank"
+              >
+                Forum
+              </LinkBtn>
+            </LinksContainer>
+          </Column>
 
-            <LinkBtn
-              href={
-                "https://medium.com/reflexer-labs/stability-without-pegs-8c6a1cbc7fbd"
-              }
-              target="_blank"
-            >
-              RAI Explainer
-            </LinkBtn>
-          </LinksContainer>
-        </Column>
-      </UpperSection>
+          <Column className={`${selectedGroup === 3 ? "active" : ""}`}>
+            <Header onClick={() => handleClick(3)}>
+              Company{" "}
+              {selectedGroup === 3 ? <Minus size={16} /> : <Plus size={16} />}
+            </Header>
+            <LinksContainer>
+              <LinkBtn onClick={e => handleSamePageClick(e, "/about")}>
+                About
+              </LinkBtn>
+              <LinkBtn onClick={e => handleSamePageClick(e, "/faq")}>
+                FAQ
+              </LinkBtn>
+              <LinkBtn onClick={e => handleSamePageClick(e, "/bug-bounty")}>
+                Bug Bounty
+              </LinkBtn>
+              <LinkBtn
+                href={"https://angel.co/company/reflexer-labs"}
+                target="_blank"
+              >
+                Jobs
+              </LinkBtn>
+            </LinksContainer>
+          </Column>
+
+          <Column className={`${selectedGroup === 4 ? "active" : ""}`}>
+            <Header onClick={() => handleClick(4)}>
+              Legal{" "}
+              {selectedGroup === 4 ? <Minus size={16} /> : <Plus size={16} />}
+            </Header>
+            <LinksContainer>
+              <LinkBtn onClick={e => handleSamePageClick(e, "/privacy")}>
+                Privacy Policy
+              </LinkBtn>
+              <TipBtn
+                data-tip={
+                  "Reflexer, FLX, and RAI, and the contents of the Reflexer Media Kit, are trademarks of Reflexer Labs, Inc. Use of this website and the Reflexer trademarks is not allowed for any purpose without the express, written permission of Reflexer."
+                }
+              >
+                Legal Notices
+              </TipBtn>
+            </LinksContainer>
+          </Column>
+          <Column>
+            <Subscribe>
+              <Header>Stay Updated</Header>
+              <EmailInput
+                disabled={error ? true : false}
+                isSubmitting={isSubmitting}
+                label={""}
+                value={email}
+                handleEmailClick={onClickSubmit}
+                onChange={onChangeInput}
+                error={error}
+              />
+              {showSuccess && <Success>Confirmation email sent!</Success>}
+            </Subscribe>
+
+            <Cover>
+              <div>
+                <Header>Get Covered</Header>
+                <span>Powered by Nexus Mutual</span>
+              </div>
+              <div>
+                <img src="/nexus-cover.svg" alt="mutual nexus" />
+              </div>
+            </Cover>
+          </Column>
+        </UpperSection>
+      </Inner>
       <LowerSection>
-        <LinkContainer>
-          <Link to={"/privacy"}>Privacy Policy</Link>
-          <TipBtn
-            data-tip={
-              "Reflexer, FLX, and RAI, and the contents of the Reflexer Media Kit, are trademarks of Reflexer Labs, Inc. Use of this website and the Reflexer trademarks is not allowed for any purpose without the express, written permission of Reflexer."
-            }
-          >
-            Legal Notices
-          </TipBtn>
-        </LinkContainer>
-        {/* <Button text={`Deployed Commit - master`} /> */}
-        <Button text={`© Reflexer Labs ${new Date().getFullYear()}`} />
+        {`© Reflexer Labs ${new Date().getFullYear()}`}
       </LowerSection>
       <ReactTooltip multiline type="light" data-effect="float" place="top" />
+      <BackToTop>
+        <Button withArrow text="Back" onClick={handleBackToTop} />
+      </BackToTop>
     </Container>
   )
 }
@@ -190,13 +231,24 @@ const Footer = ({ slapToBottom, location }) => {
 export default Footer
 
 const Container = styled.div`
-  background: white;
-  padding: 60px 40px 30px;
+  background: ${props => props.theme.colors.foreground};
+  position: relative;
+`
+const Inner = styled.div`
+  max-width: 80vw;
+  margin: 0 auto;
+  padding: 60px 15px;
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+ max-width: 100%;
+ padding: 30px 15px;
+`}
 `
 
 const BrandContainer = styled.div`
+  text-align: left;
   img {
     width: auto !important;
+    max-width: 25px;
   }
 `
 
@@ -211,7 +263,7 @@ const UpperSection = styled.div`
   }
   .col20 {
     flex: 0 0 15%;
-    text-align: right;
+    text-align: left;
   }
   ${({ theme }) => theme.mediaWidth.upToLarge`
      .col40 {
@@ -250,7 +302,11 @@ const UpperSection = styled.div`
 `
 
 const Subscribe = styled.div`
-  margin-top: 20px;
+  margin-top: 0;
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+    margin-top: 25px;
+  
+  `}
 `
 
 const Company = styled.div`
@@ -269,11 +325,11 @@ const Header = styled.h4`
   font-size: ${props => props.theme.font.default};
   line-height: 22px;
   letter-spacing: -0.18px;
-  color: ${props => props.theme.colors.primary};
-  margin: 0;
+  color: ${props => props.theme.colors.neutral};
+  margin: 0 0 10px 0;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   svg {
     display: none;
   }
@@ -289,7 +345,7 @@ const Header = styled.h4`
 
 const LinkBtn = styled.a`
   color: ${props => props.theme.colors.secondary};
-  font-size: ${props => props.theme.font.default};
+  font-size: ${props => props.theme.font.small};
   line-height: 24px;
   letter-spacing: -0.18px;
   transition: all 0.3s ease;
@@ -302,7 +358,7 @@ const LinkBtn = styled.a`
 
   &:hover {
     text-decoration: underline;
-    color: ${props => props.theme.colors.primary};
+    color: ${props => props.theme.colors.customSecondary};
     svg {
       color: ${props => props.theme.colors.primary};
     }
@@ -310,25 +366,10 @@ const LinkBtn = styled.a`
 `
 
 const LowerSection = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-  align-items: center;
-  button {
-    padding: 4px 8px;
-    pointer-events: none;
-  }
-  ${({ theme }) => theme.mediaWidth.upToMedium`
-   margin-top: 25px;
-   flex-direction:column;
-   justify-content: flex-start;
-   width:fit-content;
-   align-items: flex-start;
-   button {
-     margin-top:15px;
-   }
-  
-  `}
+  text-align: center;
+  background: ${props => props.theme.colors.background};
+  padding: 15px;
+  color: ${props => props.theme.colors.secondary};
 `
 
 const Success = styled.p`
@@ -336,59 +377,56 @@ const Success = styled.p`
   font-size: ${props => props.theme.font.extraSmall};
 `
 
-const LinkContainer = styled.div`
-  a {
-    font-size: ${props => props.theme.font.default};
-    line-height: 22px;
-    letter-spacing: -0.18px;
-    color: ${props => props.theme.colors.secondary};
-    transition: all 0.3s ease;
-    display: block;
-    &:hover {
-      text-decoration: underline;
-      color: ${props => props.theme.colors.primary};
-      svg {
-        color: ${props => props.theme.colors.primary};
-      }
-    }
-  }
-
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    margin-bottom: 20px;
-    a {
-      font-weight: 600;
-      font-family: "Inter-Medium";
-      color: ${props => props.theme.colors.primary};
-     &:hover {
-      text-decoration:none;
-     }
-    }
-  `}
-`
-
 const TipBtn = styled.div`
-  font-size: ${props => props.theme.font.default};
+  font-size: ${props => props.theme.font.small};
   line-height: 22px;
-  margin-top: 15px;
+  margin: 5px 0;
   letter-spacing: -0.18px;
   color: ${props => props.theme.colors.secondary};
   transition: all 0.3s ease;
   display: block;
   cursor: pointer;
   &:hover {
-    color: ${props => props.theme.colors.primary};
+    color: ${props => props.theme.colors.customSecondary};
     svg {
       color: ${props => props.theme.colors.primary};
     }
   }
   ${({ theme }) => theme.mediaWidth.upToSmall`
     margin-bottom: 20px;
-      font-weight: 600;
-      font-family: "Inter-Medium";
-      color: ${props => props.theme.colors.primary};
+      color: ${props => props.theme.colors.secondary};
      &:hover {
       text-decoration:none;
+      
      }
    
   `}
+`
+
+const Cover = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 25px;
+  ${Header} {
+    margin-bottom: 3px;
+  }
+  span {
+    font-size: ${props => props.theme.font.extraSmall};
+    color: ${props => props.theme.colors.secondary};
+  }
+
+  img {
+    max-width: 35px;
+  }
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+    max-width:300px;
+  `}
+`
+
+const BackToTop = styled.div`
+  position: absolute;
+  transform: rotate(270deg);
+  right: 20px;
+  top: 40px;
 `

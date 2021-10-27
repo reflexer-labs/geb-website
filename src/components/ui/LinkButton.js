@@ -4,13 +4,13 @@ import { ArrowRightCircle } from "react-feather"
 import styled from "styled-components"
 import { BtnStyle } from "../../styles/GlobalStyle"
 
-const LinkButton = ({ text, url, isExternal, withArrow }) => {
+const LinkButton = ({ text, url, isExternal, withArrow, ...rest }) => {
   return isExternal ? (
-    <ExtLink href={url} target="_blank" rel="norefferer">
+    <ExtLink {...rest} href={url} target="_blank" rel="norefferer">
       {text} {withArrow ? <ArrowRightCircle size={"18"} /> : null}
     </ExtLink>
   ) : (
-    <CustomLink to={url}>
+    <CustomLink {...rest} to={url}>
       {text} {withArrow ? <ArrowRightCircle size={"18"} /> : null}
     </CustomLink>
   )

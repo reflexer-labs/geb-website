@@ -65,11 +65,10 @@ const Label = styled.div`
 const Content = styled.div`
   display: flex;
   align-items: center;
-  border: 1px solid ${props => props.theme.colors.border};
   border-radius: ${props => props.theme.global.borderRadius};
   transition: all 0.3s ease;
-  background: ${props => props.theme.colors.foreground};
-  padding: 12px 16px;
+  background: ${props => props.theme.colors.background};
+  padding: 10px 16px;
 `
 
 const Icon = styled.img`
@@ -85,8 +84,8 @@ const CustomInput = styled.input`
   padding-right: 10px;
   border: none;
   border-radius: 0;
-  background: ${props => props.theme.colors.foreground};
-  color: ${props => props.theme.colors.primary};
+  background: ${props => props.theme.colors.background};
+  color: ${props => props.theme.colors.customSecondary};
   line-height: 21px;
   outline: none;
   &:disabled {
@@ -98,7 +97,7 @@ const Error = styled.p`
   color: ${props => props.theme.colors.dangerColor};
   font-size: ${props => props.theme.font.extraSmall};
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 5px);
   left: 0;
   width: 100%;
   margin: 0;

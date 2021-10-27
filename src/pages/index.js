@@ -1,10 +1,10 @@
 import React from "react"
-import styled from "styled-components"
 import Layout from "../components/Layout"
-import FAQsCollapse from "../components/ui/FAQsCollapse"
+import FAQsCollapse from "../components/FAQsCollapse"
 import HeroSeciton from "../components/ui/HeroSeciton"
 import VideoSection from "../components/VideoSection"
 import InfoBoxes from "../components/InfoBoxes"
+import HomeIntegrations from "../components/HomeIntegrations"
 
 const Home = () => {
   return (
@@ -17,12 +17,9 @@ const Home = () => {
       <VideoSection />
       <InfoBoxes />
       <FAQsCollapse />
+      <HomeIntegrations />
     </Layout>
   )
 }
 
 export default Home
-
-const BoxesContainer = styled.div`
-  margin-top: -95px;
-`

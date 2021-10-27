@@ -1,12 +1,10 @@
 import { Link } from "gatsby"
 import React, { useState } from "react"
-import { ChevronDown, ChevronUp } from "react-feather"
 import styled from "styled-components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { INLINES } from "@contentful/rich-text-types"
 
-import useHome from "../../hooks/useHome"
-import { ExternalLinkArrow } from "../../styles/GlobalStyle"
+import useHome from "../hooks/useHome"
 
 const FAQsCollapse = () => {
   const [collapseIndex, setCollapseIndex] = useState(0)
@@ -40,11 +38,15 @@ const FAQsCollapse = () => {
     })
   }
   return (
-    <Container>
+    <Container className="wow fadeInUp">
       <Inner>
         <Header>
-          <Title>FAQ</Title>
-          <Text>
+          <div className="wow fadeInDown" data-wow-delay="0.2s">
+            <HeaderLabel>Go through our</HeaderLabel>
+            <Title>FAQ</Title>
+            <Border></Border>
+          </div>
+          <Text className="wow fadeInLeft" data-wow-delay="0.4s">
             To learn more about RAI and Reflexer, check out the{" "}
             <Link to="/faq">FAQ page.</Link>
           </Text>
@@ -52,18 +54,26 @@ const FAQsCollapse = () => {
 
         <CollapseSection>
           {homeFAQ.map((faq, i) => (
-            <CollapseBlock key={faq.id} onClick={() => handleClick(i)}>
+            <CollapseBlock
+              className="wow fadeInUp"
+              data-wow-delay={`${0.4 + (i + 1) * 0.2}s`}
+              key={faq.id}
+              onClick={() => handleClick(i)}
+            >
               <CollapseTitle>
-                {faq.title}{" "}
                 {i === collapseIndex ? (
-                  <ChevronUp size={25} />
+                  <img src="/minus.svg" alt="" />
                 ) : (
-                  <ChevronDown size={25} />
+                  <img src="/plus.svg" alt="" />
                 )}
+                {faq.title}{" "}
               </CollapseTitle>
 
               <CollapseText
-                style={{ maxHeight: i === collapseIndex ? "200px" : "0" }}
+                style={{
+                  maxHeight: i === collapseIndex ? "200px" : "0",
+                  marginBottom: i === collapseIndex ? "30px" : "0",
+                }}
               >
                 {handleContent(faq.content.json)}
               </CollapseText>
@@ -78,24 +88,40 @@ const FAQsCollapse = () => {
 export default FAQsCollapse
 
 const Container = styled.div`
-  padding: 150px 20px;
+  margin-top: 50px;
+  padding: 80px 0 60px 0;
+  background: ${props => props.theme.colors.foreground};
   ${({ theme }) => theme.mediaWidth.upToSmall`
-   padding: 80px 10px 60px 10px;
-  `}
+   padding: 60px 0 60px 0;
+  `};
 `
 
 const Inner = styled.div`
-  max-width: 650px;
+  max-width: 80vw;
   margin: 0 auto;
+  padding: 0 15px;
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+   flex-direction:column;
+   max-width: 100%;
+`}
 `
 
 const Header = styled.div`
-  text-align: center;
+  text-align: left;
+`
+const HeaderLabel = styled.div`
+  font-size: 12px;
+  color: ${props => props.theme.colors.greenish};
+`
+const Border = styled.div`
+  height: 1px;
+  width: 40px;
+  background: ${props => props.theme.colors.greenish};
 `
 
 const Title = styled.div`
-  color: ${props => props.theme.colors.primary};
-  font-size: 38px;
+  color: ${props => props.theme.colors.neutral};
+  font-size: 50px;
   font-weight: 600;
   font-family: "Inter-Medium";
   ${({ theme }) => theme.mediaWidth.upToSmall`
@@ -105,53 +131,59 @@ const Title = styled.div`
 
 const Text = styled.div`
   color: ${props => props.theme.colors.secondary};
-  line-height: 24px;
-  margin-top: 15px;
-  padding: 0 20px;
+  font-size: 14px;
+  margin-top: 20px;
   a {
-    background: ${props => props.theme.colors.gradient};
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: ${props => props.theme.colors.inputBorderColor};
+    color: ${props => props.theme.colors.greenish};
   }
 `
 
 const CollapseSection = styled.div`
-  margin-top: 20px;
+  margin-top: 50px;
+  @media (min-width: 991px) {
+    padding-left: 15%;
+  }
 `
 
 const CollapseTitle = styled.div`
-  color: ${props => props.theme.colors.primary};
+  color: ${props => props.theme.colors.neutral};
   font-size: ${props => props.theme.font.large};
   font-weight: 600;
   font-family: "Inter-Medium";
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  img {
+    margin-right: 20px;
+    max-width: 20px;
+  }
+
   ${({ theme }) => theme.mediaWidth.upToSmall`
    font-size: ${props => props.theme.font.medium};
   `}
 `
 
 const CollapseText = styled.div`
-  color: ${props => props.theme.colors.secondary};
-  font-size: ${props => props.theme.font.medium};
+  color: ${props => props.theme.colors.customSecondary};
+  font-size: ${props => props.theme.font.default};
   letter-spacing: -0.18px;
   line-height: 24px;
-  margin-top: 10px;
-  transition: all 0.4s ease;
+  margin-top: 30px;
+  transition: all 0.3s ease-in-out;
   overflow: hidden;
+  max-width: 90%;
+  padding-left: 50px;
+  margin-left: auto;
+  border-left: 1px solid ${props => props.theme.colors.greenish};
   a {
-    ${ExternalLinkArrow}
+    color: ${props => props.theme.colors.greenish};
   }
+
   ${({ theme }) => theme.mediaWidth.upToSmall`
    font-size: ${props => props.theme.font.default};
   `}
 `
 
 const CollapseBlock = styled.div`
-  padding: 15px;
   cursor: pointer;
   ${({ theme }) => theme.mediaWidth.upToSmall`
   padding:10px;

@@ -2,7 +2,6 @@ import React from "react"
 import styled, { ThemeProvider } from "styled-components"
 import Header from "./Header"
 import Footer from "./Footer"
-import helper from "../utils/helper"
 import { darkTheme } from "../utils/themes/dark"
 import CookieBanner from "./CookieBanner"
 import SEO from "./SEO"
@@ -15,6 +14,7 @@ const Layout = ({
   onlyBrand,
   customTitle,
   location,
+  hasBackground,
 }) => {
   React.useEffect(() => {
     const { WOW } = require("wowjs")
@@ -26,7 +26,7 @@ const Layout = ({
     <>
       <SEO customTitle={customTitle} />
       <ThemeProvider theme={darkTheme}>
-        <MainContainer>
+        <MainContainer className={hasBackground ? "hasBackground" : ""}>
           <Header
             headerStyle={headerStyle}
             isWhiteLogo={isWhiteLogo}
@@ -34,6 +34,7 @@ const Layout = ({
             onlyBrand={onlyBrand}
             location={location}
           />
+
           {children}
           <Footer location={location} />
           <CookieBanner />
@@ -46,11 +47,15 @@ const Layout = ({
 export default Layout
 
 const MainContainer = styled.div`
-  background: ${props => props.theme.colors.background};
-  position: relative;
-  .wow {
-    display: inline-block;
+  background-color: ${props => props.theme.colors.background};
+  &.hasBackground {
+    background-image: url("/boxes.svg");
+    background-size: contain;
+    background-position: center 100px;
+    background-repeat: no-repeat;
   }
+  position: relative;
+
   .CookieConsent {
     z-index: 999 !important;
     bottom: 20px !important;

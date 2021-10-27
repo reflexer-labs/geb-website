@@ -1,14 +1,12 @@
-import { navigate } from "gatsby-link"
 import React from "react"
 import styled from "styled-components"
-import Button from "./ui/Button"
 import LinkButton from "./ui/LinkButton"
 
 const InfoBoxes = () => {
   return (
     <Container>
       <Content>
-        <Box>
+        <Box className="wow fadeInLeft">
           <InnerBox className="animated-rai">
             <div>
               <SVGBox>
@@ -39,7 +37,7 @@ const InfoBoxes = () => {
             />
           </InnerBox>
         </Box>
-        <Box>
+        <Box className="wow fadeInRight">
           <InnerBox className="hasBg">
             <div>
               <h3>
@@ -59,7 +57,11 @@ const InfoBoxes = () => {
           </InnerBox>
         </Box>
       </Content>
-      <Content style={{ padding: "20px 15px" }}>
+      <Content
+        style={{ padding: "20px 15px" }}
+        className="wow fadeInUp"
+        data-wow-delay="0.3s"
+      >
         <Col>
           <Inner>
             <Heading>
@@ -138,9 +140,6 @@ const InnerBox = styled.div`
 
   &.animated-rai {
     background: #05284c;
-    ${InnerBox} {
-      padding-top: 20px;
-    }
     p {
       max-width: 80%;
       text-align: center;
@@ -331,7 +330,6 @@ const Col = styled.div`
     p {
         max-width:80%;
         margin:0 auto;
-        text-align:center;
     }
 `}
 `

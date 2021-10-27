@@ -4,50 +4,57 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import useHome from "../../hooks/useHome"
 import getPrefixedPath from "../../utils/getPrefixPath"
 import LinkButton from "./LinkButton"
+import ReactTooltip from "react-tooltip"
 
 const floatsAttr = {
   0: {
     style: { top: "-70%", left: "30%" },
     className: "wow fadeInUp",
-    "data-wow-delay": "0.2",
+    "data-wow-delay": "0.2s",
     href: "https://app.barnbridge.com/smart-yield/stats?m=aave/v2&t=RAI",
     target: "_blank",
+    "data-tip": "Barnbridge",
   },
   1: {
     style: { top: "50px", left: "-20%" },
     className: "wow fadeInLeft",
-    "data-wow-delay": "0.3",
+    "data-wow-delay": "0.3s",
     href: "https://app.uniswap.org/#/pool",
     target: "_blank",
+    "data-tip": "Uniswap",
   },
   2: {
     style: { bottom: "-70%", left: "20px" },
     className: "wow fadeInDown",
-    "data-wow-delay": "0.4",
+    "data-wow-delay": "0.4s",
     href: "https://beta.idle.finance/#/dashboard/best/RAI",
     target: "_blank",
+    "data-tip": "Idle",
   },
   3: {
     style: { top: "-40%", right: "-20%" },
     className: "wow fadeInUp",
-    "data-wow-delay": "0.5",
+    "data-wow-delay": "0.5s",
     href:
       "https://app.sushi.com/lend/0xA7c3304462b169C71F8EdC894Ea9d32879Fb4823",
     target: "_blank",
+    "data-tip": "SushiSwap",
   },
   4: {
     style: { top: "50%", right: "-30%" },
     className: "wow fadeInRight",
-    "data-wow-delay": "0.6",
+    "data-wow-delay": "0.6s",
     href: "https://app.aave.com/reserve-overview/RAI?pool=AaveV2",
     target: "_blank",
+    "data-tip": "Aave",
   },
   5: {
     style: { bottom: "-50%", right: "-10%" },
     className: "wow fadeInDown",
-    "data-wow-delay": "0.7",
+    "data-wow-delay": "0.7s",
     href: "https://www.coinbase.com/",
     target: "_blank",
+    "data-tip": "Coinbase",
   },
 }
 
@@ -58,8 +65,12 @@ const HeroSeciton = () => {
   return (
     <Container>
       <Content>
-        <Heading>{homeHero[0].title}</Heading>
-        <Text>{documentToReactComponents(homeHero[0].content.json)}</Text>
+        <Heading className="wow fadeInUp" data-wow-delay="0.1s">
+          {homeHero[0].title}
+        </Heading>
+        <Text className="wow fadeInUp" data-wow-delay="0.3s">
+          {documentToReactComponents(homeHero[0].content.json)}
+        </Text>
         {Array.from({ length: 6 }).map((_x, i) => {
           return (
             <Int key={`intFloat` + i} {...floatsAttr[i]}>
@@ -67,20 +78,26 @@ const HeroSeciton = () => {
             </Int>
           )
         })}
+
         <BtnContainer>
           <LinkButton
+            className="wow fadeInLeft"
+            data-wow-delay="0.5s"
             text={"Mint RAI"}
             url="https://app.reflexer.finance"
             isExternal
             withArrow
           />
           <LinkButton
+            className="wow fadeInRight"
+            data-wow-delay="0.5s"
             text={"RAI Incentives"}
             url="https://app.reflexer.finance/#/earn/incentives"
             isExternal
             withArrow
           />
         </BtnContainer>
+        <ReactTooltip multiline type="light" data-effect="float" place="top" />
       </Content>
     </Container>
   )

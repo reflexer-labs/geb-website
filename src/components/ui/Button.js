@@ -1,5 +1,5 @@
 import React from "react"
-import { ArrowRightCircle } from "react-feather"
+import { ArrowRight, ArrowRightCircle } from "react-feather"
 import styled from "styled-components"
 import getPrefixedPath from "../../utils/getPrefixPath"
 
@@ -45,8 +45,7 @@ const Button = ({
       return (
         <ArrowBtn disabled={disabled} onClick={onClick}>
           <div>
-            <span>{text}</span>{" "}
-            <img src={getPrefixedPath("/arrow.svg")} alt={""} />
+            <span>{text}</span> <ArrowRight size={"17"} />
           </div>
         </ArrowBtn>
       )
@@ -139,17 +138,12 @@ const ArrowBtn = styled.button`
   box-shadow: none;
   border: 0;
   outline: none;
+  cursor: pointer;
   div {
-    img {
-      float: right;
-      position: relative;
-      top: 7px;
-    }
-    background: ${props => props.theme.colors.gradient};
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: ${props => props.theme.colors.inputBorderColor};
+    display: flex;
+    align-items: center;
+
+    color: ${props => props.theme.colors.blueish};
     font-size: ${props => props.theme.font.small};
     font-weight: 600;
     font-family: "Inter-Medium";
