@@ -14,7 +14,6 @@ const About = () => {
 
   const extractImages = data => {
     if (!data) return
-    console.log(JSON.parse(data.raw))
     let items = JSON.parse(data.raw).content.find(
       item => item.nodeType === "unordered-list"
     )
@@ -105,7 +104,6 @@ const About = () => {
     >
       <Sep />
       {aboutData.map((item, i) => {
-        console.log(item)
         return (
           <Container
             key={item.id}

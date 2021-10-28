@@ -22,7 +22,6 @@ const Integrations = () => {
     acc[key] = items[key]
     return acc
   }, {})
-  console.log(raiUsage)
 
   return (
     <Layout
