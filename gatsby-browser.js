@@ -12,11 +12,11 @@ export const onClientEntry = () => {
 
   const script = document.createElement("script")
 
-  script.innerHTML = `function initWOW() {
+  script.innerHTML = `
     setTimeout(() => {
       new WOW().init()
     }, 300)
-  }`
+  `
   script.async = true
   document.body.append(script)
 }
