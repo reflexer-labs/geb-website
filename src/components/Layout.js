@@ -17,11 +17,12 @@ const Layout = ({
   location,
   hasBackground,
 }) => {
-  React.useEffect(() => {
-    const { WOW } = require("wowjs")
-    const wow = new WOW()
+  const isBrowser = typeof window !== "undefined"
+  if (isBrowser) {
+    const WOW = require("wowjs")
+    const wow = new WOW.WOW()
     wow.init()
-  }, [])
+  }
 
   return (
     <>
