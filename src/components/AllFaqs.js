@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import getPrefixedPath from "../utils/getPrefixPath"
@@ -6,8 +6,11 @@ import { ExternalLinkArrow } from "../styles/GlobalStyle"
 import { INLINES } from "@contentful/rich-text-types"
 import OutlineHeader from "./ui/OutlineHeader"
 import SearchBox from "./ui/SearchBox"
+import { ArrowRightCircle, XCircle } from "react-feather"
+import { slugifyTitle } from "../utils/helper"
+import FaqsQuickLinks from "./ui/FaqsQuickLinks"
 
-const AllFaqs = ({ data }) => {
+const AllFaqs = ({ data, location }) => {
   const [activeIndex, setActiveIndex] = useState(0)
 
   const returnLinks = links => {
@@ -55,20 +58,53 @@ const AllFaqs = ({ data }) => {
     })
   }
 
+  const handleClick = index => {
+    activeIndex === index ? setActiveIndex(-1) : setActiveIndex(index)
+  }
+
+  useEffect(() => {
+    if (location && location.hash) {
+      const foundIndex = data.findIndex(
+        x => slugifyTitle(x.title.title) === location.hash.split("#")[1]
+      )
+      if (foundIndex) {
+        setActiveIndex(foundIndex)
+      }
+    }
+  }, [location])
+
   return (
     <Content>
       <MainContent>
         <OutlineHeader outline="Search" text="FAQs" color="blueish" />
         <SearchBox data={data} />
-        {data.map(item => (
-          <SideContent key={item.id}>
-            <MainTitle>{item.title.title}</MainTitle>
-            <MainDescription>
-              <Text>{handleContent(item.content.json)}</Text>
-              {returnLinks(item.links)}
-            </MainDescription>
-          </SideContent>
-        ))}
+        <FaqsQuickLinks />
+        <Faqs className="wow fadeInUp" data-wow-delay="1s">
+          <SmallTitle>FAQs</SmallTitle>
+          {data.map((item, i) => (
+            <FaqBlock
+              key={item.id}
+              id={slugifyTitle(item.title.title)}
+              onClick={() => handleClick(i)}
+              className={activeIndex === i ? "active" : ""}
+            >
+              <MainTitle>
+                {item.title.title}{" "}
+                <div>
+                  {activeIndex === i ? (
+                    <XCircle size="22" />
+                  ) : (
+                    <ArrowRightCircle size="22" />
+                  )}
+                </div>
+              </MainTitle>
+              <MainDescription>
+                <Text>{handleContent(JSON.parse(item.content.raw))}</Text>
+                {returnLinks(item.links)}
+              </MainDescription>
+            </FaqBlock>
+          ))}
+        </Faqs>
       </MainContent>
     </Content>
   )
@@ -77,8 +113,7 @@ const AllFaqs = ({ data }) => {
 export default AllFaqs
 
 const Content = styled.div`
-  min-height: 300px;
-  display: flex;
+  margin-bottom: 100px;
 `
 
 const MainContent = styled.div`
@@ -90,16 +125,17 @@ const MainContent = styled.div`
   `}
 `
 
-const SideContent = styled.div`
-  margin-bottom: 40px;
-`
-
 const MainTitle = styled.div`
   font-weight: normal;
   font-family: "Inter-Medium";
-  font-size: 24px;
+  font-size: 20px;
   letter-spacing: -0.33px;
-  color: ${props => props.theme.font.primary};
+  display: flex;
+  justify-content: space-between;
+  svg {
+    color: ${props => props.theme.colors.blueish};
+  }
+  color: ${props => props.theme.colors.neutral};
   ${({ theme }) => theme.mediaWidth.upToSmall`
      font-size: 20px;
   `}
@@ -110,6 +146,7 @@ const MainDescription = styled.div`
   color: ${props => props.theme.colors.customSecondary};
   line-height: 24px;
   letter-spacing: -0.18px;
+  display: none;
 `
 
 const CustomLink = styled.a`
@@ -121,26 +158,38 @@ const CustomLink = styled.a`
   }
 `
 
-const Row = styled.div`
-  display: flex;
-  margin: 0 -10px;
-  flex-wrap: wrap;
-`
-
-const Col = styled.div`
-  flex: 0 0 50%;
-  padding: 0 10px;
-  img {
-    width: 100%;
-    margin-top: 15px;
-  }
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    flex: 0 0 100%;
-  `}
-`
-
 const Text = styled.div`
   a {
-    ${ExternalLinkArrow}
+    color: ${props => props.theme.colors.blueish};
   }
+`
+
+const Faqs = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+`
+
+const SmallTitle = styled.div`
+  font-size: 25px;
+  text-align: center;
+  margin: 50px 0;
+  color: ${props => props.theme.colors.neutral};
+  font-weight: bold;
+  font-family: "inter-medium";
+`
+
+const FaqBlock = styled.div`
+  margin-bottom: 20px;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  background: ${props => props.theme.colors.foreground};
+  cursor: pointer;
+  &.active {
+    ${MainDescription} {
+      display: block;
+    }
+  }
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+      margin-bottom: 10px;
+  `}
 `

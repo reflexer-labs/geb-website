@@ -75,7 +75,7 @@ const FAQsCollapse = () => {
                   marginBottom: i === collapseIndex ? "30px" : "0",
                 }}
               >
-                {handleContent(faq.content.json)}
+                {handleContent(JSON.parse(faq.content.raw))}
               </CollapseText>
             </CollapseBlock>
           ))}

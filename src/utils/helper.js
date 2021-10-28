@@ -31,7 +31,14 @@ export const slugifyTitle = title => {
   return title
     ? title
         .toLowerCase()
-        .replace(/[^\w ]+/g, "")
-        .replace(/ +/g, "-")
+        .replace(/ /g, "-")
+        .replace(/[^\w-]+/g, "")
     : ""
+}
+
+export const returnNoOfWords = (text, n) => {
+  // This expressions returns the first N (any) characters plus any subsequent non-space characters.
+  var cut = text.indexOf(" ", n)
+  if (cut === -1) return text
+  return text.substring(0, cut)
 }

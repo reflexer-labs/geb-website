@@ -44,8 +44,9 @@ const InfoBoxes = () => {
                 Developer <br /> Documentation
               </h3>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
+                Whether you want to take advantage of RAI’s repricing mechanism
+                or build an insurance protocol on top of it, our docs are here
+                to help.
               </p>
             </div>
             <LinkButton
@@ -160,12 +161,15 @@ const Box = styled.div`
   padding: 15px;
 
   h3 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: white;
     margin: 0;
+    ${({ theme }) => theme.mediaWidth.upToSmall`
+   font-size: 2rem;
+`}
   }
   p {
-    max-width: 55%;
+    max-width: 60%;
     color: white;
     font-size: 13px;
     line-height: 1.2rem;

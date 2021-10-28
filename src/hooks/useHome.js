@@ -14,7 +14,7 @@ export default function useHome() {
             id
             title
             content {
-              json
+              raw
             }
           }
         }
@@ -35,7 +35,7 @@ export default function useHome() {
               }
             }
             content {
-              json
+              raw
             }
           }
         }
@@ -56,7 +56,7 @@ export default function useHome() {
               }
             }
             content {
-              json
+              raw
             }
           }
         }
@@ -68,7 +68,7 @@ export default function useHome() {
             id
             title
             content {
-              json
+              raw
             }
           }
         }

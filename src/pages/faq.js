@@ -23,7 +23,7 @@ const FAQ = ({ location }) => {
     >
       <Container>
         <InnerContent>
-          <AllFaqs data={faqs} />
+          <AllFaqs data={faqs} location={location} />
         </InnerContent>
       </Container>
     </Layout>

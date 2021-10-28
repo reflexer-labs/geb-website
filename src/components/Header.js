@@ -122,6 +122,9 @@ const Header = ({
               <LinkBtn onClick={e => handleSamePageClick(e, "/about")}>
                 About
               </LinkBtn>
+              <LinkBtn onClick={e => handleSamePageClick(e, "/why-rai")}>
+                Why RAI
+              </LinkBtn>
               <LinkBtn onClick={e => handleSamePageClick(e, "/integrations")}>
                 Integrations
               </LinkBtn>
@@ -250,7 +253,7 @@ const LinksContainer = styled.div`
   position: absolute;
   top: 40px;
   border-radius: 4px;
-  background: ${props => props.theme.colors.background};
+  background: ${props => props.theme.colors.foreground};
   z-index: 4;
   padding: 20px;
   min-width: 200px;

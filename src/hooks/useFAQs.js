@@ -11,8 +11,7 @@ export default function useFAQs() {
               title
             }
             content {
-              json
-              content
+              raw
             }
           }
         }

@@ -3,27 +3,40 @@ import Layout from "../components/Layout"
 import styled from "styled-components"
 import useWhyRai from "../hooks/useWhyRai"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import OutlineHeader from "../components/ui/OutlineHeader"
+import LinkButton from "../components/ui/LinkButton"
 
 const WhyRai = () => {
   const data = useWhyRai()
 
   return (
-    <Layout headerStyle={{ position: "absolute", width: "100%", top: "20px" }}>
+    <Layout
+      customTitle={"Why RAI"}
+      headerStyle={{ position: "absolute", width: "100%", top: "20px" }}
+      isWhiteLogo
+      onlyBrand
+      hasBackground
+    >
       <InnterContent>
-        <Title>{"Why RAI"}</Title>
+        <OutlineHeader outline="Why" text="RAI" color="blueish" />
         {data.map(item => {
           return (
             <Box
+              className="wow fadeInUp"
+              data-wow-delay={"0.2s"}
               key={item.node.title + Math.random()}
               style={{ background: `url(${item.node.background.file.url})` }}
             >
               <ItemTitle>{item.node.title.title}</ItemTitle>
               <Content>
-                {documentToReactComponents(item.node.content.json)}
+                {documentToReactComponents(JSON.parse(item.node.content.raw))}
               </Content>
-              <Link href={item.node.link.link} target="_blank">
-                {item.node.link.name}
-              </Link>
+              <LinkButton
+                text={item.node.link.name}
+                href={item.node.link.link}
+                withArrow
+                isExternal
+              />
             </Box>
           )
         })}
@@ -33,21 +46,6 @@ const WhyRai = () => {
 }
 
 export default WhyRai
-
-const Title = styled.h1`
-  font-family: "Inter-Medium";
-  font-weight: 600;
-  text-align: center;
-  max-width: 450px;
-  margin: 0 auto 80px auto;
-  font-size: 50px;
-  font-weight: 600;
-  font-family: "Inter-Medium";
-  color: ${props => props.theme.colors.primary};
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-   font-size:35px;
-   `}
-`
 
 const InnterContent = styled.div`
   max-width: 880px;
@@ -65,6 +63,13 @@ const Box = styled.div`
   background-repeat: no-repeat;
   padding: 40px;
   margin-bottom: 30px;
+  a {
+    width: fit-content;
+    background: #05284c;
+    svg {
+      margin-left: 20px;
+    }
+  }
 `
 
 const ItemTitle = styled.div`
@@ -80,16 +85,4 @@ const Content = styled.div`
   p {
     margin-top: 10px;
   }
-`
-
-const Link = styled.a`
-  padding: 8px 15px;
-  border-radius: 4px;
-  position: relative;
-  color: #133ab3;
-  background: white;
-  font-size: 15px;
-  font-weight: bold;
-  margin-top: 10px;
-  display: inline-block;
 `

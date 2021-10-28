@@ -14,11 +14,16 @@ export default function useAbout() {
               name
               link
             }
-            images {
-              json
-            }
             content {
-              json
+              raw
+            }
+            images {
+              raw
+              references {
+                file {
+                  url
+                }
+              }
             }
           }
         }

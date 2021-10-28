@@ -69,7 +69,7 @@ const HeroSeciton = () => {
           {homeHero[0].title}
         </Heading>
         <Text className="wow fadeInUp" data-wow-delay="0.3s">
-          {documentToReactComponents(homeHero[0].content.json)}
+          {documentToReactComponents(JSON.parse(homeHero[0].content.raw))}
         </Text>
         {Array.from({ length: 6 }).map((_x, i) => {
           return (
