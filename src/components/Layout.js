@@ -5,7 +5,6 @@ import Footer from "./Footer"
 import { darkTheme } from "../utils/themes/dark"
 import CookieBanner from "./CookieBanner"
 import SiteMetaData from "./SiteMetaData"
-import { isBrowser } from "../utils/helper"
 
 const Layout = ({
   children,
@@ -17,12 +16,6 @@ const Layout = ({
   location,
   hasBackground,
 }) => {
-  React.useEffect(() => {
-    if (isBrowser()) {
-      new window["WOW"]().init()
-    }
-  }, [])
-
   return (
     <>
       <SiteMetaData customTitle={customTitle} />
