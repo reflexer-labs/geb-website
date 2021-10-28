@@ -1,4 +1,5 @@
 import React from "react"
+import "../utils/expose-wow"
 import styled, { ThemeProvider } from "styled-components"
 import Header from "./Header"
 import Footer from "./Footer"
@@ -16,6 +17,12 @@ const Layout = ({
   location,
   hasBackground,
 }) => {
+  React.useEffect(() => {
+    const { WOW } = require("wowjs")
+    const wow = new WOW()
+    wow.init()
+  }, [])
+
   return (
     <>
       <SiteMetaData customTitle={customTitle} />
