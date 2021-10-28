@@ -1,11 +1,11 @@
 import React from "react"
-import "../utils/expose-wow"
 import styled, { ThemeProvider } from "styled-components"
 import Header from "./Header"
 import Footer from "./Footer"
 import { darkTheme } from "../utils/themes/dark"
 import CookieBanner from "./CookieBanner"
-import Seo from "./Seo"
+import SiteMetaData from "./SiteMetaData"
+import { isBrowser } from "../utils/helper"
 
 const Layout = ({
   children,
@@ -18,12 +18,14 @@ const Layout = ({
   hasBackground,
 }) => {
   React.useEffect(() => {
-    window["WOW"].init()
+    if (isBrowser()) {
+      new window["WOW"]().init()
+    }
   }, [])
 
   return (
     <>
-      <Seo customTitle={customTitle} />
+      <SiteMetaData customTitle={customTitle} />
       <ThemeProvider theme={darkTheme}>
         <MainContainer className={hasBackground ? "hasBackground" : ""}>
           <Header

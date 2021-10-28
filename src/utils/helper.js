@@ -25,7 +25,7 @@ export function findAllByKey(obj, keyToFind) {
   )
 }
 
-export const isBrowser = typeof window !== "undefined"
+export const isBrowser = () => typeof window !== "undefined"
 
 export const slugifyTitle = title => {
   return title
