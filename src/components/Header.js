@@ -264,6 +264,7 @@ const LinksContainer = styled.div`
   box-shadow:none;
   padding:0;
   margin-bottom:20px;
+  background: ${props => props.theme.colors.background};
   `}
 `
 
