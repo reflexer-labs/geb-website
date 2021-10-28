@@ -1,5 +1,4 @@
 import React from "react"
-import "../utils/expose-wow"
 import styled, { ThemeProvider } from "styled-components"
 import Header from "./Header"
 import Footer from "./Footer"

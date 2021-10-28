@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-const SVG = () => (
+const SvgImage = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
     <line className="top" x1="0" y1="0" x2="900" y2="0" />
     <line className="left" x1="0" y1="420" x2="0" y2="-840" />
@@ -24,7 +24,7 @@ const IntegrationItem = ({ x, i, ...rest }) => {
         rel="noreferrer"
       >
         <div className="box">
-          <SVG />
+          <SvgImage />
           <div className="int-image">
             <img src={x.node.image.file.url} alt={x.node.title.title} />
           </div>

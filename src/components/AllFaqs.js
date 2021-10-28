@@ -71,7 +71,7 @@ const AllFaqs = ({ data, location }) => {
         setActiveIndex(foundIndex)
       }
     }
-  }, [location])
+  }, [location, data])
 
   return (
     <Content>

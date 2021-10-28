@@ -3,7 +3,6 @@ import React from "react"
 import styled from "styled-components"
 import useRaiUse from "../hooks/useRaiUse"
 import IntegrationItem from "./ui/IntegrationItem"
-import IntegrationSvg from "./ui/IntegrationItem"
 
 const HomeIntegrations = () => {
   const integrations = useRaiUse().slice(0, 3)
