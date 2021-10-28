@@ -1,10 +1,11 @@
 import React from "react"
+import "../utils/expose-wow"
 import styled, { ThemeProvider } from "styled-components"
 import Header from "./Header"
 import Footer from "./Footer"
 import { darkTheme } from "../utils/themes/dark"
 import CookieBanner from "./CookieBanner"
-import SEO from "./SEO"
+import Seo from "./Seo"
 
 const Layout = ({
   children,
@@ -17,14 +18,12 @@ const Layout = ({
   hasBackground,
 }) => {
   React.useEffect(() => {
-    const { WOW } = require("wowjs")
-    const wow = new WOW()
-    wow.init()
+    window["WOW"].init()
   }, [])
 
   return (
     <>
-      <SEO customTitle={customTitle} />
+      <Seo customTitle={customTitle} />
       <ThemeProvider theme={darkTheme}>
         <MainContainer className={hasBackground ? "hasBackground" : ""}>
           <Header
