@@ -9,10 +9,14 @@ const addScript = url => {
 
 export const onClientEntry = () => {
   addScript("https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js")
+
   const script = document.createElement("script")
-  script.innerHTML = "new WOW().init()"
+
+  script.innerHTML = `function initWOW() {
+    setTimeout(() => {
+      new WOW().init()
+    }, 300)
+  }`
   script.async = true
-  setTimeout(() => {
-    document.body.append(script)
-  }, 150)
+  document.body.append(script)
 }
