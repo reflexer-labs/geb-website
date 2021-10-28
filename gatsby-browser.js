@@ -1,4 +1,5 @@
 import "./src/styles/main.css"
+import "./static/animate.min.css"
 
 const addScript = url => {
   const script = document.createElement("script")

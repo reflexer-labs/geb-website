@@ -14,7 +14,7 @@ export default OutlineHeader
 
 const Header = styled.h2`
   font-size: 70px;
-  font-family: "open-sans", Impact;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;

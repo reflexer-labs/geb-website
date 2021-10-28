@@ -245,7 +245,7 @@ const Heading = styled.div`
   justify-content: center;
 `
 const Main = styled.div`
-  font-family: "Open Sans";
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 100px;
 `
 const Side = styled.div`

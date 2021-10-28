@@ -4,12 +4,6 @@ import Layout from "../components/Layout"
 import useFAQs from "../hooks/useFAQs"
 import AllFaqs from "../components/AllFaqs"
 
-const headerStyle = {
-  background: "#fff",
-  boxShadow: "0px 1px 0px #eef3f9",
-  borderBottom: "1px solid #eef3f9",
-}
-
 const FAQ = ({ location }) => {
   const faqs = useFAQs().map(item => item.node)
   return (
