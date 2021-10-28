@@ -14,7 +14,7 @@ export const onClientEntry = () => {
   script.innerHTML = `
     setTimeout(() => {
       new WOW().init()
-    }, 150)
+    }, 300)
   `
   script.async = true
   document.body.append(script)
