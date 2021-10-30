@@ -14,7 +14,7 @@ export default OutlineHeader
 
 const Header = styled.h2`
   font-size: 70px;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: "unicode_impact";
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,7 +23,7 @@ const Header = styled.h2`
     headerColor ? theme.colors[headerColor] : theme.colors.blueish};
   .outlined {
     color: transparent;
-    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-width: 0.001em;
     -webkit-text-stroke-color: ${({ theme, headerColor }) =>
       headerColor ? theme.colors[headerColor] : theme.colors.blueish};
     margin-right: 10px;
@@ -31,7 +31,7 @@ const Header = styled.h2`
   @media (max-width: 767px) {
     font-size: 50px;
     .outlined {
-      -webkit-text-stroke-width: 1.5px;
+      -webkit-text-stroke-width: 0.001em;
     }
   }
 `

@@ -5,7 +5,6 @@ import jsonp from "jsonp"
 import qs from "query-string"
 import ReactTooltip from "react-tooltip"
 import EmailInput from "./ui/EmailInput"
-import Button from "./ui/Button"
 import { isValidEmail } from "../utils/validations"
 import { MAILCHIMP_URL } from "../utils/constants"
 import { Minus, Plus } from "react-feather"
@@ -75,24 +74,21 @@ const Footer = ({ slapToBottom, location }) => {
     }
   }
 
-  const handleBackToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
-
   return (
     <Container className={`wow fadeIn ${slapToBottom ? "fixBottom" : ""}`}>
       <Inner>
         <UpperSection>
           <Company className="col20">
             <BrandContainer>
-              <img src="/small-logo.svg" alt="footer-logo" />
+              <img src="/brand-white.png" alt="footer-logo" />
+              <span>Building $RAI. A Low Volatility Collateral for DeFi</span>
             </BrandContainer>
           </Company>
 
-          <Column className={`${selectedGroup === 2 ? "active" : ""}`}>
-            <Header onClick={() => handleClick(2)}>
+          <Column className={`col ${selectedGroup === 1 ? "active" : ""}`}>
+            <Header onClick={() => handleClick(1)}>
               Project{" "}
-              {selectedGroup === 2 ? <Minus size={16} /> : <Plus size={16} />}
+              {selectedGroup === 1 ? <Minus size={16} /> : <Plus size={16} />}
             </Header>
             <LinksContainer>
               <LinkBtn
@@ -117,10 +113,10 @@ const Footer = ({ slapToBottom, location }) => {
               </LinkBtn>
             </LinksContainer>
           </Column>
-          <Column className={`${selectedGroup === 1 ? "active" : ""}`}>
-            <Header onClick={() => handleClick(1)}>
+          <Column className={`col ${selectedGroup === 2 ? "active" : ""}`}>
+            <Header onClick={() => handleClick(2)}>
               Community{" "}
-              {selectedGroup === 1 ? <Minus size={16} /> : <Plus size={16} />}
+              {selectedGroup === 2 ? <Minus size={16} /> : <Plus size={16} />}
             </Header>
             <LinksContainer>
               <LinkBtn href={"https://discord.gg/G6SZSAvX32"} target="_blank">
@@ -147,7 +143,7 @@ const Footer = ({ slapToBottom, location }) => {
             </LinksContainer>
           </Column>
 
-          <Column className={`${selectedGroup === 3 ? "active" : ""}`}>
+          <Column className={`col ${selectedGroup === 3 ? "active" : ""}`}>
             <Header onClick={() => handleClick(3)}>
               Company{" "}
               {selectedGroup === 3 ? <Minus size={16} /> : <Plus size={16} />}
@@ -171,7 +167,7 @@ const Footer = ({ slapToBottom, location }) => {
             </LinksContainer>
           </Column>
 
-          <Column className={`${selectedGroup === 4 ? "active" : ""}`}>
+          <Column className={`col ${selectedGroup === 4 ? "active" : ""}`}>
             <Header onClick={() => handleClick(4)}>
               Legal{" "}
               {selectedGroup === 4 ? <Minus size={16} /> : <Plus size={16} />}
@@ -220,9 +216,6 @@ const Footer = ({ slapToBottom, location }) => {
         {`© Reflexer Labs ${new Date().getFullYear()}`}
       </LowerSection>
       <ReactTooltip multiline type="light" data-effect="float" place="top" />
-      <BackToTop>
-        <Button withArrow text="Back" onClick={handleBackToTop} />
-      </BackToTop>
     </Container>
   )
 }
@@ -246,9 +239,23 @@ const Inner = styled.div`
 const BrandContainer = styled.div`
   text-align: left;
   img {
-    width: auto !important;
-    max-width: 25px;
+    max-width: 140px;
   }
+
+  span {
+    color: ${props => props.theme.colors.customSecondary};
+    font-size: 14px;
+    line-height: 1.6;
+    display: block;
+    margin-top: 15px;
+  }
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+
+ margin-bottom:20px;
+ span {
+   margin-top:10px;
+ }
+`}
 `
 
 const LinksContainer = styled.div``
@@ -281,7 +288,7 @@ const UpperSection = styled.div`
     flex: 0 0 100%;
     margin-bottom:10px;
   }
-  .col20 {
+  .col {
     flex: 0 0 100%;
     text-align: left;
     margin-top:10px;
@@ -406,7 +413,7 @@ const Cover = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 25px;
+  margin-top: 45px;
   ${Header} {
     margin-bottom: 3px;
   }
@@ -416,16 +423,9 @@ const Cover = styled.div`
   }
 
   img {
-    max-width: 35px;
+    max-width: 30px;
   }
   ${({ theme }) => theme.mediaWidth.upToMedium`
     max-width:300px;
   `}
-`
-
-const BackToTop = styled.div`
-  position: absolute;
-  transform: rotate(270deg);
-  right: 20px;
-  top: 40px;
 `

@@ -51,6 +51,16 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "unicode_impact";
+  src: url("../fonts/Impact/unicode_impact.eot");
+  src: url("../fonts/Impact/unicode_impact.eot") format("embedded-opentype"),
+    url("../fonts/Impact/unicode_impact.woff2") format("woff2"),
+    url("../fonts/Impact/unicode_impact.woff") format("woff"),
+    url("../fonts/Impact/unicode_impact.ttf") format("truetype"),
+    url("../fonts/Impact/unicode_impact.svg#unicode_impact") format("svg");
+}
+
 body {
   margin: 0;
   font-family: "Inter-Regular", sans-serif;

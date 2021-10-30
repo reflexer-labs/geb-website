@@ -43,14 +43,10 @@ const InfoBoxes = () => {
               <h3>
                 Developer <br /> Documentation
               </h3>
-              <p>
-                Whether you want to take advantage of RAI’s repricing mechanism
-                or build an insurance protocol on top of it, our docs are here
-                to help.
-              </p>
+              <p>Build dApps using a true decentralized stablecoin</p>
             </div>
             <LinkButton
-              text={"React the docs"}
+              text={"React the Docs"}
               url="https://docs.reflexer.finance/"
               isExternal
               withArrow
@@ -130,6 +126,10 @@ const InnerBox = styled.div`
   a {
     margin-top: 20px;
     align-self: flex-start;
+    span {
+      flex-grow: 1;
+      text-align: center;
+    }
   }
 
   &.hasBg {
@@ -190,7 +190,7 @@ const SVGBox = styled.div`
     display: block;
     text-transform: uppercase;
   }
-  font: 800 14.5em/1 "Open Sans", Impact;
+  font: 800 14.5em/1 "Open Sans";
 
   .text {
     fill: none;
@@ -245,7 +245,7 @@ const Heading = styled.div`
   justify-content: center;
 `
 const Main = styled.div`
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: "unicode_impact";
   font-size: 100px;
 `
 const Side = styled.div`
@@ -258,6 +258,9 @@ const Side = styled.div`
   div {
     color: ${props => props.theme.colors.background};
   }
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    font-size:35px;
+`}
 `
 
 const Inner = styled.div`
@@ -288,6 +291,10 @@ const Col = styled.div`
     max-width: 190px;
     font-size: 17px;
     background: ${props => props.theme.colors.background};
+    span {
+      flex-grow: 1;
+      text-align: center;
+    }
   }
   p {
     color: white;
@@ -313,6 +320,9 @@ const Col = styled.div`
         color: ${props => props.theme.colors.blueish};
         letter-spacing: 2px;
       }
+      ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+          font-size:30px;
+      `}
     }
   }
   @media (min-width: 1024px) {

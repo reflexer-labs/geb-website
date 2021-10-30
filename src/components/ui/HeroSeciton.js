@@ -4,7 +4,6 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import useHome from "../../hooks/useHome"
 import getPrefixedPath from "../../utils/getPrefixPath"
 import LinkButton from "./LinkButton"
-import ReactTooltip from "react-tooltip"
 
 const floatsAttr = {
   0: {
@@ -13,15 +12,14 @@ const floatsAttr = {
     "data-wow-delay": "0.2s",
     href: "https://app.barnbridge.com/smart-yield/stats?m=aave/v2&t=RAI",
     target: "_blank",
-    "data-tip": "Barnbridge",
   },
   1: {
     style: { top: "50px", left: "-20%" },
     className: "wow fadeInLeft",
     "data-wow-delay": "0.3s",
-    href: "https://app.uniswap.org/#/pool",
+    href:
+      "https://info.uniswap.org/#/tokens/0x03ab458634910aad20ef5f1c8ee96f1d6ac54919",
     target: "_blank",
-    "data-tip": "Uniswap",
   },
   2: {
     style: { bottom: "-70%", left: "20px" },
@@ -29,7 +27,6 @@ const floatsAttr = {
     "data-wow-delay": "0.4s",
     href: "https://beta.idle.finance/#/dashboard/best/RAI",
     target: "_blank",
-    "data-tip": "Idle",
   },
   3: {
     style: { top: "-40%", right: "-20%" },
@@ -38,7 +35,6 @@ const floatsAttr = {
     href:
       "https://app.sushi.com/lend/0xA7c3304462b169C71F8EdC894Ea9d32879Fb4823",
     target: "_blank",
-    "data-tip": "SushiSwap",
   },
   4: {
     style: { top: "50%", right: "-30%" },
@@ -46,7 +42,6 @@ const floatsAttr = {
     "data-wow-delay": "0.6s",
     href: "https://app.aave.com/reserve-overview/RAI?pool=AaveV2",
     target: "_blank",
-    "data-tip": "Aave",
   },
   5: {
     style: { bottom: "-50%", right: "-10%" },
@@ -54,7 +49,6 @@ const floatsAttr = {
     "data-wow-delay": "0.7s",
     href: "https://www.coinbase.com/",
     target: "_blank",
-    "data-tip": "Coinbase",
   },
 }
 
@@ -97,7 +91,6 @@ const HeroSeciton = () => {
             withArrow
           />
         </BtnContainer>
-        <ReactTooltip multiline type="light" data-effect="float" place="top" />
       </Content>
     </Container>
   )
@@ -195,6 +188,14 @@ const BtnContainer = styled.div`
     min-width: 180px;
     margin: 0 10px;
     background: ${props => props.theme.colors.blueish};
+    justify-content: flex-start;
+    span {
+      flex-grow: 1;
+      text-align: center;
+    }
+    svg {
+      margin-left: auto;
+    }
     &:first-child {
       background: ${props => props.theme.colors.greenish};
     }

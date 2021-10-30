@@ -16,8 +16,8 @@ const HomeIntegrations = () => {
             <Border></Border>
           </div>
           <Text className="wow fadeInLeft" data-wow-delay="0.4s">
-            To find out the projects and interfaces that accept RAI, check out
-            the <Link to="/faq">integrations page.</Link>
+            Check out the <Link to="/integrations">integrations page</Link> for
+            a full list of projects accepting RAI
           </Text>
         </Header>
 

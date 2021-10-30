@@ -7,11 +7,11 @@ import { BtnStyle } from "../../styles/GlobalStyle"
 const LinkButton = ({ text, url, isExternal, withArrow, ...rest }) => {
   return isExternal ? (
     <ExtLink {...rest} href={url} target="_blank" rel="norefferer">
-      {text} {withArrow ? <ArrowRightCircle size={"18"} /> : null}
+      <span>{text}</span> {withArrow ? <ArrowRightCircle size={"18"} /> : null}
     </ExtLink>
   ) : (
     <CustomLink {...rest} to={url}>
-      {text} {withArrow ? <ArrowRightCircle size={"18"} /> : null}
+      <span>{text}</span> {withArrow ? <ArrowRightCircle size={"18"} /> : null}
     </CustomLink>
   )
 }
