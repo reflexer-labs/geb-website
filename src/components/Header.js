@@ -114,6 +114,9 @@ const Header = ({
               >
                 Forum
               </LinkBtn>
+              <LinkBtn href="https://memes.reflexer.finance" target="_blank">
+                Memes
+              </LinkBtn>
             </LinksContainer>
           </Column>
           <Column>
