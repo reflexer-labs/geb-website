@@ -9,13 +9,7 @@ import "./static/animate.min.css"
 // }
 
 // export const onClientEntry = () => {
-//   addScript("/wow.min.js")
-//   const script = document.createElement("script")
-//   script.innerHTML = `
-//     setTimeout(() => {
-//       new WOW().init()
-//     }, 300)
-//   `
-//   script.async = true
-//   document.body.append(script)
+//   window.onload = () => {
+//     addScript("https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js")
+//   }
 // }

@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import LinkButton from "./ui/LinkButton"
 
+const LazyReflexerTVL = React.lazy(() => import("./ReflexerTVL"))
 const InfoBoxes = () => {
   return (
     <Container>
@@ -64,7 +65,15 @@ const InfoBoxes = () => {
             <Heading>
               <Main>TVL</Main>
               <Side>
-                <div>$150</div>Million
+                <div>
+                  $
+                  {typeof window !== "undefined" ? (
+                    <React.Suspense fallback={<div />}>
+                      <LazyReflexerTVL />
+                    </React.Suspense>
+                  ) : null}
+                </div>
+                Million
               </Side>
             </Heading>
             <p>This is the total value of the ETH locked in the RAI protocol</p>
