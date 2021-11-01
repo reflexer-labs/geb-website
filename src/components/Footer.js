@@ -81,7 +81,6 @@ const Footer = ({ slapToBottom, location }) => {
           <Company className="col20">
             <BrandContainer>
               <img src="/brand-white.png" alt="footer-logo" />
-              <span>Building $RAI. A Low Volatility Collateral for DeFi</span>
             </BrandContainer>
           </Company>
 
