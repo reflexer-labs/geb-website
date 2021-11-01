@@ -15,7 +15,7 @@ const minABI = [
   },
 ]
 export default function ReflexerTVL() {
-  const [TVL, setTVL] = React.useState("0")
+  const [TVL, setTVL] = React.useState("-")
 
   async function fetchEthPrice() {
     try {
