@@ -8,7 +8,7 @@ export default function useBugBounty() {
           node {
             title
             content {
-              json
+              raw
             }
             rewardTable {
               very_low {

@@ -1,4 +1,5 @@
 import React from "react"
+import { ArrowRight, ArrowRightCircle } from "react-feather"
 import styled from "styled-components"
 import getPrefixedPath from "../../utils/getPrefixPath"
 
@@ -10,8 +11,10 @@ const Button = ({
   disabled,
   dimmedWithArrow,
   isBordered,
+  gradientBorder,
   arrowPlacement = "left",
   children,
+  roundedWithArrow,
 }) => {
   const returnType = () => {
     if (dimmed) {
@@ -21,6 +24,7 @@ const Button = ({
         </DimmedBtn>
       )
     }
+
     if (dimmedWithArrow) {
       return (
         <DimmedBtn disabled={disabled} onClick={onClick}>
@@ -41,8 +45,7 @@ const Button = ({
       return (
         <ArrowBtn disabled={disabled} onClick={onClick}>
           <div>
-            <span>{text}</span>{" "}
-            <img src={getPrefixedPath("/arrow.svg")} alt={""} />
+            <span>{text}</span> <ArrowRight size={"17"} />
           </div>
         </ArrowBtn>
       )
@@ -51,6 +54,12 @@ const Button = ({
         <BorderedBtn disabled={disabled} onClick={onClick}>
           <Inner> {text}</Inner>
         </BorderedBtn>
+      )
+    } else if (roundedWithArrow) {
+      return (
+        <RoundedBtn disabled={disabled} onClick={onClick}>
+          {text} <ArrowRightCircle size={"18"} />
+        </RoundedBtn>
       )
     } else {
       return (
@@ -129,17 +138,12 @@ const ArrowBtn = styled.button`
   box-shadow: none;
   border: 0;
   outline: none;
+  cursor: pointer;
   div {
-    img {
-      float: right;
-      position: relative;
-      top: 7px;
-    }
-    background: ${props => props.theme.colors.gradient};
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: ${props => props.theme.colors.inputBorderColor};
+    display: flex;
+    align-items: center;
+
+    color: ${props => props.theme.colors.blueish};
     font-size: ${props => props.theme.font.small};
     font-weight: 600;
     font-family: "Inter-Medium";
@@ -177,4 +181,11 @@ const Inner = styled.div`
   &:hover {
     opacity: 0.8;
   }
+`
+
+const RoundedBtn = styled(Container)`
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  justify-content: space-between;
 `

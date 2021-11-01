@@ -31,11 +31,11 @@ const Header = ({
 
   return (
     <Container style={{ ...headerStyle }}>
-      <Left>
+      <Left className="wow fadeInLeft">
         <Brand smallLogo={smallLogo} isWhiteLogo={isWhiteLogo} />
       </Left>
 
-      <Right>
+      <Right className="wow fadeInDown">
         <MenuIcon onClick={() => setOpenMenu(true)}>
           <Menu size={20} color={isWhiteLogo ? "white" : "black"} />
         </MenuIcon>
@@ -46,14 +46,47 @@ const Header = ({
           </CloseIcon>
           <Column>
             <NavLink className={isWhiteLogo ? "white" : "black"}>
-              Products
+              Product
             </NavLink>
             <LinksContainer>
-              <LinkBtn href="https://app.reflexer.finance/" target="_blank">
+              <LinkBtn href={"https://app.reflexer.finance"} target="_blank">
                 App
               </LinkBtn>
               <LinkBtn href={"https://stats.reflexer.finance/"} target="_blank">
                 Analytics
+              </LinkBtn>
+            </LinksContainer>
+          </Column>
+          <Column>
+            <NavLink className={isWhiteLogo ? "white" : "black"}>
+              Project
+            </NavLink>
+            <LinksContainer>
+              <LinkBtn
+                href={"https://github.com/reflexer-labs"}
+                target="_blank"
+              >
+                GitHub
+              </LinkBtn>
+              <LinkBtn href={"https://docs.reflexer.finance/"} target="_blank">
+                Docs
+              </LinkBtn>
+
+              <LinkBtn
+                href={
+                  "https://medium.com/reflexer-labs/stability-without-pegs-8c6a1cbc7fbd"
+                }
+                target="_blank"
+              >
+                RAI Explainer
+              </LinkBtn>
+              <LinkBtn
+                href={
+                  "https://github.com/reflexer-labs/whitepapers/blob/master/English/rai-english.pdf"
+                }
+                target={"_blank"}
+              >
+                Whitepaper
               </LinkBtn>
             </LinksContainer>
           </Column>
@@ -81,63 +114,41 @@ const Header = ({
               >
                 Forum
               </LinkBtn>
-            </LinksContainer>
-          </Column>
-          <Column>
-            <NavLink className={isWhiteLogo ? "white" : ""}>Project</NavLink>
-            <LinksContainer>
-              <LinkBtn
-                href={"https://github.com/reflexer-labs"}
-                target="_blank"
-              >
-                GitHub
-              </LinkBtn>
-              <LinkBtn onClick={e => handleSamePageClick(e, "/bug-bounty")}>
-                Bug Bounty
-              </LinkBtn>
-              <LinkBtn
-                href="https://angel.co/company/reflexer-labs"
-                target="_blank"
-              >
-                Jobs
-              </LinkBtn>
               <LinkBtn href="https://memes.reflexer.finance" target="_blank">
                 Memes
               </LinkBtn>
             </LinksContainer>
           </Column>
-
           <Column>
-            <NavLink className={isWhiteLogo ? "white" : ""}>Resources</NavLink>
+            <NavLink className={isWhiteLogo ? "white" : ""}>Company</NavLink>
             <LinksContainer>
               <LinkBtn onClick={e => handleSamePageClick(e, "/about")}>
                 About
               </LinkBtn>
+              <LinkBtn onClick={e => handleSamePageClick(e, "/why-rai")}>
+                Why RAI
+              </LinkBtn>
+              <LinkBtn onClick={e => handleSamePageClick(e, "/integrations")}>
+                Integrations
+              </LinkBtn>
               <LinkBtn onClick={e => handleSamePageClick(e, "/faq")}>
                 FAQ
               </LinkBtn>
-              <LinkBtn href={"https://docs.reflexer.finance/"} target="_blank">
-                Documentation
-              </LinkBtn>
-
-              <LinkBtn
-                href={
-                  "https://medium.com/reflexer-labs/stability-without-pegs-8c6a1cbc7fbd"
-                }
-                target={"_blank"}
-              >
-                RAI Explainer
+              <LinkBtn onClick={e => handleSamePageClick(e, "/bug-bounty")}>
+                Bug Bounty
               </LinkBtn>
               <LinkBtn
-                href={
-                  "https://github.com/reflexer-labs/whitepapers/blob/master/English/rai-english.pdf"
-                }
-                target={"_blank"}
+                href={"https://angel.co/company/reflexer-labs"}
+                target="_blank"
               >
-                Whitepaper
+                Jobs
+              </LinkBtn>
+              <LinkBtn href={"https://memes.reflexer.finance"} target="_blank">
+                Memes
               </LinkBtn>
             </LinksContainer>
           </Column>
+
           <Button>
             <a
               href="https://app.reflexer.finance/"
@@ -161,6 +172,8 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
+  position: relative;
+  z-index: 5;
   ${({ theme }) => theme.mediaWidth.upToSmall`
      padding: 0 20px;
      top:0 !important;
@@ -193,6 +206,9 @@ const CloseIcon = styled.div`
   padding: 20px;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     display:block;
+    svg {
+      color:${props => props.theme.colors.neutral};
+    }
   `}
 `
 
@@ -204,10 +220,13 @@ const MenuContent = styled.div`
   }
   &.white {
     button {
-      background: rgba(255, 255, 255, 0.2);
+      border-radius: 25px;
+      border: 3px solid ${props => props.theme.colors.blueish};
+      background: transparent;
       color: ${props => props.theme.colors.primary};
       font-weight: normal;
       color: white;
+      position: relative;
     }
   }
 
@@ -220,7 +239,7 @@ const MenuContent = styled.div`
     overflow-y:auto;
     width:100%;
     z-index:100;
-    background:white;
+    background:${props => props.theme.colors.background};
     padding:2rem;
     &.active {
       display:block;
@@ -237,7 +256,8 @@ const LinksContainer = styled.div`
   position: absolute;
   top: 40px;
   border-radius: 4px;
-  background: #fff;
+  background: ${props => props.theme.colors.foreground};
+  z-index: 4;
   padding: 20px;
   min-width: 200px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
@@ -247,6 +267,7 @@ const LinksContainer = styled.div`
   box-shadow:none;
   padding:0;
   margin-bottom:20px;
+  background: ${props => props.theme.colors.background};
   `}
 `
 
@@ -278,7 +299,7 @@ const NavLink = styled.p`
   }
   ${({ theme }) => theme.mediaWidth.upToSmall`
     font-weight:bold;
-    color: ${props => props.theme.colors.primary} !important;
+    color: ${props => props.theme.colors.neutral} !important;
   `}
   ${({ theme }) => theme.mediaWidth.upToMedium`
     svg {
@@ -286,6 +307,7 @@ const NavLink = styled.p`
     }
     justify-content: flex-start;
     cursor:pointer;
+   
   
   `}
   &.white {
@@ -294,7 +316,7 @@ const NavLink = styled.p`
 `
 
 const LinkBtn = styled.a`
-  color: ${props => props.theme.colors.secondary};
+  color: ${props => props.theme.colors.secondary} !important;
   font-size: 15px;
   line-height: 24px;
   letter-spacing: -0.18px;
@@ -309,6 +331,6 @@ const LinkBtn = styled.a`
   &:hover {
     text-decoration: none;
     transform: translateX(5px);
-    color: ${props => props.theme.colors.secondary};
+    color: ${props => props.theme.colors.neutral}!important;
   }
 `

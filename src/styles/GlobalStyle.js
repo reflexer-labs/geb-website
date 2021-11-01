@@ -34,3 +34,24 @@ export const ExternalLinkArrow = css`
     top: 1px;
   }
 `
+
+export const BtnStyle = css`
+  outline: none;
+  cursor: pointer;
+  min-width: 134px;
+  border: none;
+  box-shadow: none;
+  padding: ${props => props.theme.global.buttonPadding};
+  line-height: 24px;
+  font-size: ${props => props.theme.font.small};
+  font-weight: 600;
+  font-family: "Inter-Medium";
+  color: ${props => props.theme.colors.neutral};
+  background: ${props => props.theme.colors.gradient};
+  border-radius: ${props => props.theme.global.borderRadius};
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  justify-content: space-between;
+`
