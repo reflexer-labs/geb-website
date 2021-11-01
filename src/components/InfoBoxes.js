@@ -47,7 +47,7 @@ const InfoBoxes = () => {
               <p>Build dApps using a true decentralized stablecoin</p>
             </div>
             <LinkButton
-              text={"React the Docs"}
+              text={"Read the Docs"}
               url="https://docs.reflexer.finance/"
               isExternal
               withArrow

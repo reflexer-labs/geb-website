@@ -25,7 +25,7 @@ const floatsAttr = {
     style: { bottom: "-70%", left: "20px" },
     className: "wow fadeInDown",
     "data-wow-delay": "0.4s",
-    href: "https://beta.idle.finance/#/dashboard/best/RAI",
+    href: "https://idle.finance/#/dashboard/best/RAI",
     target: "_blank",
   },
   3: {
@@ -33,7 +33,7 @@ const floatsAttr = {
     className: "wow fadeInUp",
     "data-wow-delay": "0.5s",
     href:
-      "https://app.sushi.com/lend/0xA7c3304462b169C71F8EdC894Ea9d32879Fb4823",
+      "https://sushiswap.vision/token/0x03ab458634910aad20ef5f1c8ee96f1d6ac54919",
     target: "_blank",
   },
   4: {
