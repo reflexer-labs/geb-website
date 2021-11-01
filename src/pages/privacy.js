@@ -2,10 +2,9 @@ import React, { useEffect } from "react"
 import moment from "moment"
 import Layout from "../components/Layout"
 import styled from "styled-components"
-import { ExternalLinkArrow } from "../styles/GlobalStyle"
 import usePrivacy from "../hooks/usePrivacy"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import helper from "../utils/helper"
+import { SmoothVerticalScrolling } from "../utils/helper"
 
 const Privacy = ({ location }) => {
   const privacyData = usePrivacy()[0].node
@@ -13,22 +12,24 @@ const Privacy = ({ location }) => {
     if (location.state && location.state.section) {
       const h3List = document.getElementsByTagName("h3")
       if (h3List.length > 0) {
-        helper.SmoothVerticalScrolling(
-          h3List[location.state.section],
-          300,
-          "top"
-        )
+        SmoothVerticalScrolling(h3List[location.state.section], 300, "top")
       }
     }
   }, [location])
   return (
-    <Layout headerStyle={{ position: "absolute", width: "100%", top: "20px" }}>
+    <Layout
+      customTitle={"Privacy"}
+      headerStyle={{ position: "absolute", width: "100%", top: "20px" }}
+      isWhiteLogo
+      onlyBrand
+      hasBackground
+    >
       <InnterContent>
         <Title>{privacyData.title.title}</Title>
         <Date>
           Updated {moment(privacyData.updatedAt).format("MMMM Do YYYY")}
         </Date>
-        {documentToReactComponents(privacyData.content.json)}
+        {documentToReactComponents(JSON.parse(privacyData.content.raw))}
       </InnterContent>
     </Layout>
   )
@@ -45,7 +46,7 @@ const Title = styled.h1`
   font-size: 50px;
   font-weight: 600;
   font-family: "Inter-Medium";
-  color: ${props => props.theme.colors.primary};
+  color: ${props => props.theme.colors.neutral};
   ${({ theme }) => theme.mediaWidth.upToSmall`
    font-size:35px;
    `}
@@ -65,10 +66,10 @@ const InnterContent = styled.div`
       font-size: calc(0.44vw + 0.44vh + 0.5vmin);
       line-height: 2;
       margin: 0;
-      color: ${props => props.theme.colors.primary};
+      color: ${props => props.theme.colors.secondary};
       a {
-        ${ExternalLinkArrow}
-        display:inline;
+        color: ${props => props.theme.colors.greenish};
+        display: inline;
         font-size: calc(0.44vw + 0.44vh + 0.5vmin);
         word-break: break-all;
       }
@@ -89,8 +90,8 @@ const InnterContent = styled.div`
     font-size:15px;
   `}
     a {
-      ${ExternalLinkArrow}
-      display:inline;
+      color: ${props => props.theme.colors.greenish};
+      display: inline;
 
       word-break: break-all;
     }
@@ -99,7 +100,7 @@ const InnterContent = styled.div`
   h3 {
     font-size: calc(0.8vw + 0.8vh + 0.5vmin);
     font-family: "Inter-Medium";
-    color: ${props => props.theme.colors.primary};
+    color: ${props => props.theme.colors.neutral};
     margin-top: 60px;
     margin-bottom: 20px;
     ${({ theme }) => theme.mediaWidth.upToSmall`
@@ -112,12 +113,12 @@ const InnterContent = styled.div`
     font-size: calc(0.55vw + 0.55vh + 0.5vmin);
     line-height: 2;
     margin: 20px 0 0 0;
-    color: ${props => props.theme.colors.primary};
+    color: ${props => props.theme.colors.secondary};
     font-family: "Inter-Medium";
     font-weight: bold;
     a {
-      ${ExternalLinkArrow}
-      display:inline;
+      color: ${props => props.theme.colors.greenish};
+      display: inline;
       font-size: calc(0.44vw + 0.44vh + 0.5vmin);
       word-break: break-all;
     }
@@ -133,10 +134,10 @@ const InnterContent = styled.div`
     font-size: calc(0.44vw + 0.44vh + 0.5vmin);
     line-height: 2;
     margin: 0;
-
+    color: ${props => props.theme.colors.secondary};
     a {
-      ${ExternalLinkArrow}
-      display:inline;
+      color: ${props => props.theme.colors.greenish};
+      display: inline;
       font-size: calc(0.44vw + 0.44vh + 0.5vmin);
       word-break: break-all;
     }

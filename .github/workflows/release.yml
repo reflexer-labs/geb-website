@@ -1,7 +1,11 @@
 name: Production Release
 on:
   release:
-    types: published
+    types:
+      - published
+
+  # manual trigger
+  workflow_dispatch:
 
 jobs:
   deploy:

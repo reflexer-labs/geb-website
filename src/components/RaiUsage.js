@@ -18,10 +18,18 @@ const RaiUsage = () => {
       : (acc[item.category.category] = [item])
     return acc
   }, {})
+
+  const ordered = ["dashboards", "dapps", "earn", "swap"]
+
+  const orderedItems = ordered.reduce((acc, key) => {
+    acc[key] = items[key]
+    return acc
+  }, {})
+
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
-      const cat = Object.keys(items).reverse()[index]
+      const cat = Object.keys(orderedItems)[index]
       return '<span class="' + className + '">' + cat + "</span>"
     },
   }
@@ -40,31 +48,29 @@ const RaiUsage = () => {
           pagination={pagination}
           autoHeight
         >
-          {Object.keys(items)
-            .reverse()
-            .map(key => {
-              return (
-                <SwiperSlide key={key} style={{ background: "transparent" }}>
-                  <ItemsRow>
-                    {items[key].map(item => {
-                      return (
-                        <Link
-                          key={item.title.title}
-                          href={item.link.link}
-                          target="_blank"
-                        >
-                          <ItemBox>
-                            <img src={item.image.file.url} alt="item.title" />
-                            <ItemTitle>{item.title.title}</ItemTitle>
-                            <ItemContent>{item.content.content}</ItemContent>
-                          </ItemBox>
-                        </Link>
-                      )
-                    })}
-                  </ItemsRow>
-                </SwiperSlide>
-              )
-            })}
+          {Object.keys(orderedItems).map(key => {
+            return (
+              <SwiperSlide key={key} style={{ background: "transparent" }}>
+                <ItemsRow>
+                  {orderedItems[key].map(item => {
+                    return (
+                      <Link
+                        key={item.title.title}
+                        href={item.link.link}
+                        target="_blank"
+                      >
+                        <ItemBox>
+                          <img src={item.image.file.url} alt="item.title" />
+                          <ItemTitle>{item.title.title}</ItemTitle>
+                          <ItemContent>{item.content.content}</ItemContent>
+                        </ItemBox>
+                      </Link>
+                    )
+                  })}
+                </ItemsRow>
+              </SwiperSlide>
+            )
+          })}
         </Swiper>
       </Content>
     </Container>

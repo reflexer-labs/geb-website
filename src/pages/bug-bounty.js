@@ -2,7 +2,6 @@ import React from "react"
 import moment from "moment"
 import Layout from "../components/Layout"
 import styled from "styled-components"
-import { ExternalLinkArrow } from "../styles/GlobalStyle"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import useBugBounty from "../hooks/useBugBounty"
 import { INLINES, BLOCKS } from "@contentful/rich-text-types"
@@ -73,13 +72,19 @@ const BugBounty = () => {
   }
 
   return (
-    <Layout headerStyle={{ position: "absolute", width: "100%", top: "20px" }}>
+    <Layout
+      customTitle={"Bug Bounty"}
+      headerStyle={{ position: "absolute", width: "100%", top: "20px" }}
+      isWhiteLogo
+      onlyBrand
+      hasBackground
+    >
       <InnterContent>
         <Title>{bugBounty.title}</Title>
         <Date>
           Updated {moment(bugBounty.updatedAt).format("MMMM Do YYYY")}
         </Date>
-        {handleContent(bugBounty.content.json)}
+        {handleContent(JSON.parse(bugBounty.content.raw))}
       </InnterContent>
     </Layout>
   )
@@ -96,7 +101,7 @@ const Title = styled.h1`
   font-size: 50px;
   font-weight: 600;
   font-family: "Inter-Medium";
-  color: ${props => props.theme.colors.primary};
+  color: ${props => props.theme.colors.neutral};
   ${({ theme }) => theme.mediaWidth.upToSmall`
    font-size:35px;
    `}
@@ -116,10 +121,10 @@ const InnterContent = styled.div`
       font-size: calc(0.44vw + 0.44vh + 0.5vmin);
       line-height: 2;
       margin: 0;
-      color: ${props => props.theme.colors.primary};
+      color: ${props => props.theme.colors.secondary};
       a {
-        ${ExternalLinkArrow}
-        display:inline;
+        color: ${props => props.theme.colors.blueish};
+        display: inline;
         font-size: calc(0.44vw + 0.44vh + 0.5vmin);
         word-break: break-all;
       }
@@ -140,8 +145,8 @@ const InnterContent = styled.div`
     font-size:15px;
   `}
     a {
-      ${ExternalLinkArrow}
-      display:inline;
+      color: ${props => props.theme.colors.blueish};
+      display: inline;
 
       word-break: break-all;
     }
@@ -150,7 +155,7 @@ const InnterContent = styled.div`
   h3 {
     font-size: calc(0.8vw + 0.8vh + 0.5vmin);
     font-family: "Inter-Medium";
-    color: ${props => props.theme.colors.primary};
+    color: ${props => props.theme.colors.secondary};
     margin-top: 60px;
     margin-bottom: 20px;
     ${({ theme }) => theme.mediaWidth.upToSmall`
@@ -163,12 +168,12 @@ const InnterContent = styled.div`
     font-size: calc(0.55vw + 0.55vh + 0.5vmin);
     line-height: 2;
     margin: 20px 0 0 0;
-    color: ${props => props.theme.colors.primary};
+    color: ${props => props.theme.colors.secondary};
     font-family: "Inter-Medium";
     font-weight: bold;
     a {
-      ${ExternalLinkArrow}
-      display:inline;
+      color: ${props => props.theme.colors.blueish};
+      display: inline;
       font-size: calc(0.44vw + 0.44vh + 0.5vmin);
       word-break: break-all;
     }
@@ -186,8 +191,8 @@ const InnterContent = styled.div`
     margin: 0;
 
     a {
-      ${ExternalLinkArrow}
-      display:inline;
+      color: ${props => props.theme.colors.blueish};
+      display: inline;
       font-size: calc(0.44vw + 0.44vh + 0.5vmin);
       word-break: break-all;
     }
@@ -221,7 +226,7 @@ const Content = styled.div`
   display: flex;
   margin-top: 20px;
   align-items: center;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   width: 610px;
 `
 
@@ -229,7 +234,7 @@ const Item = styled.div`
   height: 3rem;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   justify-content: center;
   font-weight: bold;
   font-size: 14px;
@@ -239,13 +244,13 @@ const Item = styled.div`
   &.foot {
     font-weight: normal;
     text-transform: capitalize;
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(255, 255, 255, 0.9);
   }
 `
 
 const Col = styled.div`
   flex: 1;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
   &:last-child {
     border-right: 0;
   }
@@ -255,14 +260,14 @@ const Col = styled.div`
       font-weight: normal !important;
       justify-content: flex-start;
       padding-left: 20px;
-      color: rgba(0, 0, 0, 0.6);
+      color: rgba(255, 255, 255, 0.9);
     }
   }
 `
 
 const Likelihood = styled.div`
   position: absolute;
-  color: #383d51;
+  color: ${props => props.theme.colors.customSecondary};
   font-size: 20px;
   left: -40px;
   top: calc(50%);
@@ -272,7 +277,7 @@ const Likelihood = styled.div`
 
 const Severity = styled.div`
   position: absolute;
-  color: #383d51;
+  color: ${props => props.theme.colors.customSecondary};
   font-size: 20px;
   left: calc(50%);
   -webkit-transform: translateX(-50%);

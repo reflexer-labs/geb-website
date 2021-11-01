@@ -2,26 +2,22 @@ import React from "react"
 import styled from "styled-components"
 import Layout from "../components/Layout"
 import useFAQs from "../hooks/useFAQs"
-import SplitView from "../components/SplitView"
-
-const headerStyle = {
-  background: "#fff",
-  boxShadow: "0px 1px 0px #eef3f9",
-  borderBottom: "1px solid #eef3f9",
-}
+import AllFaqs from "../components/AllFaqs"
 
 const FAQ = ({ location }) => {
   const faqs = useFAQs().map(item => item.node)
   return (
     <Layout
       customTitle={"FAQ"}
-      headerStyle={headerStyle}
-      smallLogo
       location={location}
+      headerStyle={{ position: "absolute", width: "100%", top: "20px" }}
+      isWhiteLogo
+      onlyBrand
+      hasBackground
     >
       <Container>
         <InnerContent>
-          <SplitView data={faqs} />
+          <AllFaqs data={faqs} location={location} />
         </InnerContent>
       </Container>
     </Layout>
@@ -31,8 +27,7 @@ const FAQ = ({ location }) => {
 export default FAQ
 
 const Container = styled.div`
-  padding: 80px 20px;
-  background: ${props => props.theme.colors.foreground};
+  padding: 100px 20px 0 20px;
 `
 
 const InnerContent = styled.div`

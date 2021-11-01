@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet"
 import useSiteMetadata from "../hooks/useSiteMetadata"
 import getPrefixedPath from "../utils/getPrefixPath"
 
-const SEO = ({ pathname = "", customTitle }) => {
+const SiteMetaData = ({ pathname = "", customTitle }) => {
   const {
     siteUrl,
     title: mainTitle,
@@ -50,4 +50,4 @@ const SEO = ({ pathname = "", customTitle }) => {
   )
 }
 
-export default SEO
+export default SiteMetaData

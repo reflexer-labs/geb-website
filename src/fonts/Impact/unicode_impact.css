@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'unicode_impact';
+    src: url('fonts/unicode_impact.eot');
+    src: url('fonts/unicode_impact.eot') format('embedded-opentype'),
+         url('fonts/unicode_impact.woff2') format('woff2'),
+         url('fonts/unicode_impact.woff') format('woff'),
+         url('fonts/unicode_impact.ttf') format('truetype'),
+         url('fonts/unicode_impact.svg#unicode_impact') format('svg');
+}
