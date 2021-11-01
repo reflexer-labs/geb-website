@@ -128,10 +128,9 @@ const InnerBox = styled.div`
   padding: 40px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   height: 100%;
-  > div {
-    flex-grow: 1;
-  }
+
   a {
     margin-top: 20px;
     align-self: flex-start;
