@@ -69,12 +69,7 @@ const FAQsCollapse = () => {
                 {faq.title}{" "}
               </CollapseTitle>
 
-              <CollapseText
-                style={{
-                  maxHeight: i === collapseIndex ? "200px" : "0",
-                  marginBottom: i === collapseIndex ? "30px" : "0",
-                }}
-              >
+              <CollapseText className={i === collapseIndex ? "active" : ""}>
                 {handleContent(JSON.parse(faq.content.raw))}
               </CollapseText>
             </CollapseBlock>
@@ -174,12 +169,18 @@ const CollapseText = styled.div`
   padding-left: 50px;
   margin-left: auto;
   border-left: 1px solid ${props => props.theme.colors.greenish};
+  max-height: 0;
   a {
     color: ${props => props.theme.colors.greenish};
   }
 
+  &.active {
+    max-height: max-content;
+    margin-bottom: 30px;
+  }
   ${({ theme }) => theme.mediaWidth.upToSmall`
    font-size: ${props => props.theme.font.default};
+   
   `}
 `
 

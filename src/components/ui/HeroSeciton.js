@@ -33,7 +33,7 @@ const floatsAttr = {
     className: "wow fadeInUp",
     "data-wow-delay": "0.5s",
     href:
-      "https://sushiswap.vision/token/0x03ab458634910aad20ef5f1c8ee96f1d6ac54919",
+      "https://analytics.sushi.com/tokens/0x03ab458634910aad20ef5f1c8ee96f1d6ac54919",
     target: "_blank",
   },
   4: {
