@@ -11,7 +11,7 @@ const HomeIntegrations = () => {
       <Inner>
         <Header>
           <div className="wow fadeInDown" data-wow-delay="0.2s">
-            <HeaderLabel>Checkout our</HeaderLabel>
+            <HeaderLabel>Check out our</HeaderLabel>
             <Title>Recent Integrations</Title>
             <Border></Border>
           </div>
