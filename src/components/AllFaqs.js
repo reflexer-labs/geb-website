@@ -119,7 +119,6 @@ const Content = styled.div`
 const MainContent = styled.div`
   flex-grow: 1;
   margin-left: auto;
-  padding-left: 70px;
   ${({ theme }) => theme.mediaWidth.upToMedium`
     padding-left: 0px;
   `}
