@@ -3,7 +3,11 @@ import styled from "styled-components"
 
 const OutlineHeader = ({ outline, text, color, ...rest }) => {
   return (
-    <Header headerColor={color} {...rest}>
+    <Header
+      headerColor={color}
+      {...rest}
+      isFireFox={typeof InstallTrigger !== "undefined"}
+    >
       <span className="outlined wow fadeInLeft">{outline}</span>{" "}
       <span className="wow fadeInRight">{text}</span>
     </Header>
@@ -23,7 +27,8 @@ const Header = styled.h2`
     headerColor ? theme.colors[headerColor] : theme.colors.blueish};
   .outlined {
     color: transparent;
-    -webkit-text-stroke-width: 0.001em;
+    -webkit-text-stroke-width: ${({ _theme, isFireFox }) =>
+      isFireFox ? "0.01em" : "0.001em"};
     -webkit-text-stroke-color: ${({ theme, headerColor }) =>
       headerColor ? theme.colors[headerColor] : theme.colors.blueish};
     margin-right: 10px;
