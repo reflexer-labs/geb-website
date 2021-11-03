@@ -15,7 +15,10 @@ const minABI = [
   },
 ]
 export default function ReflexerTVL() {
-  const [TVL, setTVL] = React.useState("-")
+  const tvlFromLocalStorage = localStorage.getItem("tvl")
+  const [TVL, setTVL] = React.useState(
+    tvlFromLocalStorage ? tvlFromLocalStorage : "-"
+  )
 
   async function fetchEthPrice() {
     try {
@@ -35,6 +38,9 @@ export default function ReflexerTVL() {
       const balance = await contract.methods.balanceOf(address).call()
       const ethPrice = await fetchEthPrice()
       const val = ((Number(balance) / 1e18) * ethPrice).toFixed(0)
+      console.log("====================================")
+      console.log(val)
+      console.log("====================================")
       setTVL(val)
       if (isBrowser) {
         localStorage.setItem("tvl", val)
@@ -69,7 +75,7 @@ export default function ReflexerTVL() {
           src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"
         />
       </Helmet>
-      {isBrowser ? Numeral(TVL).format("0 a").split(" ")[0] : "150"}
+      {Numeral(TVL).format("0 a").split(" ")[0]}
     </span>
   )
 }
