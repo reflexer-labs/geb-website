@@ -25,7 +25,7 @@ const Integrations = () => {
 
   return (
     <Layout
-      customTitle={"Tray RAI"}
+      customTitle={"Try RAI"}
       headerStyle={{ position: "absolute", width: "100%", top: "20px" }}
       isWhiteLogo
       onlyBrand
