@@ -34,10 +34,19 @@ export default function ReflexerTVL() {
       const contract = await new web3.eth.Contract(minABI, contractAddress)
       const balance = await contract.methods.balanceOf(address).call()
       const ethPrice = await fetchEthPrice()
-      setTVL(((Number(balance) / 1e18) * ethPrice).toFixed(0))
+      const val = ((Number(balance) / 1e18) * ethPrice).toFixed(0)
+      setTVL(val)
+      if (isBrowser) {
+        localStorage.setItem("tvl", val)
+      }
     } catch (error) {
       console.log(error)
-      setTVL("150")
+      if (isBrowser) {
+        const value = localStorage.getItem("tvl")
+        if (value) {
+          setTVL(value)
+        }
+      }
     }
   }
 
