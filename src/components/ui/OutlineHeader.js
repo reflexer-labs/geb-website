@@ -37,7 +37,7 @@ const Header = styled.h2`
     font-size: 50px;
     .outlined {
       -webkit-text-stroke-width: ${({ _theme, isFireFox }) =>
-        isFireFox ? "0.01em" : "0.001em"};
+        isFireFox ? "0.01em" : "0.03em"};
     }
   }
 `
