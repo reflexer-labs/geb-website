@@ -53,6 +53,9 @@ const InnterContent = styled.div`
   padding-top: 180px;
   padding-right: 20px;
   padding-left: 20px;
+  @media (max-width: 767px) {
+    padding-top: 70px;
+  }
 `
 
 const Box = styled.div`
