@@ -197,6 +197,7 @@ const InnterContent = styled.div`
       word-break: break-all;
     }
     ${({ theme }) => theme.mediaWidth.upToSmall`
+      padding-top: 70px;
       font-size: 16px;
       a{
         font-size: 16px;
