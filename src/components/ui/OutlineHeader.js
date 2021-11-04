@@ -27,8 +27,7 @@ const Header = styled.h2`
     headerColor ? theme.colors[headerColor] : theme.colors.blueish};
   .outlined {
     color: transparent;
-    -webkit-text-stroke-width: ${({ _theme, isFireFox }) =>
-      isFireFox ? "0.03em" : "0.001em"};
+    -webkit-text-stroke-width: 0.03em;
     -webkit-text-stroke-color: ${({ theme, headerColor }) =>
       headerColor ? theme.colors[headerColor] : theme.colors.blueish};
     margin-right: 10px;
@@ -36,8 +35,7 @@ const Header = styled.h2`
   @media (max-width: 767px) {
     font-size: 50px;
     .outlined {
-      -webkit-text-stroke-width: ${({ _theme, isFireFox }) =>
-        isFireFox ? "0.01em" : "0.03em"};
+      -webkit-text-stroke-width: 0.03em;
     }
   }
 `
