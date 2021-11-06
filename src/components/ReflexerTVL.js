@@ -14,6 +14,12 @@ const minABI = [
     type: "function",
   },
 ]
+
+const query = `{
+  collateralType(id: "ETH-A") {
+    totalCollateral
+  }
+}`
 export default function ReflexerTVL() {
   const tvlFromLocalStorage = localStorage.getItem("tvl")
   const [TVL, setTVL] = React.useState(
@@ -31,16 +37,53 @@ export default function ReflexerTVL() {
       console.log(error)
     }
   }
-  async function fetcher() {
+
+  async function trySubgraph() {
+    try {
+      const res = await fetch(
+        "https://subgraph.reflexer.finance/subgraphs/name/reflexer-labs/rai",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ query }),
+        }
+      )
+
+      const { data } = await res.json()
+      return data.collateralType.totalCollateral
+    } catch (error) {
+      return false
+    }
+  }
+
+  async function tryWeb3() {
     try {
       const web3 = new window.Web3("https://cloudflare-eth.com")
       const contract = await new web3.eth.Contract(minABI, contractAddress)
       const balance = await contract.methods.balanceOf(address).call()
+      return balance
+    } catch (error) {
+      console.log("====================================")
+      console.log("error with web3")
+      console.log("====================================")
+    }
+  }
+
+  async function fetcher() {
+    try {
+      let balance
+      const subResponse = await trySubgraph()
+
+      if (subResponse && Number.isInteger(subResponse)) {
+        balance = Number(subResponse)
+      } else {
+        balance = await tryWeb3()
+        balance = Number(balance) / 1e18
+      }
       const ethPrice = await fetchEthPrice()
-      const val = ((Number(balance) / 1e18) * ethPrice).toFixed(0)
-      console.log("====================================")
-      console.log(val)
-      console.log("====================================")
+      const val = (balance * ethPrice).toFixed(0)
       setTVL(val)
       if (isBrowser) {
         localStorage.setItem("tvl", val)
@@ -68,7 +111,6 @@ export default function ReflexerTVL() {
 
   return (
     <span>
-      {/* Can use either react-helmet or include the script from gatsby-browser */}
       <Helmet>
         <script
           type="text/javascript"
