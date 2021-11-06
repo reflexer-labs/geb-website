@@ -117,7 +117,7 @@ export default function ReflexerTVL() {
           src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"
         />
       </Helmet>
-      {Numeral(TVL).format("0 a").split(" ")[0]}
+      {Number(TVL) > 0 ? Numeral(TVL).format("0 a").split(" ")[0] : "-"}
     </span>
   )
 }
