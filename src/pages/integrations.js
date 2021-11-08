@@ -16,7 +16,7 @@ const Integrations = () => {
     return acc
   }, {})
 
-  const ordered = ["dashboards", "dapps", "earn", "swap"]
+  const ordered = ["dashboards", "dapps", "earn", "swap", "DAO"]
 
   const orderedItems = ordered.reduce((acc, key) => {
     acc[key] = items[key]
@@ -54,12 +54,7 @@ const Integrations = () => {
         {orderedItems[selected].map((x, i) => {
           const item = { node: x }
           return (
-            <IntegrationItem
-              className="int-item"
-              x={item}
-              i={i}
-              key={item.id}
-            />
+            <IntegrationItem className="int-item" x={item} i={i} key={x.id} />
           )
         })}
       </Content>
@@ -87,15 +82,18 @@ const Subtitle = styled.div`
 const Tabs = styled.div`
   display: flex;
   align-items: center;
-  max-width: 600px;
   margin: 50px auto;
-  justify-content: space-between;
+  justify-content: center;
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+  }
 `
 const TabItem = styled.div`
   border-radius: 25px;
   background: ${props => props.theme.colors.foreground};
   padding: 8px 13px;
   min-width: 120px;
+  margin: 10px;
   text-align: center;
   cursor: pointer;
   font-size: 14px;
