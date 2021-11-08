@@ -13,6 +13,12 @@ const Home = () => {
       isWhiteLogo
       onlyBrand
     >
+      <h1
+        style={{ visibility: "hidden", height: "0", margin: "0", width: "0" }}
+      >
+        Reflexer is a platform where anyone can use their crypto collateral to
+        mint RAI, a non-pegged stablecoin backed by ETH.
+      </h1>
       <HeroSeciton />
       <VideoSection />
       <InfoBoxes />
