@@ -118,7 +118,7 @@ const Footer = ({ slapToBottom, location }) => {
               {selectedGroup === 2 ? <Minus size={16} /> : <Plus size={16} />}
             </Header>
             <LinksContainer>
-              <LinkBtn href={"https://discord.gg/G6SZSAvX32"} target="_blank">
+              <LinkBtn href={"https://discord.gg/SwYjUtG5qU"} target="_blank">
                 Discord
               </LinkBtn>
               <LinkBtn

@@ -93,7 +93,7 @@ const Header = ({
           <Column>
             <NavLink className={isWhiteLogo ? "white" : ""}>Community</NavLink>
             <LinksContainer>
-              <LinkBtn href={"https://discord.gg/G6SZSAvX32"} target="_blank">
+              <LinkBtn href={"https://discord.gg/SwYjUtG5qU"} target="_blank">
                 Discord
               </LinkBtn>
               <LinkBtn
