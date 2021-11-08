@@ -1,9 +1,12 @@
 import React from "react"
 import styled from "styled-components"
+import useRaiUse from "../hooks/useRaiUse"
 import LinkButton from "./ui/LinkButton"
 
 const LazyReflexerTVL = React.lazy(() => import("./ReflexerTVL"))
 const InfoBoxes = () => {
+  const integrations = useRaiUse()
+
   return (
     <Container>
       <Content>
@@ -89,7 +92,7 @@ const InfoBoxes = () => {
         <Col className="dashed">
           <Inner>
             <Heading>
-              <Main>24</Main>
+              <Main>{integrations.length}</Main>
               <Side>
                 <div>KNOWN</div>PROJECTS
               </Side>
