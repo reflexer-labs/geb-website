@@ -6,7 +6,8 @@ module.exports = {
   siteMetadata: {
     title: "Reflexer Labs",
     titleTemplate: "%s",
-    description: "We are building $RAI. A Low Volatility Collateral for DeFi",
+    description:
+      "Reflexer is a platform where anyone can use their crypto collateral to mint RAI, a non-pegged stablecoin backed by ETH.",
     keywords: "RAI, DeFi, ETH, stable asset are core",
     siteUrl: "https://www.reflexer.finance",
     image: "/android-chrome-512x512.png",
