@@ -11,7 +11,7 @@ const CookieBanner = () => {
       location="bottom"
       buttonText="✓ Accept"
       cookieName="cookiesAccepted"
-      style={{ background: "#fff", boxShadow: "0 0 6px rgba(0,0,0,0.16)" }}
+      style={{ background: "#0b1226", boxShadow: "0 0 6px rgba(0,0,0,0.16)" }}
     >
       <CookiesText>
         {" "}
@@ -29,7 +29,7 @@ const CookieBanner = () => {
 export default CookieBanner
 
 const CookiesText = styled.span`
-  color: ${props => props.theme.colors.primary};
+  color: ${props => props.theme.colors.neutral};
   display: flex;
   align-items: center;
   flex-wrap: wrap;
