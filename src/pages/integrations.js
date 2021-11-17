@@ -16,7 +16,7 @@ const Integrations = () => {
     return acc
   }, {})
 
-  const ordered = ["dashboards", "dapps", "earn", "swap", "DAO"]
+  const ordered = ["dashboards", "dapps", "earn", "swap", "DAO", "spend"]
 
   const orderedItems = ordered.reduce((acc, key) => {
     acc[key] = items[key]
