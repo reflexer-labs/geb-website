@@ -33,7 +33,7 @@ const WhyRai = () => {
               </Content>
               <LinkButton
                 text={item.node.link.name}
-                href={item.node.link.link}
+                url={item.node.link.link}
                 withArrow
                 isExternal
               />
