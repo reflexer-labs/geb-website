@@ -32,7 +32,7 @@ const FaqsQuickLinks = () => {
             <Description>
               Reach us out on{" "}
               <a
-                href="https://discord.gg/SwYjUtG5qU"
+                href="https://discord.gg/AXwXHGsTaJ"
                 rel="noreferrer"
                 target="_blank"
               >
