@@ -10,7 +10,7 @@ const floatsAttr = {
     style: { top: "-70%", left: "30%" },
     className: "wow fadeInUp",
     "data-wow-delay": "0.2s",
-    href: "https://app.barnbridge.com/smart-yield/stats?m=aave/v2&t=RAI",
+    href: "https://curve.fi/rai",
     target: "_blank",
   },
   1: {
@@ -32,8 +32,7 @@ const floatsAttr = {
     style: { top: "-40%", right: "-20%" },
     className: "wow fadeInUp",
     "data-wow-delay": "0.5s",
-    href:
-      "https://analytics.sushi.com/tokens/0x03ab458634910aad20ef5f1c8ee96f1d6ac54919",
+    href: "https://www.convexfinance.com/",
     target: "_blank",
   },
   4: {
