@@ -20,6 +20,7 @@ const query = `{
     totalCollateral
   }
 }`
+
 export default function ReflexerTVL() {
   const tvlFromLocalStorage = localStorage.getItem("tvl")
   const [TVL, setTVL] = React.useState(
@@ -60,7 +61,9 @@ export default function ReflexerTVL() {
 
   async function tryWeb3() {
     try {
-      const web3 = new window.Web3("https://cloudflare-eth.com")
+      const web3 = new window.Web3(
+        "https://eth-mainnet.alchemyapi.io/v2/cng-23TEJZrXUvxvjUG9ydyCpEug9aJN"
+      )
       const contract = await new web3.eth.Contract(minABI, contractAddress)
       const balance = await contract.methods.balanceOf(address).call()
       return balance
@@ -71,17 +74,18 @@ export default function ReflexerTVL() {
     }
   }
 
+  async function fetchBalance() {
+    const subResponse = await trySubgraph()
+    if (subResponse && !isNaN(Number(subResponse))) {
+      return Number(subResponse)
+    }
+    const balance = await tryWeb3()
+    return Number(balance) / 1e18
+  }
+
   async function fetcher() {
     try {
-      let balance
-      const subResponse = await trySubgraph()
-
-      if (subResponse && Number.isInteger(subResponse)) {
-        balance = Number(subResponse)
-      } else {
-        balance = await tryWeb3()
-        balance = Number(balance) / 1e18
-      }
+      const balance = await fetchBalance()
       const ethPrice = await fetchEthPrice()
       const val = (balance * ethPrice).toFixed(0)
       setTVL(val)
