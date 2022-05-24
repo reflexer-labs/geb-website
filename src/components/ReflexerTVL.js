@@ -102,7 +102,7 @@ export default function ReflexerTVL() {
       }
     }
   }
-
+  // eslint-disable-next-line
   const getTVL = useCallback(fetcher, [])
 
   useEffect(() => {
