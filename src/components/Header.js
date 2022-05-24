@@ -149,6 +149,9 @@ const Header = ({
               <LinkBtn href={"https://memes.reflexer.finance"} target="_blank">
                 Memes
               </LinkBtn>
+              <LinkBtn onClick={e => handleSamePageClick(e, "/privacy")}>
+                Privacy Policy
+              </LinkBtn>
             </LinksContainer>
           </Column>
 

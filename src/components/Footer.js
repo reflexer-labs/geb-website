@@ -1,61 +1,11 @@
 import React, { useState } from "react"
 import { navigate } from "gatsby"
 import styled from "styled-components"
-import jsonp from "jsonp"
-import qs from "query-string"
 import ReactTooltip from "react-tooltip"
-import EmailInput from "./ui/EmailInput"
-import { isValidEmail } from "../utils/validations"
-import { MAILCHIMP_URL } from "../utils/constants"
 import { Minus, Plus } from "react-feather"
 
 const Footer = ({ slapToBottom, location }) => {
   const [selectedGroup, setSelectedGroup] = useState(0)
-  const [email, setEmail] = useState("")
-  const [error, setError] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [showSuccess, setShowSuccess] = useState(false)
-
-  const onChangeInput = val => {
-    setEmail(val)
-    setError("")
-  }
-
-  const onClickSubmit = () => {
-    if (!email || !isValidEmail(email)) {
-      setError("Please enter a valid email address")
-      setIsSubmitting(false)
-      return
-    }
-    const formData = {
-      EMAIL: email,
-    }
-
-    setIsSubmitting(true)
-
-    jsonp(
-      `${MAILCHIMP_URL}&${qs.stringify(formData)}`,
-      {
-        param: "c",
-      },
-      (err, data) => {
-        if (err) {
-          setError(err.message)
-        } else if (data.result !== "success") {
-          setError(data.msg)
-        } else {
-          setEmail("")
-          setShowSuccess(true)
-
-          setTimeout(() => {
-            setShowSuccess(false)
-          }, 5000)
-        }
-
-        setIsSubmitting(false)
-      }
-    )
-  }
 
   const handleClick = group => {
     if (group === selectedGroup) {
@@ -188,20 +138,6 @@ const Footer = ({ slapToBottom, location }) => {
             </LinksContainer>
           </Column>
           <Column>
-            <Subscribe>
-              <Header>Stay Updated</Header>
-              <EmailInput
-                disabled={error ? true : false}
-                isSubmitting={isSubmitting}
-                label={""}
-                value={email}
-                handleEmailClick={onClickSubmit}
-                onChange={onChangeInput}
-                error={error}
-              />
-              {showSuccess && <Success>Confirmation email sent!</Success>}
-            </Subscribe>
-
             <Cover>
               <div>
                 <Header>Get Covered</Header>
@@ -309,14 +245,6 @@ const UpperSection = styled.div`
   `}
 `
 
-const Subscribe = styled.div`
-  margin-top: 0;
-  ${({ theme }) => theme.mediaWidth.upToMedium`
-    margin-top: 25px;
-  
-  `}
-`
-
 const Company = styled.div`
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
  a > img {
@@ -380,11 +308,6 @@ const LowerSection = styled.div`
   color: ${props => props.theme.colors.secondary};
 `
 
-const Success = styled.p`
-  color: ${props => props.theme.colors.successColor};
-  font-size: ${props => props.theme.font.extraSmall};
-`
-
 const TipBtn = styled.div`
   font-size: ${props => props.theme.font.small};
   line-height: 22px;
@@ -415,7 +338,6 @@ const Cover = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 45px;
   ${Header} {
     margin-bottom: 3px;
   }
