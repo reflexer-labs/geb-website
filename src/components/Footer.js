@@ -94,13 +94,10 @@ const Footer = ({ slapToBottom, location }) => {
 
           <Column className={`col ${selectedGroup === 3 ? "active" : ""}`}>
             <Header onClick={() => handleClick(3)}>
-              Company{" "}
+              General{" "}
               {selectedGroup === 3 ? <Minus size={16} /> : <Plus size={16} />}
             </Header>
             <LinksContainer>
-              <LinkBtn onClick={e => handleSamePageClick(e, "/about")}>
-                About
-              </LinkBtn>
               <LinkBtn onClick={e => handleSamePageClick(e, "/faq")}>
                 FAQ
               </LinkBtn>
@@ -109,12 +106,6 @@ const Footer = ({ slapToBottom, location }) => {
                 target="_blank"
               >
                 Bug Bounty
-              </LinkBtn>
-              <LinkBtn
-                href={"https://angel.co/company/reflexer-labs"}
-                target="_blank"
-              >
-                Jobs
               </LinkBtn>
             </LinksContainer>
           </Column>

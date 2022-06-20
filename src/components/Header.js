@@ -120,11 +120,8 @@ const Header = ({
             </LinksContainer>
           </Column>
           <Column>
-            <NavLink className={isWhiteLogo ? "white" : ""}>Company</NavLink>
+            <NavLink className={isWhiteLogo ? "white" : ""}>General</NavLink>
             <LinksContainer>
-              <LinkBtn onClick={e => handleSamePageClick(e, "/about")}>
-                About
-              </LinkBtn>
               <LinkBtn onClick={e => handleSamePageClick(e, "/why-rai")}>
                 Why RAI
               </LinkBtn>
@@ -139,12 +136,6 @@ const Header = ({
                 target="_blank"
               >
                 Bug Bounty
-              </LinkBtn>
-              <LinkBtn
-                href={"https://angel.co/company/reflexer-labs"}
-                target="_blank"
-              >
-                Jobs
               </LinkBtn>
               <LinkBtn href={"https://memes.reflexer.finance"} target="_blank">
                 Memes
