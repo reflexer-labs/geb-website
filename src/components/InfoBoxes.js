@@ -47,7 +47,7 @@ const InfoBoxes = () => {
               <h3>
                 Developer <br /> Documentation
               </h3>
-              <p>Build dApps using a true decentralized stablecoin</p>
+              <p>Build dApps using a true decentralized stable asset</p>
             </div>
             <LinkButton
               text={"Read the Docs"}
