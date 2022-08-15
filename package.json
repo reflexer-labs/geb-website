@@ -1,7 +1,7 @@
 {
   "name": "geb-website",
   "private": true,
-  "description": "Reflexer Labs main website",
+  "description": "Reflexer main website",
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {

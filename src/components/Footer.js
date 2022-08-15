@@ -101,10 +101,7 @@ const Footer = ({ slapToBottom, location }) => {
               <LinkBtn onClick={e => handleSamePageClick(e, "/faq")}>
                 FAQ
               </LinkBtn>
-              <LinkBtn
-                href={"https://immunefi.com/bounty/reflexer/"}
-                target="_blank"
-              >
+              <LinkBtn href={"https://immunefi.com/bounty/rai"} target="_blank">
                 Bug Bounty
               </LinkBtn>
             </LinksContainer>
@@ -135,7 +132,7 @@ const Footer = ({ slapToBottom, location }) => {
         </UpperSection>
       </Inner>
       <LowerSection>
-        {`© Reflexer Labs ${new Date().getFullYear()}`}
+        {`© GEB Foundation ${new Date().getFullYear()}`}
       </LowerSection>
       <ReactTooltip multiline type="light" data-effect="float" place="top" />
     </Container>

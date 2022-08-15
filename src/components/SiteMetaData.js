@@ -15,7 +15,7 @@ const SiteMetaData = ({ pathname = "", customTitle }) => {
   } = useSiteMetadata()
 
   const href = `${siteUrl}${pathname}`
-  const title = customTitle ? `Reflexer Labs | ${customTitle}` : mainTitle
+  const title = customTitle ? `Reflexer | ${customTitle}` : mainTitle
 
   return (
     <Helmet title={title} titleTemplate={titleTemplate} defer={false}>
