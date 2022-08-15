@@ -119,13 +119,6 @@ const Footer = ({ slapToBottom, location }) => {
               <LinkBtn onClick={e => handleSamePageClick(e, "/privacy")}>
                 Privacy Policy
               </LinkBtn>
-              <TipBtn
-                data-tip={
-                  "Reflexer, FLX, and RAI, and the contents of the Reflexer Media Kit, are trademarks of Reflexer Labs, Inc. Use of this website and the Reflexer trademarks is not allowed for any purpose without the express, written permission of Reflexer."
-                }
-              >
-                Legal Notices
-              </TipBtn>
             </LinksContainer>
           </Column>
           <Column>
