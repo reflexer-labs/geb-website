@@ -4,7 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: "Reflexer Labs",
+    title: "Reflexer",
     titleTemplate: "%s",
     description:
       "Reflexer is a platform where anyone can use their crypto collateral to mint RAI, a non-pegged stablecoin backed by ETH.",

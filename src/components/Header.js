@@ -131,10 +131,7 @@ const Header = ({
               <LinkBtn onClick={e => handleSamePageClick(e, "/faq")}>
                 FAQ
               </LinkBtn>
-              <LinkBtn
-                href={"https://immunefi.com/bounty/reflexer/"}
-                target="_blank"
-              >
+              <LinkBtn href={"https://immunefi.com/bounty/rai"} target="_blank">
                 Bug Bounty
               </LinkBtn>
               <LinkBtn href={"https://memes.reflexer.finance"} target="_blank">

@@ -11,7 +11,7 @@ const Brand = ({ height, smallLogo }) => {
           className={smallLogo ? "small" : ""}
           height={height}
           src={getPrefixedPath("/brand-white.png")}
-          alt="reflexer labs"
+          alt="reflexer"
         />
       </Link>
     </Container>
