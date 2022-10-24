@@ -41,6 +41,11 @@ const ChartsSection = () => {
 
   return (
     <Container>
+      <div style={{ display: "none" }}>
+        {Images.map(img => (
+          <img src={img} alt={img} />
+        ))}
+      </div>
       {showModal ? (
         <Modal img={Images[index]} setIsShowModal={setShowModal} />
       ) : null}
