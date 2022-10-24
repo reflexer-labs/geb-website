@@ -1,10 +1,9 @@
 import React from "react"
 import Layout from "../components/Layout"
-import FAQsCollapse from "../components/FAQsCollapse"
 import HeroSeciton from "../components/ui/HeroSeciton"
 import VideoSection from "../components/VideoSection"
-import InfoBoxes from "../components/InfoBoxes"
 import HomeIntegrations from "../components/HomeIntegrations"
+import ChartsSection from "../components/ChartsSection"
 
 const Home = () => {
   return (
@@ -21,8 +20,7 @@ const Home = () => {
       </h1>
       <HeroSeciton />
       <VideoSection />
-      <InfoBoxes />
-      <FAQsCollapse />
+      <ChartsSection />
       <HomeIntegrations />
     </Layout>
   )
