@@ -43,7 +43,7 @@ const ChartsSection = () => {
     <Container>
       <div style={{ display: "none" }}>
         {Images.map(img => (
-          <img src={img} alt={img} />
+          <img key={img} src={img} alt={img} />
         ))}
       </div>
       {showModal ? (
@@ -59,6 +59,7 @@ const ChartsSection = () => {
               {Buttons.map((btn, i) => {
                 return (
                   <Button
+                    key={btn}
                     className={index === i ? "active" : ""}
                     onClick={() => {
                       setIndex(i)
@@ -107,7 +108,7 @@ const Container = styled.div`
 const Content = styled.div`
   max-width: 80vw;
   border-radius: 28px;
-  margin: 0 auto;
+  margin: 0 auto 100px;
   position: relative;
 
   img {
