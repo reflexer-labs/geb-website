@@ -18,6 +18,7 @@
     "@contentful/rich-text-plain-text-renderer": "^15.5.1",
     "@contentful/rich-text-react-renderer": "^14.1.1",
     "@u-wave/react-youtube": "^0.7.2",
+    "atob": "^2.1.2",
     "babel-plugin-styled-components": "^1.11.1",
     "classnames": "^2.2.6",
     "dotenv": "^8.2.0",
