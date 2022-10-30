@@ -73,7 +73,7 @@ const ChartsSection = () => {
 
             <DropdownContainer>
               <Dropdown
-                width="350px"
+                width="100%"
                 items={Buttons}
                 itemSelected={Buttons[0]}
                 getSelectedItem={item => {
@@ -217,6 +217,7 @@ const DropdownContainer = styled.div`
   display: none;
   @media (max-width: 767px) {
     display: block;
+    width: 80vw;
     z-index: 100;
   }
 `

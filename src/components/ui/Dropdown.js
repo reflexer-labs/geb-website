@@ -179,7 +179,7 @@ const DropdownMenu = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.02);
   text-align: left;
   z-index: 5;
-  max-height: 280px;
+  max-height: 450px;
   overflow-y: auto;
 `
 
