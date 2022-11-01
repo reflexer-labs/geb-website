@@ -2,6 +2,7 @@ import React from "react"
 import useStats from "../hooks/useStats"
 import styled from "styled-components"
 import { formatNumber } from "../utils/helper"
+import LinkButton from "./ui/LinkButton"
 
 const StatsSection = () => {
   const {
@@ -47,6 +48,12 @@ const StatsSection = () => {
             </Col>
           ))}
         </Row>
+        <LinkButton
+          text={"View RAI stats"}
+          url="https://stats.reflexer.finance/"
+          isExternal
+          withArrow
+        />
       </Content>
     </Container>
   )
@@ -67,6 +74,12 @@ const Content = styled.div`
   border-radius: 28px;
   margin: 0 auto;
   position: relative;
+  a {
+    background: #d9960a;
+    color: #040c20;
+    margin: 30px auto 0;
+    max-width: 200px;
+  }
 `
 const Title = styled.div`
   color: ${props => props.theme.colors.neutral};
