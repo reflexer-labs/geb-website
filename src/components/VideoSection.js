@@ -6,6 +6,7 @@ import styled from "styled-components"
 const VideoSection = () => {
   const [paused, setPaused] = useState(true)
   const [muted, setMuted] = useState(true)
+  const [isMain, setIsMain] = useState(true)
 
   const handleShowVideo = () => {
     setPaused(false)
@@ -24,10 +25,14 @@ const VideoSection = () => {
         <img src="/ph.jpg" alt="" />
         {paused ? (
           <Placeholder>
-            <PlayBtn onClick={handleShowVideo}>
+            <PlayBtn
+              onClick={() => {
+                setIsMain(true)
+                handleShowVideo()
+              }}
+            >
               <Play />
             </PlayBtn>
-
             <Text className="wow fadeIn" data-wow-delay="0.4s">
               <h3>FIND OUT</h3>
               <h3>MORE ABOUT</h3>
@@ -39,10 +44,40 @@ const VideoSection = () => {
             <CloseBtn>
               <X onClick={handleClose} />
             </CloseBtn>
-            <YouTube video="b5iHO14XU4k" autoplay muted={muted} />
+            {isMain ? (
+              <YouTube video="b5iHO14XU4k" autoplay muted={muted} />
+            ) : (
+              <YouTube
+                video="exTMCr7QeLY"
+                autoplay
+                muted={muted}
+                startSeconds={3300}
+              />
+            )}
           </IframeContainer>
         )}
       </Content>
+      {paused ? (
+        <Content className="wow fadeInUp" data-wow-delay="0.1s">
+          <EventVideo>
+            <Placeholder>
+              <PlayBtn
+                onClick={() => {
+                  setIsMain(false)
+                  handleShowVideo()
+                }}
+                className={"small"}
+              >
+                <Play />
+              </PlayBtn>
+              <SmallText>
+                RAI on <span>Devcon</span>
+              </SmallText>
+            </Placeholder>
+            <img src="/event.jpeg" alt="" />
+          </EventVideo>
+        </Content>
+      ) : null}
     </Container>
   )
 }
@@ -173,6 +208,25 @@ const PlayBtn = styled.div`
             height: 40px;   
         }
   `}
+  &.small {
+    width: 50px;
+    height: 50px;
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    &.small {
+      width: 100px;
+      height: 100px;
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
 `
 
 const IframeContainer = styled.div`
@@ -210,5 +264,38 @@ const CloseBtn = styled.div`
     svg {
       color: ${props => props.theme.colors.blueish};
     }
+  }
+`
+
+const EventVideo = styled.div`
+  position: absolute;
+  bottom: -50px;
+  left: -150px;
+  max-width: 300px;
+  img {
+    opacity: 0.5;
+  }
+  @media (max-width: 767px) {
+    position: static;
+    max-width: 100%;
+    margin-top: 40px;
+  }
+`
+
+const SmallText = styled.div`
+  color: #fff;
+  span {
+    color: ${props => props.theme.colors.blueish};
+  }
+  font-size: 40px;
+  font-weight: 900;
+  font-family: "Inter-Medium";
+  margin-left: 10px;
+  position: absolute;
+  z-index: 5;
+  @media (max-width: 767px) {
+    text-align: center;
+    right: 0;
+    left: 0;
   }
 `

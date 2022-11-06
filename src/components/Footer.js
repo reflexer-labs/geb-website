@@ -289,31 +289,31 @@ const LowerSection = styled.div`
   color: ${props => props.theme.colors.secondary};
 `
 
-const TipBtn = styled.div`
-  font-size: ${props => props.theme.font.small};
-  line-height: 22px;
-  margin: 5px 0;
-  letter-spacing: -0.18px;
-  color: ${props => props.theme.colors.secondary};
-  transition: all 0.3s ease;
-  display: block;
-  cursor: pointer;
-  &:hover {
-    color: ${props => props.theme.colors.customSecondary};
-    svg {
-      color: ${props => props.theme.colors.primary};
-    }
-  }
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    margin-bottom: 20px;
-      color: ${props => props.theme.colors.secondary};
-     &:hover {
-      text-decoration:none;
-      
-     }
-   
-  `}
-`
+// const TipBtn = styled.div`
+//   font-size: ${props => props.theme.font.small};
+//   line-height: 22px;
+//   margin: 5px 0;
+//   letter-spacing: -0.18px;
+//   color: ${props => props.theme.colors.secondary};
+//   transition: all 0.3s ease;
+//   display: block;
+//   cursor: pointer;
+//   &:hover {
+//     color: ${props => props.theme.colors.customSecondary};
+//     svg {
+//       color: ${props => props.theme.colors.primary};
+//     }
+//   }
+//   ${({ theme }) => theme.mediaWidth.upToSmall`
+//     margin-bottom: 20px;
+//       color: ${props => props.theme.colors.secondary};
+//      &:hover {
+//       text-decoration:none;
+
+//      }
+
+//   `}
+// `
 
 const Cover = styled.div`
   display: flex;

@@ -1,9 +1,10 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import useHome from "../../hooks/useHome"
 import getPrefixedPath from "../../utils/getPrefixPath"
 import LinkButton from "./LinkButton"
+import Mouse from "../../../static/mouse.svg"
 
 const floatsAttr = {
   0: {
@@ -56,46 +57,75 @@ const HeroSeciton = () => {
   const homeHero = allContentfulHomeHero.edges.map(item => item.node)
 
   return (
-    <Container>
-      <Content>
-        <Heading className="wow fadeInUp" data-wow-delay="0.1s">
-          {homeHero[0].title}
-        </Heading>
-        <Text className="wow fadeInUp" data-wow-delay="0.3s">
-          {documentToReactComponents(JSON.parse(homeHero[0].content.raw))}
-        </Text>
-        {Array.from({ length: 6 }).map((_x, i) => {
-          return (
-            <Int key={`intFloat` + i} {...floatsAttr[i]}>
-              <img src={getPrefixedPath(`/float${i + 1}.svg`)} alt="" />
-            </Int>
-          )
-        })}
+    <MainContent>
+      <Container>
+        <Content>
+          <Heading className="wow fadeInUp" data-wow-delay="0.1s">
+            {homeHero[0].title}
+          </Heading>
+          <Text className="wow fadeInUp" data-wow-delay="0.3s">
+            {documentToReactComponents(JSON.parse(homeHero[0].content.raw))}
+          </Text>
+          {Array.from({ length: 6 }).map((_x, i) => {
+            return (
+              <Int key={`intFloat` + i} {...floatsAttr[i]}>
+                <img src={getPrefixedPath(`/float${i + 1}.svg`)} alt="" />
+              </Int>
+            )
+          })}
 
-        <BtnContainer>
-          <LinkButton
-            className="wow fadeInLeft"
-            data-wow-delay="0.5s"
-            text={"Mint RAI"}
-            url="https://app.reflexer.finance"
-            isExternal
-            withArrow
-          />
-          <LinkButton
-            className="wow fadeInRight"
-            data-wow-delay="0.5s"
-            text={"RAI Incentives"}
-            url="https://app.reflexer.finance/#/earn/incentives"
-            isExternal
-            withArrow
-          />
-        </BtnContainer>
-      </Content>
-    </Container>
+          <BtnContainer>
+            <LinkButton
+              className="wow fadeInLeft"
+              data-wow-delay="0.5s"
+              text={"Mint RAI"}
+              url="https://app.reflexer.finance"
+              isExternal
+              withArrow
+            />
+            <LinkButton
+              className="wow fadeInRight"
+              data-wow-delay="0.5s"
+              text={"RAI Incentives"}
+              url="https://app.reflexer.finance/#/earn/incentives"
+              isExternal
+              withArrow
+            />
+          </BtnContainer>
+        </Content>
+      </Container>
+      <img src={Mouse} alt={Mouse} className="jumpy-mouse" />
+    </MainContent>
   )
 }
 
 export default HeroSeciton
+
+const animate = keyframes`{
+  0% {
+    bottom:50px
+  }
+  50% {
+    bottom: 40px;
+  }
+  75% {
+    bottom: 40px;
+  }
+  100%{
+    bottom: 50px;
+  }
+}`
+const MainContent = styled.div`
+  position: relative;
+  text-align: center;
+  img.jumpy-mouse {
+    position: absolute;
+    animation-name: ${animate};
+    animation-duration: 1.7s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+`
 
 const Container = styled.div`
   min-height: calc(100vh);
