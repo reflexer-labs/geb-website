@@ -1,14 +1,5 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import Index0 from "../../static/Charts/index0.jpg"
-import Index1 from "../../static/Charts/index1.jpg"
-import Index2 from "../../static/Charts/index2.jpg"
-import Index3 from "../../static/Charts/index3.jpg"
-import Index4 from "../../static/Charts/index4.jpg"
-import Index5 from "../../static/Charts/index5.jpg"
-import Index6 from "../../static/Charts/index6.jpg"
-import Index7 from "../../static/Charts/index7.jpg"
-import Index8 from "../../static/Charts/index8.jpg"
 import Dropdown from "./ui/Dropdown"
 import Modal from "./ui/Modal"
 
@@ -24,15 +15,15 @@ const Buttons = [
   "Extrapolation: Compined",
 ]
 const Images = [
-  Index0,
-  Index1,
-  Index2,
-  Index3,
-  Index4,
-  Index5,
-  Index6,
-  Index7,
-  Index8,
+  "https://reflexer-labs.github.io/geb-data-science/controller/output/controller_monitoring_small.png",
+  "https://reflexer-labs.github.io/geb-data-science/controller/output/extrapolation_constant_market_small.png",
+  "https://reflexer-labs.github.io/geb-data-science/controller/output/extrapolation_constant_convergence_small.png",
+  "https://reflexer-labs.github.io/geb-data-science/controller/output/extrapolation_constant_convergence_2w_rates_small.png",
+  "https://reflexer-labs.github.io/geb-data-science/controller/output/extrapolation_constant_market_error.png",
+  "https://reflexer-labs.github.io/geb-data-science/controller/output/extrapolation_zero_rates_small.png",
+  "https://reflexer-labs.github.io/geb-data-science/controller/output/controller_extrapolation_1_steps_small.png",
+  "https://reflexer-labs.github.io/geb-data-science/controller/output/extrapolation_constant_overcorrection_small.png",
+  "https://reflexer-labs.github.io/geb-data-science/controller/output/extrapolation_all.png",
 ]
 
 const ChartsSection = () => {
