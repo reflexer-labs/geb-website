@@ -54,7 +54,7 @@ export default function useStats() {
       )
     )
     const currentPrice = formatNumber(
-      _.get(subgraphData, "collateralType.currentPrice.value", "0")
+      _.get(subgraphData, "systemState.currentCoinMedianizerUpdate.value", "0")
     )
     setState({
       pRate,

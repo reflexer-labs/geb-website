@@ -1,9 +1,7 @@
 export const statisticsQuery = () => `{
   
     collateralType(id: "ETH-A") {
-currentPrice {
-    value
-}
+
       totalAnnualizedStabilityFee
     }
     systemState(id: "current") {
@@ -12,6 +10,9 @@ currentPrice {
         annualizedRate
         hourlyRate
         createdAt
+      }
+      currentCoinMedianizerUpdate{
+        value
       }
       currentRedemptionPrice {
         value
