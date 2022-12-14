@@ -10,8 +10,8 @@ const Buttons = [
   "Extrapolation: Convergence after 2 weeks",
   "Extrapolation: Constant Error",
   "Extrapolation: Zero Rates",
-  "Extrapolation: Step to 2.82109",
-  "Extrapolation: Step to 2.82109 then constant error",
+  "Extrapolation: Overcorrection",
+  "Extrapolation: Overcorrection plus constant error",
   "Extrapolation: Compined",
 ]
 const Images = [
