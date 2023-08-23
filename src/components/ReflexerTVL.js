@@ -2,6 +2,7 @@ import React, { useCallback, useEffect } from "react"
 import { Helmet } from "react-helmet"
 import Numeral from "numeral"
 import { isBrowser } from "../utils/helper"
+import { NETWORK_URL } from "../hooks/useGeb"
 
 const contractAddress = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
 const address = "0x2D3cD7b81c93f188F3CB8aD87c8Acc73d6226e3A"
@@ -61,9 +62,7 @@ export default function ReflexerTVL() {
 
   async function tryWeb3() {
     try {
-      const web3 = new window.Web3(
-        "https://eth-mainnet.alchemyapi.io/v2/cng-23TEJZrXUvxvjUG9ydyCpEug9aJN"
-      )
+      const web3 = new window.Web3(NETWORK_URL)
       const contract = await new web3.eth.Contract(minABI, contractAddress)
       const balance = await contract.methods.balanceOf(address).call()
       return balance

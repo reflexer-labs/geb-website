@@ -1,7 +1,7 @@
 import { css } from "styled-components"
 
-export const MAILCHIMP_URL =
-  "https://finance.us20.list-manage.com/subscribe/post-json?u=a3b1b26a531e341b4e086da36&id=b5976e4e32"
+// export const MAILCHIMP_URL =
+//   "https://finance.us20.list-manage.com/subscribe/post-json?u=a3b1b26a531e341b4e086da36&id=b5976e4e32"
 
 const MEDIA_WIDTHS = {
   upToExtraSmall: 576,
