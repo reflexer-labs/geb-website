@@ -1,8 +1,7 @@
 import { useMemo } from "react"
 import { Geb } from "geb.js"
 import { ethers } from "ethers"
-
-export const NETWORK_URL = process.env.NETWORK_URL || ""
+import { NETWORK_URL } from "../utils/constants"
 
 export const provider = new ethers.providers.JsonRpcProvider(NETWORK_URL)
 

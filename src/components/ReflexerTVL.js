@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from "react"
 import { Helmet } from "react-helmet"
 import Numeral from "numeral"
 import { isBrowser } from "../utils/helper"
-import { NETWORK_URL } from "../hooks/useGeb"
+import { NETWORK_URL } from "../utils/constants"
 
 const contractAddress = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
 const address = "0x2D3cD7b81c93f188F3CB8aD87c8Acc73d6226e3A"

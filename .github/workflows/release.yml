@@ -14,7 +14,7 @@ jobs:
     env:
       CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
       CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-      NETWORK_URL: ${{ secrets.NETWORK_URL }}
+      NETWORK_URL: ${{ secrets.RPC_NETWORK_URL }}
 
     steps:
       - uses: actions/checkout@v2
